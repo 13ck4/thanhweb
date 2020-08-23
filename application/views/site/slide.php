@@ -1,28 +1,56 @@
-<div id="column-id-1494857548816" class="sppb-addon-container">
-    <div id="sppb-addon-1496930674534" class="clearfix">
-        <div id="sppb-carousel1" class="sppb-carousel sppb-slide">
-            <ol class="sppb-carousel-indicators">
-                <li data-sppb-target="#sppb-carousel1" class="active" data-sppb-slide-to="0"></li>
-                <li data-sppb-target="#sppb-carousel1" data-sppb-slide-to="1"></li>
-                <li data-sppb-target="#sppb-carousel1" data-sppb-slide-to="2"></li>
-            </ol>
-            <div class="sppb-carousel-inner sppb-text-center">
-                <?php foreach($slide_list as $row) : ?>
-                    <div class="sppb-item sppb-item-has-bg">
-                        <img src="<?php echo base_url()?>/upload/slide/<?=$row->image_link?>" alt="<?=$row->name?>" title="<?=$row->name?>" style="width:100%; height:400px;">
-                        <div class="sppb-carousel-item-inner">
-                            <div class="sppb-carousel-caption">
-                                <div class="sppb-carousel-pro-text">&nbsp;&nbsp;
-                                    <a href="<?=$row->link?>" id="btn-1496930674535" class="sppb-btn sppb-btn-default sppb-btn-rounded">Link Buy</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach ?>
-            </div>
-            <a href="#sppb-carousel1" class="sppb-carousel-arrow left sppb-carousel-control" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-            <a href="#sppb-carousel1" class="sppb-carousel-arrow right sppb-carousel-control" data-slide="next"><i class="fa fa-chevron-right"></i></a>
-        </div>
-    </div>
-    <div id="sppb-addon-1497104245670" class="clearfix"></div>
+<!-- lay slide -->
+<script src="<?php echo public_url()?>/site/royalslider/jquery.royalslider.min.js"></script>
+<link type="text/css" href="<?php echo public_url()?>/site/royalslider/royalslider.css" rel="stylesheet">
+<link type="text/css" href="<?php echo public_url()?>/site/royalslider/skins/minimal-white/rs-minimal-white.css" rel="stylesheet">
+
+
+<script type="text/javascript">
+(function($)
+{
+	$(document).ready(function()
+	{
+		$("#HomeSlide").royalSlider({
+			arrowsNav:true,
+			loop:false,
+			keyboardNavEnabled:true,
+			controlsInside:false,
+			imageScaleMode:"fill",
+			arrowsNavAutoHide:false,
+			autoScaleSlider:true,
+			autoScaleSliderWidth:580,//chiều rộng slide
+			autoScaleSliderHeight:205,//chiều cao slide
+			controlNavigation:"bullets",
+			thumbsFitInViewport:false,
+			navigateByClick:true,
+			startSlideId:0,
+			autoPlay:{enabled:true, stopAtAction:false, pauseOnHover:true, delay:1000},
+			transitionType:"move",
+			slideshowEnabled:true,
+			slideshowDelay:1000,
+			slideshowPauseOnHover:true,
+			slideshowAutoStart:true,
+			globalCaption:false
+		});
+	});
+})(jQuery);
+</script>
+
+
+<style>
+#HomeSlide.royalSlider {
+	width: 580px;	
+	height: 205px;
+    overflow:hidden;
+}
+</style>
+<div id='slide'>
+	<div id="img-slide" class="sliderContainer">
+		<div id="HomeSlide" class="royalSlider rsMinW">
+			<?php foreach($slide_list as $row) : ?>
+		      	<a href="<?=$row->link?>" target='_blank'><img src="<?php echo base_url()?>/upload/slide/<?=$row->image_link?>" alt="<?=$row->name?>" title="<?=$row->name?>" /> </a>
+		     <?php endforeach ?>
+		</div>
+	</div>
+	<div class="clear"></div>
 </div>
+<div class="clear pb20"></div>  

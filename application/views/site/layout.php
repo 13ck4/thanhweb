@@ -3,7 +3,7 @@
 	<head>
 		<?php $this->load->view('site/head.php');?>
 	</head>
-    <body class="site com-sppagebuilder layout1 homepage view-page  no-layout no-task itemid-555 en-gb ltr  sticky-header layout-fluid off-canvas-menu-init">
+    <body>
 	  	<!-- the wraper -->
         <div class="body-wrapper">
 			<div class="body-innerwrapper">
@@ -15,99 +15,7 @@
 		   		<?php $this->load->view('site/footer.php');?>
 		   	</div>
 	   	</div>
-	   	<div class="offcanvas-overlay"></div>
-	   	<div class="offcanvas-menu">
-			<a href="#" class="close-offcanvas"><i class="fa fa-remove"></i></a>
-			<div class="offcanvas-inner">
-				<div class="sp-module ">
-					<h3 class="sp-module-title">Search</h3>
-					<div class="sp-module-content">
-						<div class="search mod_search35">
-							<form action="/demo/senvietdeal/index.php" method="post" class="form-inline">
-								<label for="mod-search-searchword" class="element-invisible"></label> 
-								<input name="searchword" id="mod-search-searchword" maxlength="200" class="inputbox search-query" type="search" size="20" placeholder="Search ...">		<input type="hidden" name="task" value="search">
-								<input type="hidden" name="option" value="com_search">
-								<input type="hidden" name="Itemid" value="555">
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="sp-module ">
-					<div class="sp-module-content">
-						<ul class="nav menu">
-							<li class="item-554">
-								<a href="/demo/senvietdeal/index.php"> Trang chủ</a>
-							</li>
-							<li class="item-278  deeper parent">
-								<a href="/demo/senvietdeal/index.php/tin-tuc-su-kien.html"> Tin tức &amp; sự kiện</a>
-								<span class="offcanvas-menu-toggler collapsed" data-toggle="collapse" data-target="#collapse-menu-278">
-									<i class="open-icon fa fa-angle-down"></i><i class="close-icon fa fa-angle-up"></i>
-								</span>
-								<ul class="collapse" id="collapse-menu-278">
-									<li class="item-492"><a href="/demo/senvietdeal/index.php/tin-tuc-su-kien/blog-with-right-sidebar.html"> Blog With Right Sidebar</a></li>
-									<li class="item-493"><a href="/demo/senvietdeal/index.php/tin-tuc-su-kien/blog-with-left-sidebar.html"> Blog With Left Sidebar</a></li>
-									<li class="item-504"><a href="/demo/senvietdeal/index.php/tin-tuc-su-kien/article-category-blog-2.html"> Article Category Blog</a></li>
-								</ul>
-							</li>
-							<li class="item-279  deeper parent">
-								<a href="#"> Hướng dẫn thanh toán</a>
-								<span class="offcanvas-menu-toggler collapsed" data-toggle="collapse" data-target="#collapse-menu-279">
-									<i class="open-icon fa fa-angle-down"></i>
-									<i class="close-icon fa fa-angle-up"></i>
-								</span>
-								<ul class="collapse" id="collapse-menu-279">
-									<li class="item-488">
-										<a href="/demo/senvietdeal/index.php/joomla/content-component/article-category-list/24-joomla.html"> 404 Page</a>
-									</li>
-									<li class="item-503  deeper parent">
-										<a href="#"> Post Formats</a>
-										<span class="offcanvas-menu-toggler collapsed" data-toggle="collapse" data-target="#collapse-menu-503">
-											<i class="open-icon fa fa-angle-down"></i>
-											<i class="close-icon fa fa-angle-up"></i>
-										</span>
-										<ul class="collapse" id="collapse-menu-503">
-											<li class="item-494">
-												<a href="/demo/senvietdeal/index.php/huong-dan-thanh-toan/post-formats/standard-post-format.html"> Standard Post Format</a>
-											</li>
-											<li class="item-495">
-												<a href="/demo/senvietdeal/index.php/huong-dan-thanh-toan/post-formats/video-post-format.html"> Video Post Format</a>
-											</li>
-											<li class="item-497">
-												<a href="/demo/senvietdeal/index.php/huong-dan-thanh-toan/post-formats/audio-post-format.html"> Audio Post Format</a>
-											</li>
-											<li class="item-499">
-												<a href="/demo/senvietdeal/index.php/huong-dan-thanh-toan/post-formats/link-post-format.html"> Link Post Format</a>
-											</li>
-											<li class="item-501">
-												<a href="/demo/senvietdeal/index.php/huong-dan-thanh-toan/post-formats/quote-post-format.html"> Quote Post Format</a>
-											</li>
-											<li class="item-500">
-												<a href="/demo/senvietdeal/index.php/huong-dan-thanh-toan/post-formats/status-post-format.html"> Status Post Format</a>
-											</li>
-											<li class="item-498">
-												<a href="/demo/senvietdeal/index.php/huong-dan-thanh-toan/post-formats/image-post-format.html"> Image Post Format</a>
-											</li>
-										</ul>
-									</li>
-									<li class="item-546">
-										<a href="/demo/senvietdeal/index.php/huong-dan-thanh-toan/faqs.html"> FAQs</a>
-									</li>
-									<li class="item-553">
-										<a href="/demo/senvietdeal/index.php/huong-dan-thanh-toan/extensions.html"> Extensions</a>
-									</li>
-								</ul>
-							</li>
-							<li class="item-534">
-								<a href="/demo/senvietdeal/index.php/danh-muc-san-pham.html"> Danh mục sản phẩm</a>
-							</li>
-							<li class="item-596">
-								<a href="/demo/senvietdeal/index.php/lien-he.html"> Liên hệ</a>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div> <!-- /.offcanvas-inner -->
-		</div>
+	   	
 		<a href="javascript:void(0)" class="scrollup">&nbsp;</a>
 
 		<style>

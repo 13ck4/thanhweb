@@ -94,34 +94,9 @@
                                         </div>
                                     </div>
                                     <div class="sppb-col-md-6" style="float:left;">
-                                        <div class="sppb-addon-container">
-                                            <div class="clearfix">
-                                                <div id="sppb-carousel1" class="sppb-carousel sppb-slide">
-                                                    <ol class="sppb-carousel-indicators">
-                                                        <li data-sppb-target="#sppb-carousel1" class="active" data-sppb-slide-to="0"></li>
-                                                        <li data-sppb-target="#sppb-carousel1" data-sppb-slide-to="1"></li>
-                                                        <li data-sppb-target="#sppb-carousel1" data-sppb-slide-to="2"></li>
-                                                    </ol>
-                                                    <div class="sppb-carousel-inner sppb-text-center">
-                                                        <?php foreach($slide_list as $row) : ?>
-                                                            <div class="sppb-item sppb-item-has-bg">
-                                                                <img src="<?php echo base_url()?>/upload/slide/<?=$row->image_link?>" alt="<?=$row->name?>" title="<?=$row->name?>" style="width:100%; height:400px;">
-                                                                <div class="sppb-carousel-item-inner">
-                                                                    <div class="sppb-carousel-caption">
-                                                                        <div class="sppb-carousel-pro-text">&nbsp;&nbsp;
-                                                                            <a href="<?=$row->link?>" class="sppb-btn sppb-btn-default sppb-btn-rounded">Link Buy</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        <?php endforeach ?>
-                                                    </div>
-                                                    <a href="#sppb-carousel1" class="sppb-carousel-arrow left sppb-carousel-control" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-                                                    <a href="#sppb-carousel1" class="sppb-carousel-arrow right sppb-carousel-control" data-slide="next"><i class="fa fa-chevron-right"></i></a>
-                                                </div>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                        </div>
+                                        <?php 
+                                            $this->load->view('site/slide.php', $this->data);
+                                        ?>
                                     </div>
                                     <!-- <div class="sppb-col-md-3" >
                                         
@@ -159,281 +134,51 @@
                                                                 </h3>
                                                                 <div id="product_new" class="sj-responsive-listing">
                                                                     <div class="respl-wrap cf">
-                                                                        <div class="respl-items respl01-5 respl02-4 respl03-3 respl04-2 grid cf  module-158 isotope" style="position: relative; height: 800px; overflow: visible;">
-                                                                            <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
+                                                                        <div class="respl-items respl01-5 respl02-4 respl03-3 respl04-2 grid cf  module-158 isotope">
+                                                                            <?php foreach($product_newest as $row) : ?>
+                                                                            <div class="respl-item  category-1 isotope-item">
                                                                                 <div class="item-inner">
                                                                                     <div class="item-image cf">
-                                                                                        <a class="img" href="http://localhost/webproduct_3/product/view/219" title="Sơ mi caro TD Ab xanh dương vải xịn">
-                                                                                            <img src="http://localhost/webproduct_3/upload/product/web_1.png" alt="Sơ mi caro TD Ab xanh dương vải xịn" title="Sơ mi caro TD Ab xanh dương vải xịn">                  
+                                                                                        <a class="img" href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
+                                                                                            <img src="<?php echo base_url('/upload/product/'.$row->image_link)?>" alt="<?=$row->name?>" title="<?=$row->name?>">                  
                                                                                         </a>
-                                                                                        <a class="addtocart" href="http://localhost/webproduct_3/cart/add/219">
+                                                                                        <a class="addtocart" href="<?php echo site_url('cart/add/'.$row->id)?>">
                                                                                             Mua ngay          
                                                                                         </a>
-                                                                                    </div>
-                                                                                    <div class="item-info">
-                                                                                        <h3 class="item-title ">
-                                                                                            <a href="http://localhost/webproduct_3/product/view/219" title="Sơ mi caro TD Ab xanh dương vải xịn">
-                                                                                                Sơ mi caro TD Ab xanh dương vải xịn                              
-                                                                                            </a>
-                                                                                        </h3>
-                                                                                        <div class="main-price">
-                                                                                            <div class="item-price">
-                                                                                                <span class="price">
-                                                                                                    185đ
-                                                                                                </span>
-                                                                                            </div>
-                                                                                            <div class="price-sale">
-                                                                                                <span class="num">Lượt Xem</span>
-                                                                                                <span class="text"><b>13</b></span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(240px, 0px, 0px);">
-                                                                                <div class="item-inner">
-                                                                                    <div class="item-image cf">
-                                                                                        <a class="img" href="http://localhost/webproduct_3/product/view/218" title="Sơ mi caro 2 túi dài tay xanh đen kẻ cam bỏ sỉ">
-                                                                                            <img src="http://localhost/webproduct_3/upload/product/panorama.png" alt="Sơ mi caro 2 túi dài tay xanh đen kẻ cam bỏ sỉ" title="Sơ mi caro 2 túi dài tay xanh đen kẻ cam bỏ sỉ">                  
-                                                                                        </a>
-                                                                                        <a class="addtocart" href="http://localhost/webproduct_3/cart/add/218">
-                                                                                            Mua ngay          
-                                                                                        </a>
-                                                                                    </div>
-                                                                                    <div class="item-info">
-                                                                                        <h3 class="item-title ">
-                                                                                            <a href="http://localhost/webproduct_3/product/view/218" title="Sơ mi caro 2 túi dài tay xanh đen kẻ cam bỏ sỉ">
-                                                                                                Sơ mi caro 2 túi dài tay xanh đen kẻ cam bỏ sỉ                              
-                                                                                            </a>
-                                                                                        </h3>
-                                                                                        <div class="main-price">
-                                                                                            <div class="item-price">
-                                                                                                <span class="price">                                                                                            
-                                                                                                    175đ
-                                                                                                </span>
-                                                                                            </div>
-                                                                                            <div class="price-sale">
-                                                                                                <span class="num">Lượt Xem</span>
-                                                                                                <span class="text"><b>0</b></span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(480px, 0px, 0px);">
-                                                                                <div class="item-inner">
-                                                                                    <div class="item-image cf">
-                                                                                        <a class="img" href="http://localhost/webproduct_3/product/view/217" title="Sơ mi caro 2 túi tay dài xanh đen kẻ đỏ giá sỉ">
-                                                                                            <img src="http://localhost/webproduct_3/upload/product/banhdua1.jpg" alt="Sơ mi caro 2 túi tay dài xanh đen kẻ đỏ giá sỉ" title="Sơ mi caro 2 túi tay dài xanh đen kẻ đỏ giá sỉ">                  
-                                                                                        </a>
-                                                                                        <a class="addtocart" href="http://localhost/webproduct_3/cart/add/217">
-                                                                                            Mua ngay          
-                                                                                        </a>
-                                                                                    </div>
-                                                                                    <div class="item-info">
-                                                                                        <h3 class="item-title ">
-                                                                                            <a href="http://localhost/webproduct_3/product/view/217" title="Sơ mi caro 2 túi tay dài xanh đen kẻ đỏ giá sỉ">
-                                                                                                Sơ mi caro 2 túi tay dài xanh đen kẻ đỏ giá sỉ                              
-                                                                                            </a>
-                                                                                        </h3>
-                                                                                        <div class="main-price">
-                                                                                            <div class="item-price">
-                                                                                                <span class="price">                                                                                            
-                                                                                                    175đ
-                                                                                                </span>
-                                                                                            </div>
-                                                                                            <div class="price-sale">
-                                                                                                <span class="num">Lượt Xem</span>
-                                                                                                <span class="text"><b>0</b></span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(720px, 0px, 0px);">
-                                                                                <div class="item-inner">
-                                                                                    <div class="item-image cf">
-                                                                                        <a class="img" href="http://localhost/webproduct_3/product/view/216" title="Caro tay dài AB xanh đậm kẻ sọc cam">
-                                                                                            <img src="http://localhost/webproduct_3/upload/product/pansy-3480-045_31.jpg" alt="Caro tay dài AB xanh đậm kẻ sọc cam" title="Caro tay dài AB xanh đậm kẻ sọc cam">                  
-                                                                                        </a>
-                                                                                        <a class="addtocart" href="http://localhost/webproduct_3/cart/add/216">
-                                                                                            Mua ngay          
-                                                                                        </a>
-                                                                                    </div>
-                                                                                    <div class="item-info">
-                                                                                        <h3 class="item-title ">
-                                                                                            <a href="http://localhost/webproduct_3/product/view/216" title="Caro tay dài AB xanh đậm kẻ sọc cam">
-                                                                                                Caro tay dài AB xanh đậm kẻ sọc cam                              
-                                                                                            </a>
-                                                                                        </h3>
-                                                                                        <div class="main-price">
-                                                                                            <div class="item-price">
-                                                                                                <span class="price">                                                                                            
-                                                                                                    170đ
-                                                                                                                                                                                        
-                                                                                                </span>
-                                                                                            </div>
-                                                                                            <div class="price-sale">
-                                                                                                <span class="num">Lượt Xem</span>
-                                                                                                <span class="text"><b>0</b></span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(960px, 0px, 0px);">
-                                                                                <div class="item-inner">
-                                                                                    <div class="item-image cf">
-                                                                                        <a class="img" href="http://localhost/webproduct_3/product/view/215" title="Caro dài tay xanh ngọc, xanh dương kẻ sọc cam nhạt ">
-                                                                                            <img src="http://localhost/webproduct_3/upload/product/logo.png" alt="Caro dài tay xanh ngọc, xanh dương kẻ sọc cam nhạt " title="Caro dài tay xanh ngọc, xanh dương kẻ sọc cam nhạt ">                  
-                                                                                        </a>
-                                                                                        <a class="addtocart" href="http://localhost/webproduct_3/cart/add/215">
-                                                                                            Mua ngay          
-                                                                                        </a>                                                                    
-                                                                                    </div>
-                                                                                    <div class="item-info">
-                                                                                        <h3 class="item-title ">
-                                                                                            <a href="http://localhost/webproduct_3/product/view/215" title="Caro dài tay xanh ngọc, xanh dương kẻ sọc cam nhạt ">
-                                                                                                Caro dài tay xanh ngọc, xanh dương kẻ sọc cam nhạt                               
-                                                                                            </a>
-                                                                                        </h3>
-                                                                                        <div class="main-price">
-                                                                                            <div class="item-price">
-                                                                                                <span class="price">                                                                                            
-                                                                                                    170đ
+                                                                                        <?php if($row->discount > 0) :?>
+                                                                                            <span class="sale">
+                                                                                                Sale              
                                                                                             </span>
-                                                                                            </div>
-                                                                                            <div class="price-sale">
-                                                                                                <span class="num">Lượt Xem</span>
-                                                                                                <span class="text"><b>0</b></span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 400px, 0px);">
-                                                                                <div class="item-inner">
-                                                                                    <div class="item-image cf">
-                                                                                        <a class="img" href="http://localhost/webproduct_3/product/view/214" title="Sơ mi caro tay dài 2 túi sọc xanh đen kẻ cam">
-                                                                                            <img src="http://localhost/webproduct_3/upload/product/logo.jpg" alt="Sơ mi caro tay dài 2 túi sọc xanh đen kẻ cam" title="Sơ mi caro tay dài 2 túi sọc xanh đen kẻ cam">                  
-                                                                                        </a>
-                                                                                        <a class="addtocart" href="http://localhost/webproduct_3/cart/add/214">
-                                                                                            Mua ngay          
-                                                                                        </a>
+                                                                                        <?php endif?>
                                                                                     </div>
                                                                                     <div class="item-info">
                                                                                         <h3 class="item-title ">
-                                                                                            <a href="http://localhost/webproduct_3/product/view/214" title="Sơ mi caro tay dài 2 túi sọc xanh đen kẻ cam">
-                                                                                                Sơ mi caro tay dài 2 túi sọc xanh đen kẻ cam                              
+                                                                                            <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
+                                                                                                <?=$row->name?>                              
                                                                                             </a>
                                                                                         </h3>
                                                                                         <div class="main-price">
                                                                                             <div class="item-price">
-                                                                                                <span class="price">                                                                                            
-                                                                                                    175đ
-                                                                                            </span>
-                                                                                            </div>
-                                                                                            <div class="price-sale">
-                                                                                                <span class="num">Lượt Xem</span>
-                                                                                                <span class="text"><b>0</b></span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(240px, 400px, 0px);">
-                                                                                <div class="item-inner">
-                                                                                    <div class="item-image cf">
-                                                                                        <a class="img" href="http://localhost/webproduct_3/product/view/213" title="Sơ mi caro nhí đỏ kẻ tím tía Ab slimfit">
-                                                                                            <img src="http://localhost/webproduct_3/upload/product/facebook.png" alt="Sơ mi caro nhí đỏ kẻ tím tía Ab slimfit" title="Sơ mi caro nhí đỏ kẻ tím tía Ab slimfit">                  
-                                                                                        </a>
-                                                                                        <a class="addtocart" href="http://localhost/webproduct_3/cart/add/213">
-                                                                                            Mua ngay          
-                                                                                        </a>
-                                                                                    </div>
-                                                                                    <div class="item-info">
-                                                                                        <h3 class="item-title ">
-                                                                                            <a href="http://localhost/webproduct_3/product/view/213" title="Sơ mi caro nhí đỏ kẻ tím tía Ab slimfit">
-                                                                                                Sơ mi caro nhí đỏ kẻ tím tía Ab slimfit                              
-                                                                                            </a>
-                                                                                        </h3>
-                                                                                        <div class="main-price">
-                                                                                            <div class="item-price">
-                                                                                                <span class="price">                                                                                            
-                                                                                                    170đ
+                                                                                                <span class="price"><?php if($row->discount > 0) :?>
+                                                                                                <?php $price_new = $row->price - $row->discount; ?>
+                                                                                                <?php echo number_format($price_new) ?>đ <span class="old-price"><?php echo number_format($row->price) ?> đ</span>
+                                                                                                <?php else : ?>
+                                                                                                    <?php echo number_format($row->price) ?>đ
+                                                                                                <?php endif ?>
                                                                                                 </span>
                                                                                             </div>
                                                                                             <div class="price-sale">
                                                                                                 <span class="num">Lượt Xem</span>
-                                                                                                <span class="text"><b>0</b></span>
+                                                                                                <span class="text"><b><?=$row->view?></b></span>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
-                                                                            <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(480px, 400px, 0px);">
-                                                                                <div class="item-inner">
-                                                                                    <div class="item-image cf">
-                                                                                        <a class="img" href="http://localhost/webproduct_3/product/view/212" title="Caro dài tay trắng, xanh lá và xanh dương">
-                                                                                            <img src="http://localhost/webproduct_3/upload/product/icon-delivery.png" alt="Caro dài tay trắng, xanh lá và xanh dương" title="Caro dài tay trắng, xanh lá và xanh dương">                  
-                                                                                        </a>
-                                                                                        <a class="addtocart" href="http://localhost/webproduct_3/cart/add/212">
-                                                                                            Mua ngay          
-                                                                                        </a>
-                                                                                    </div>
-                                                                                    <div class="item-info">
-                                                                                        <h3 class="item-title ">
-                                                                                            <a href="http://localhost/webproduct_3/product/view/212" title="Caro dài tay trắng, xanh lá và xanh dương">
-                                                                                                Caro dài tay trắng, xanh lá và xanh dương                              
-                                                                                            </a>
-                                                                                        </h3>
-                                                                                        <div class="main-price">
-                                                                                            <div class="item-price">
-                                                                                                <span class="price">                                                                                            
-                                                                                                    170đ
-                                                                                                </span>
-                                                                                            </div>
-                                                                                            <div class="price-sale">
-                                                                                                <span class="num">Lượt Xem</span>
-                                                                                                <span class="text"><b>0</b></span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(720px, 400px, 0px);">
-                                                                                <div class="item-inner">
-                                                                                    <div class="item-image cf">
-                                                                                        <a class="img" href="http://localhost/webproduct_3/product/view/211" title="Caro dài tay Hollis xanh ngọc kẻ đỏ">
-                                                                                            <img src="http://localhost/webproduct_3/upload/product/icon-shipping.png" alt="Caro dài tay Hollis xanh ngọc kẻ đỏ" title="Caro dài tay Hollis xanh ngọc kẻ đỏ">                  
-                                                                                        </a>
-                                                                                        <a class="addtocart" href="http://localhost/webproduct_3/cart/add/211">
-                                                                                            Mua ngay          
-                                                                                        </a>
-                                                                                    </div>
-                                                                                    <div class="item-info">
-                                                                                        <h3 class="item-title ">
-                                                                                            <a href="http://localhost/webproduct_3/product/view/211" title="Caro dài tay Hollis xanh ngọc kẻ đỏ">
-                                                                                                Caro dài tay Hollis xanh ngọc kẻ đỏ                              
-                                                                                            </a>
-                                                                                        </h3>
-                                                                                        <div class="main-price">
-                                                                                            <div class="item-price">
-                                                                                                <span class="price">                                                                                            
-                                                                                                    170đ
-                                                                                                </span>
-                                                                                            </div>
-                                                                                            <div class="price-sale">
-                                                                                                <span class="num">Lượt Xem</span>
-                                                                                                <span class="text"><b>0</b></span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                                                            <?php endforeach?>
                                                                         </div>
                                                                         <div class="respl-loader respl-btn ">
-                                                                            <a class="respl-button" href="http://localhost/webproduct_3/san-pham">
+                                                                            <a class="respl-button" href="<?php echo base_url('san-pham')?>">
                                                                                 <span class="loader-image"></span>
                                                                                 <span class="loader-label">
                                                                                     Xem thêm sản phẩm               
@@ -455,297 +200,62 @@
                                             <div class="sppb-col-md-12">
                                                 <div class="sppb-addon-container">
                                                     <div class="clearfix">
-                                                        <div class="sppb-addon sppb-addon-module listing-tab-dev color2">
+                                                        <div class="sppb-addon sppb-addon-module listing-tab-dev color1">
                                                             <div class="sppb-addon-content">
-                                                                <h3 class="sppb-addon-title"><span>Sản Phẩm Đươc Mua Nhiều Nhất</span></h3>
-                                                                <div id="product_buy_more" class="sj-responsive-listing">
+                                                                <h3 class="sppb-addon-title">
+                                                                    <span>Sản Phẩm Mới Nhất</span>
+                                                                </h3>
+                                                                <div id="product_new" class="sj-responsive-listing">
                                                                     <div class="respl-wrap cf">
-                                                                        <div class="mains row">
-                                                                            <div class="pretext">
-                                                                                <ul class="list-banner">
-                                                                                    <li><a href="#" title=""><img src="http://localhost/webproduct_3/public/site/images/banner5.jpg" alt=""></a></li>
-                                                                                    <li><a href="#" title=""><img src="http://localhost/webproduct_3/public/site/images/banner6.jpg" alt=""></a></li>
-                                                                                </ul>      
-                                                                            </div>
-                                                                            <div class="respl-items respl01-4 respl02-3 respl03-2 respl04-2 grid cf  module-159 isotope" style="position: relative; height: 991px; overflow: visible;">
-                                                                                <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
-                                                                                    <div class="item-inner">
-                                                                                        <div class="item-image cf">
-                                                                                            <a class="img" href="http://localhost/webproduct_3/product/view/133" title="Sơ mi tay dài màu trơn xanh đen vải oxford dáng muscle">
-                                                                                                <img src="http://localhost/webproduct_3/upload/product/1-7d48c.jpg" alt="Sơ mi tay dài màu trơn xanh đen vải oxford dáng muscle" title="Sơ mi tay dài màu trơn xanh đen vải oxford dáng muscle">                  
-                                                                                            </a>
-                                                                                            <a class="addtocart" href="http://localhost/webproduct_3/cart/add/133">
-                                                                                                Mua ngay          
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <div class="item-info">
-                                                                                            <h3 class="item-title ">
-                                                                                                <a href="http://localhost/webproduct_3/product/view/133" title="Sơ mi tay dài màu trơn xanh đen vải oxford dáng muscle">
-                                                                                                Sơ mi tay dài màu trơn xanh đen vải oxford dáng muscle                              
-                                                                                                </a>
-                                                                                            </h3>
-                                                                                            <div class="main-price">
-                                                                                                <div class="item-price">
-                                                                                                    <span class="price">                                                                                                  
-                                                                                                        165đ
-                                                                                                    </span>
-                                                                                                </div>
-                                                                                                <div class="price-sale">
-                                                                                                    <span class="num">Lượt Xem</span>
-                                                                                                    <span class="text"><b>0</b></span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
+                                                                        <div class="respl-items respl01-5 respl02-4 respl03-3 respl04-2 grid cf  module-158 isotope">
+                                                                            <?php foreach($product_newest as $row) : ?>
+                                                                            <div class="respl-item  category-1 isotope-item">
+                                                                                <div class="item-inner">
+                                                                                    <div class="item-image cf">
+                                                                                        <a class="img" href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
+                                                                                            <img src="<?php echo base_url('/upload/product/'.$row->image_link)?>" alt="<?=$row->name?>" title="<?=$row->name?>">                  
+                                                                                        </a>
+                                                                                        <a class="addtocart" href="<?php echo site_url('cart/add/'.$row->id)?>">
+                                                                                            Mua ngay          
+                                                                                        </a>
+                                                                                        <?php if($row->discount > 0) :?>
+                                                                                            <span class="sale">
+                                                                                                Sale              
+                                                                                            </span>
+                                                                                        <?php endif?>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(225px, 0px, 0px);">
-                                                                                    <div class="item-inner">
-                                                                                        <div class="item-image cf">
-                                                                                            <a class="img" href="http://localhost/webproduct_3/product/view/134" title="Sơ mi Hollis màu cam nhạt classic fit">
-                                                                                                <img src="http://localhost/webproduct_3/upload/product/sacombank_vnd.png" alt="Sơ mi Hollis màu cam nhạt classic fit" title="Sơ mi Hollis màu cam nhạt classic fit">                  
+                                                                                    <div class="item-info">
+                                                                                        <h3 class="item-title ">
+                                                                                            <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
+                                                                                                <?=$row->name?>                              
                                                                                             </a>
-                                                                                            <a class="addtocart" href="http://localhost/webproduct_3/cart/add/134">
-                                                                                                Mua ngay          
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <div class="item-info">
-                                                                                            <h3 class="item-title ">
-                                                                                                <a href="http://localhost/webproduct_3/product/view/134" title="Sơ mi Hollis màu cam nhạt classic fit">
-                                                                                                Sơ mi Hollis màu cam nhạt classic fit                              
-                                                                                                </a>
-                                                                                            </h3>
-                                                                                            <div class="main-price">
-                                                                                                <div class="item-price">
-                                                                                                    <span class="price">                                                                                   
-                                                                                                        165đ
-                                                                                                    </span>
-                                                                                                </div>
-                                                                                                <div class="price-sale">
-                                                                                                    <span class="num">Lượt Xem</span>
-                                                                                                    <span class="text"><b>0</b></span>
-                                                                                                </div>
+                                                                                        </h3>
+                                                                                        <div class="main-price">
+                                                                                            <div class="item-price">
+                                                                                                <span class="price"><?php if($row->discount > 0) :?>
+                                                                                                <?php $price_new = $row->price - $row->discount; ?>
+                                                                                                <?php echo number_format($price_new) ?>đ <span class="old-price"><?php echo number_format($row->price) ?> đ</span>
+                                                                                                <?php else : ?>
+                                                                                                    <?php echo number_format($row->price) ?>đ
+                                                                                                <?php endif ?>
+                                                                                                </span>
                                                                                             </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(450px, 0px, 0px);">
-                                                                                    <div class="item-inner">
-                                                                                        <div class="item-image cf">
-                                                                                            <a class="img" href="http://localhost/webproduct_3/product/view/135" title="Sơ mi cao cấp Linen xám nhạt dài tay Ab">
-                                                                                                <img src="http://localhost/webproduct_3/upload/product/1-af558.jpg" alt="Sơ mi cao cấp Linen xám nhạt dài tay Ab" title="Sơ mi cao cấp Linen xám nhạt dài tay Ab">                  
-                                                                                            </a>
-                                                                                            <a class="addtocart" href="http://localhost/webproduct_3/cart/add/135">
-                                                                                                Mua ngay          
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <div class="item-info">
-                                                                                            <h3 class="item-title ">
-                                                                                                <a href="http://localhost/webproduct_3/product/view/135" title="Sơ mi cao cấp Linen xám nhạt dài tay Ab">
-                                                                                                Sơ mi cao cấp Linen xám nhạt dài tay Ab                              
-                                                                                                </a>
-                                                                                            </h3>
-                                                                                            <div class="main-price">
-                                                                                                <div class="item-price">
-                                                                                                    <span class="price">                                                              
-                                                                                                        180đ
-                                                                                                    </span>
-                                                                                                </div>
-                                                                                                <div class="price-sale">
-                                                                                                    <span class="num">Lượt Xem</span>
-                                                                                                    <span class="text"><b>2</b></span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(675px, 0px, 0px);">
-                                                                                    <div class="item-inner">
-                                                                                        <div class="item-image cf">
-                                                                                            <a class="img" href="http://localhost/webproduct_3/product/view/136" title="Sơ mi Lvs tay dài xanh dương oxford">
-                                                                                                <img src="http://localhost/webproduct_3/upload/product/455-549e4.jpg" alt="Sơ mi Lvs tay dài xanh dương oxford" title="Sơ mi Lvs tay dài xanh dương oxford">                  
-                                                                                            </a>
-                                                                                            <a class="addtocart" href="http://localhost/webproduct_3/cart/add/136">
-                                                                                                Mua ngay          
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <div class="item-info">
-                                                                                            <h3 class="item-title ">
-                                                                                                <a href="http://localhost/webproduct_3/product/view/136" title="Sơ mi Lvs tay dài xanh dương oxford">
-                                                                                                Sơ mi Lvs tay dài xanh dương oxford                              
-                                                                                                </a>
-                                                                                            </h3>
-                                                                                            <div class="main-price">
-                                                                                                <div class="item-price">
-                                                                                                    <span class="price">                                                                                                
-                                                                                                        165đ
-                                                                                                    </span>
-                                                                                                </div>
-                                                                                                <div class="price-sale">
-                                                                                                    <span class="num">Lượt Xem</span>
-                                                                                                    <span class="text"><b>0</b></span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 333px, 0px);">
-                                                                                    <div class="item-inner">
-                                                                                        <div class="item-image cf">
-                                                                                            <a class="img" href="http://localhost/webproduct_3/product/view/137" title="Sơ mi Lvs xanh biển tay dài oxford">
-                                                                                                <img src="http://localhost/webproduct_3/upload/product/carina-4471-1521994959_500x300.jpg" alt="Sơ mi Lvs xanh biển tay dài oxford" title="Sơ mi Lvs xanh biển tay dài oxford">                  
-                                                                                            </a>
-                                                                                            <a class="addtocart" href="http://localhost/webproduct_3/cart/add/137">
-                                                                                                Mua ngay          
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <div class="item-info">
-                                                                                            <h3 class="item-title ">
-                                                                                                <a href="http://localhost/webproduct_3/product/view/137" title="Sơ mi Lvs xanh biển tay dài oxford">
-                                                                                                Sơ mi Lvs xanh biển tay dài oxford                              
-                                                                                                </a>
-                                                                                            </h3>
-                                                                                            <div class="main-price">
-                                                                                                <div class="item-price">
-                                                                                                    <span class="price">                                                                                                  
-                                                                                                        165đ
-                                                                                                    </span>
-                                                                                                </div>
-                                                                                                <div class="price-sale">
-                                                                                                    <span class="num">Lượt Xem</span>
-                                                                                                    <span class="text"><b>0</b></span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(225px, 333px, 0px);">
-                                                                                    <div class="item-inner">
-                                                                                        <div class="item-image cf">
-                                                                                            <a class="img" href="http://localhost/webproduct_3/product/view/138" title="Sơ mi Lvs tay dài xanh ngọc oxford">
-                                                                                                <img src="http://localhost/webproduct_3/upload/product/Chrysanthemum1.jpg" alt="Sơ mi Lvs tay dài xanh ngọc oxford" title="Sơ mi Lvs tay dài xanh ngọc oxford">                  
-                                                                                            </a>
-                                                                                            <a class="addtocart" href="http://localhost/webproduct_3/cart/add/138">
-                                                                                                Mua ngay          
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <div class="item-info">
-                                                                                            <h3 class="item-title ">
-                                                                                                <a href="http://localhost/webproduct_3/product/view/138" title="Sơ mi Lvs tay dài xanh ngọc oxford">
-                                                                                                Sơ mi Lvs tay dài xanh ngọc oxford                              
-                                                                                                </a>
-                                                                                            </h3>
-                                                                                            <div class="main-price">
-                                                                                                <div class="item-price">
-                                                                                                    <span class="price">                                                                                                 
-                                                                                                        165đ
-                                                                                                    </span>
-                                                                                                </div>
-                                                                                                <div class="price-sale">
-                                                                                                    <span class="num">Lượt Xem</span>
-                                                                                                    <span class="text"><b>0</b></span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(450px, 333px, 0px);">
-                                                                                    <div class="item-inner">
-                                                                                        <div class="item-image cf">
-                                                                                            <a class="img" href="http://localhost/webproduct_3/product/view/139" title="Sơ mi Lvs trắng tay dài oxford">
-                                                                                                <img src="http://localhost/webproduct_3/upload/product/n1-242e1.jpg" alt="Sơ mi Lvs trắng tay dài oxford" title="Sơ mi Lvs trắng tay dài oxford">                  
-                                                                                            </a>
-                                                                                            <a class="addtocart" href="http://localhost/webproduct_3/cart/add/139">
-                                                                                                Mua ngay          
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <div class="item-info">
-                                                                                            <h3 class="item-title ">
-                                                                                                <a href="http://localhost/webproduct_3/product/view/139" title="Sơ mi Lvs trắng tay dài oxford">
-                                                                                                Sơ mi Lvs trắng tay dài oxford                              
-                                                                                                </a>
-                                                                                            </h3>
-                                                                                            <div class="main-price">
-                                                                                                <div class="item-price">
-                                                                                                    <span class="price">
-                                                                                                        165đ
-                                                                                                    </span>
-                                                                                                </div>
-                                                                                                <div class="price-sale">
-                                                                                                    <span class="num">Lượt Xem</span>
-                                                                                                    <span class="text"><b>0</b></span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(675px, 333px, 0px);">
-                                                                                    <div class="item-inner">
-                                                                                        <div class="item-image cf">
-                                                                                            <a class="img" href="http://localhost/webproduct_3/product/view/140" title="Sơ mi Gp tay dài xám đậm basic oxford">
-                                                                                                <img src="http://localhost/webproduct_3/upload/product/Vermaelen-d4361.jpg" alt="Sơ mi Gp tay dài xám đậm basic oxford" title="Sơ mi Gp tay dài xám đậm basic oxford">                  
-                                                                                            </a>
-                                                                                            <a class="addtocart" href="http://localhost/webproduct_3/cart/add/140">
-                                                                                                Mua ngay          
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <div class="item-info">
-                                                                                            <h3 class="item-title ">
-                                                                                                <a href="http://localhost/webproduct_3/product/view/140" title="Sơ mi Gp tay dài xám đậm basic oxford">
-                                                                                                Sơ mi Gp tay dài xám đậm basic oxford                              
-                                                                                                </a>
-                                                                                            </h3>
-                                                                                            <div class="main-price">
-                                                                                                <div class="item-price">
-                                                                                                    <span class="price">                                                                                             
-                                                                                                        165đ
-                                                                                                    </span>
-                                                                                                </div>
-                                                                                                <div class="price-sale">
-                                                                                                    <span class="num">Lượt Xem</span>
-                                                                                                    <span class="text"><b>0</b></span>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 662px, 0px);">
-                                                                                    <div class="item-inner">
-                                                                                        <div class="item-image cf">
-                                                                                            <a class="img" href="http://localhost/webproduct_3/product/view/141" title="Sơ mi Lvs tay dài xám rêu oxford">
-                                                                                                <img src="http://localhost/webproduct_3/upload/product/138614718279_video.jpg" alt="Sơ mi Lvs tay dài xám rêu oxford" title="Sơ mi Lvs tay dài xám rêu oxford">                  
-                                                                                            </a>
-                                                                                            <a class="addtocart" href="http://localhost/webproduct_3/cart/add/141">
-                                                                                                Mua ngay          
-                                                                                            </a>
-                                                                                        </div>
-                                                                                        <div class="item-info">
-                                                                                            <h3 class="item-title ">
-                                                                                                <a href="http://localhost/webproduct_3/product/view/141" title="Sơ mi Lvs tay dài xám rêu oxford">
-                                                                                                Sơ mi Lvs tay dài xám rêu oxford                              
-                                                                                                </a>
-                                                                                            </h3>
-                                                                                            <div class="main-price">
-                                                                                                <div class="item-price">
-                                                                                                    <span class="price">                                                                                             
-                                                                                                        165đ
-                                                                                                    </span>
-                                                                                                </div>
-                                                                                                <div class="price-sale">
-                                                                                                    <span class="num">Lượt Xem</span>
-                                                                                                    <span class="text"><b>0</b></span>
-                                                                                                </div>
+                                                                                            <div class="price-sale">
+                                                                                                <span class="num">Lượt Xem</span>
+                                                                                                <span class="text"><b><?=$row->view?></b></span>
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
+                                                                            <?php endforeach?>
                                                                         </div>
                                                                         <div class="respl-loader respl-btn ">
-                                                                            <a class="respl-button" href="">
-                                                                            <span class="loader-image"></span>
-                                                                            <span class="loader-label">
-                                                                                Xem thêm sản phẩm                   
-                                                                            </span>
+                                                                            <a class="respl-button" href="<?php echo base_url('san-pham')?>">
+                                                                                <span class="loader-image"></span>
+                                                                                <span class="loader-label">
+                                                                                    Xem thêm sản phẩm               
+                                                                                </span>
                                                                             </a>
                                                                         </div>
                                                                         <div class="clear"></div>

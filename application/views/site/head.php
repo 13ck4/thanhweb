@@ -8,7 +8,12 @@
 <meta name="generator" content="Joomla! - Open Source Content Management" />
 <title>Mua Hàng OnLine | Shop đa thời trang cao cấp | Giảm ngay 30% khi mua sản phẩm</title>
 <link href="<?php echo public_url('site/font-awesome/css/font-awesome.css') ?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/sppagebuilder.css')?>" rel="stylesheet" type="text/css" />
+<link href="<?php echo public_url('site/css/style.css')?>" rel="stylesheet" type="text/css" />
+<link href="//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic&amp;subset=latin,greek-ext" rel="stylesheet" type="text/css" />
+<link href="<?php echo public_url('site/css/bootstrap.min.css')?>" rel="stylesheet" type="text/css" />
+
+
+<!-- <link href="<?php echo public_url('site/css/sppagebuilder.css')?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo public_url('site/css/megamenu.css')?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo public_url('site/css/sj-megamenu.css')?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo public_url('site/css/sj-megamenu-mobile.css')?>" rel="stylesheet" type="text/css" />
@@ -17,20 +22,21 @@
 <link href="<?php echo public_url('site/css/extraslider-css3.css')?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo public_url('site/css/isotope.css')?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo public_url('site/css/sj-reslisting.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/style.css')?>" rel="stylesheet" type="text/css" />
+
 <link href="<?php echo public_url('site/css/css3.css')?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo public_url('site/css/animate.css')?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo public_url('site/css/owl.carousel.css')?>" rel="stylesheet" type="text/css" />
-<link href="//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic&amp;subset=latin,greek-ext" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/bootstrap.min.css')?>" rel="stylesheet" type="text/css" />
+
+
 <link href="<?php echo public_url('site/css/jquery.fullpage.min.css')?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo public_url('site/css/owl.carousel.css')?>" rel="stylesheet" type="text/css" />
 <link href="<?php echo public_url('site/css/preset4.css')?>" rel="stylesheet" type="text/css" class="preset" />
 <link href="<?php echo public_url('site/css/pagebuilder.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/shortcodes.css')?>" rel="stylesheet" type="text/css" />
+<link href="<?php echo public_url('site/css/shortcodes.css')?>" rel="stylesheet" type="text/css" /> -->
 
 <script type="text/javascript" src="<?php echo public_url()?>/js/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo public_url()?>/js/jquery/jquery-ui.min.js"></script>
+<!-- 
 <script src="<?php echo public_url('site/js/core.js')?>" type="text/javascript"></script>
 <script src="<?php echo public_url('site/js/jquery.min.js')?>" type="text/javascript"></script>
 <script src="<?php echo public_url('site/js/jquery-noconflict.js')?>" type="text/javascript"></script>
@@ -57,7 +63,7 @@
 <script src="<?php echo public_url('site/js/validateForm.js')?>" type="text/javascript"></script>
 <script src="<?php echo public_url('site/js/prettify.js')?>" type="text/javascript"></script>
 <script src="<?php echo public_url('site/js/shortcodes.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/jquery.lightbox.js') ?>" type="text/javascript"></script>
+<script src="<?php echo public_url('site/js/jquery.lightbox.js') ?>" type="text/javascript"></script> -->
 
 <meta content="website" property="og:type"/>
 <meta content="<?php echo base_url() ?>" property="og:url" />
