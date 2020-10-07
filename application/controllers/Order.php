@@ -6,6 +6,7 @@
 		}
 		//Nhap thong tin cua khach hang
 		function checkout(){
+			$this->data['title'] = "Thanh toán";
 			//lay thong tin gio hang
 			$carts = $this->cart->contents();
 			//tong so san pham co trong gio hang.
@@ -68,12 +69,57 @@
 							'qty'     		 => $row['qty'],
 							'amount'     	 => $row['subtotal'],
 							'status'         => 0,	
+							'size'           => $row['size'],
 						);
 						$this->order_model->create($data);
 					}
 
+					////xu li gui mail cho khach hang
+
+							//mai gui tin cho khach hang , khi khach hang chon mua tour do
+						    $email = 'luatnguyen13ck4@gmail.com';
+						    //mat khau cua email
+						    $pass = 'mogkmzwrykexcduu';
+						    //ten nguoi gui mail 
+						    $name_email = 'luat nguyen';
+
+						    //tao bien luu email khach hang  
+						    $cus_email = $this->input->post('email');
+
+							
+
+						    // $carts = $this->cart->contents();
+							
+							$price = "";
+							$name = "";
+							$content = "Cảm ơn bạn đã ghé thăm website chúng tôi, bạn đã mua thành công , giỏ hàng của bạn có các sản phẩm là : ";
+
+							foreach($carts as $row){
+								$content .=  $row['name'].', ';
+								$price = $row['subtotal'];
+							}
+							//tieu de mail
+							$title_email = 'Đặt hàng thành công !!';
+							//noi dung mail
+							$content .= " với tổng tiền là ".$price." vnđ.";
+
+							// echo $this->sendmail($email,$pass,$name_email,$cus_email,$content,$title_email);
+
+							// die();
+						    if($this->sendmail($email,$pass,$name_email,$cus_email,$content,$title_email) == 1){
+						    	// echo "herre";
+						    	// die();
+						    	//xoa toan bo gio hang
+			                	$this->cart->destroy();
+			                	//hien thi thong bao
+				               	//$this->session->set_flashdata('message', 'Bạn Đã Đặt hàng thành công thành công !');
+						    }else{
+						    		echo "request don't";
+						    		die();
+						    }
+
+
 					//xoa toan bo gio hang
-                	$this->cart->destroy();
                 	if($payment == 'offline'){
                 		//hien thi thong bao
 	                	$this->session->set_flashdata('message', 'Bạn Đã Đặt hàng thành công thành công !');

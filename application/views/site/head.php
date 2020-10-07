@@ -1,73 +1,72 @@
+<head>
+    <base href="https://demo1013.web30s.vn/" />
+    <link href="<?php echo public_url('site/css/bootstrap.min.css')?>" rel="stylesheet" type="text/css" />
+    <script src="<?php echo public_url('site/js/jquery-1.12.0.min.js')?>"></script>
+    <link rel="canonical" href="https://demo1013.web30s.vn/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="refresh" content="5400"/>
+    <meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta property=fb:app_id content="164566120964750">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="keywords" content=""/>
+    <meta name="description" content="Bán hàng online"/>
+    <meta name="robots" content="index, follow"/>
+    <meta name="googlebot" content="index, follow">
+    <meta name="revisit-after" content="1 days"/>
+    <meta name="generator" content="Bán hàng online"/>
+    <meta name="rating" content="General">
+    <meta property="og:url" content="https://demo1013.web30s.vn/">
+    <meta property="og:description" content="Bán hàng online">
+    <meta property="og:title" content="Bán hàng online">
+    <meta property="og:image" content="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992412349479_logo.png">
+    <meta property="og:site_name" content="demo1013.web30s.vn">
+    <meta property="og:type" content="product"/>
+    <meta property="og:locale" content="vi_VN"/>
+    <meta itemprop="image" content="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992412349479_logo.png">
+    <meta property="article:section" content="Bán hàng online"/>
+    <meta property="article:tag" content=""/>
+    <meta property="article:author" content="demo1013.web30s.vn"/>
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="@demo1013.web30s.vn"/>
+    <meta name="twitter:title" content="Bán hàng online"/>
+    <meta name="twitter:description" content="Bán hàng online"/>
+    <meta name="twitter:image" content="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992412349479_logo.png"/>
+    <meta name="twitter:url" content="https://demo1013.web30s.vn/"/>
+    <title>Bán hàng online</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992412349479_logo.png"/>
+    <link href="<?php echo public_url('site/css/style.css')?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo public_url('site/css/jquery.mCustomScrollbar.css')?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo public_url('site/css/global.css')?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo public_url('site/css/divbox.css')?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo public_url('site/css/bxslider.css')?>" rel="stylesheet" type="text/css">
+    <script src="<?php echo public_url('site/js/divbox.js')?>"></script>
+    <script src="<?php echo public_url('site/js/me.js')?>"></script>
+    <script src='<?php echo public_url('site/js/jquery.easing.1.3.js')?>'></script>
+    <script src="<?php echo public_url('site/js/swfobject.js')?>"></script>
+    <script src="<?php echo public_url('site/js/jquery.bxslider.min.js')?>"></script>
+    <script src="<?php echo public_url('site/js/md5.js')?>"></script>
+    <script src="<?php echo public_url('site/js/jquery.mCustomScrollbar.concat.min.js')?>"></script>
+    <link href="<?php echo public_url('site/font-awesome/css/font-awesome.css') ?>" rel="stylesheet" type="text/css" />
+    <link href="<?php echo public_url('site/css/customize.css')?>" rel="stylesheet" type="text/css">
+    <link href="<?php echo public_url('site/admin_customize.css')?>" rel="stylesheet" type="text/css">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<base href="http://senvietweb.com/demo/senvietdeal/" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Thiết kế website chuyên nghiệp - Thiết kế logo, banner - quản lý website - quảng cáo facebook adword và seo website hạng top google. Công ty TNHH Thương mại công nghệ Sen Việt là một trong những đơn vị đi đầu trong lĩnh vực công nghệ, thông tin, hệ thống phân phối sản phầm website" />
-<meta name="description" content="Thiết kế website chuyên nghiệp - Thiết kế logo, banner - quản lý website - quảng cáo facebook adword và seo website hạng top google. Công ty TNHH Thương mại công nghệ Sen Việt là một trong những đơn vị đi đầu trong lĩnh vực công nghệ, thông tin, hệ thống phân phối sản phầm website" />
-<meta name="generator" content="Joomla! - Open Source Content Management" />
-<title>Mua Hàng OnLine | Shop đa thời trang cao cấp | Giảm ngay 30% khi mua sản phẩm</title>
-<link href="<?php echo public_url('site/font-awesome/css/font-awesome.css') ?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/style.css')?>" rel="stylesheet" type="text/css" />
-<link href="//fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic&amp;subset=latin,greek-ext" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/bootstrap.min.css')?>" rel="stylesheet" type="text/css" />
-
-
-<!-- <link href="<?php echo public_url('site/css/sppagebuilder.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/megamenu.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/sj-megamenu.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/sj-megamenu-mobile.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/sj-megamenu-vertical.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/mod_sj_js_extraslider.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/extraslider-css3.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/isotope.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/sj-reslisting.css')?>" rel="stylesheet" type="text/css" />
-
-<link href="<?php echo public_url('site/css/css3.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/animate.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/owl.carousel.css')?>" rel="stylesheet" type="text/css" />
-
-
-<link href="<?php echo public_url('site/css/jquery.fullpage.min.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/owl.carousel.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/preset4.css')?>" rel="stylesheet" type="text/css" class="preset" />
-<link href="<?php echo public_url('site/css/pagebuilder.css')?>" rel="stylesheet" type="text/css" />
-<link href="<?php echo public_url('site/css/shortcodes.css')?>" rel="stylesheet" type="text/css" /> -->
-
-<script type="text/javascript" src="<?php echo public_url()?>/js/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo public_url()?>/js/jquery/jquery-ui.min.js"></script>
-<!-- 
-<script src="<?php echo public_url('site/js/core.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/jquery.min.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/jquery-noconflict.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/jquery-migrate.min.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/megamenu.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/jquery.easing.1.3.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/jcarousel.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/jquery.isotope.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/owl.carousel.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/sppagebuilder.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/bootstrap.min.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/owl.carousel.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/jquery.touchSwipe.min.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/jquery.prettyPhoto.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/jquery.sticky.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/jquery.fullpage.min.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/main.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/custom.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/html5fallback.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/acymailing_module.js')?>" type="text/javascript" async="async"></script>
-<script src="<?php echo public_url('site/js/mootools-core.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/jquery.media.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/functions.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/validateForm.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/prettify.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/shortcodes.js')?>" type="text/javascript"></script>
-<script src="<?php echo public_url('site/js/jquery.lightbox.js') ?>" type="text/javascript"></script> -->
-
-<meta content="website" property="og:type"/>
-<meta content="<?php echo base_url() ?>" property="og:url" />
-<meta content="Mua Hàng OnLine | Shop đa thời trang cao cấp | Giảm ngay 30% khi mua sản phẩm" property="og:title" />
-<link href="<?php echo base_url() ?>" rel="alternate" hreflang="x-default" />
-
-        
+    
+    <script>
+        var _active_lang='vn';
+        var fullpath='https://demo1013.web30s.vn';
+        var cdn_path='https://demo1013.web30s.vn';
+        var baivietid='4751';
+    </script>
+    <style type="text/css">
+        .dv_content_leftsp:nth-child(4){display: none}
+    </style><!-- //background css -->
+    <!-- end backgorund css -->
+    <link rel="stylesheet" href="<?php echo public_url('site/css/owl.carousel.css')?>">
+    <link rel="stylesheet" href="<?php echo public_url('site/css/nivo-slider.css')?>">
+    <script src="<?php echo public_url('site/js/modernizr-2.8.3.min.js')?>"></script> 
+</head>

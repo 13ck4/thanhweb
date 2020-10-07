@@ -1,0 +1,985 @@
+<html style="" class=" js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths js no-touch cssanimations csstransitions"><head><style>.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}
+</style><style>.gm-control-active>img{box-sizing:content-box;display:none;left:50%;pointer-events:none;position:absolute;top:50%;transform:translate(-50%,-50%)}.gm-control-active>img:nth-child(1){display:block}.gm-control-active:hover>img:nth-child(1),.gm-control-active:active>img:nth-child(1){display:none}.gm-control-active:hover>img:nth-child(2),.gm-control-active:active>img:nth-child(3){display:block}
+</style><style>.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px;box-sizing:border-box}
+</style><style>@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style>.gm-ui-hover-effect{opacity:.6}.gm-ui-hover-effect:hover{opacity:1}
+</style><style>.gm-style .transit-container{background-color:white;max-width:265px;overflow-x:hidden}.gm-style .transit-container .transit-title span{font-size:14px;font-weight:500}.gm-style .transit-container .transit-title{padding-bottom:6px}.gm-style .transit-container .transit-wheelchair-icon{background:transparent url('https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6.png');background-size:59px 492px;display:inline-block;background-position:-5px -450px;width:13px;height:13px}.gm-style.gm-china .transit-container .transit-wheelchair-icon{background-image:url('http://maps.gstatic.cn/mapfiles/api-3/images/mapcnt6.png')}@media (-webkit-min-device-pixel-ratio:1.2),(min-resolution:1.2dppx),(min-resolution:116dpi){.gm-style .transit-container .transit-wheelchair-icon{background-image:url('https://maps.gstatic.com/mapfiles/api-3/images/mapcnt6_hdpi.png');background-size:59px 492px;display:inline-block;background-position:-5px -449px;width:13px;height:13px}.gm-style.gm-china .transit-container .transit-wheelchair-icon{background-image:url('http://maps.gstatic.cn/mapfiles/api-3/images/mapcnt6_hdpi.png')}}.gm-style .transit-container div{background-color:white;font-size:11px;font-weight:300;line-height:15px}.gm-style .transit-container .transit-line-group{overflow:hidden;margin-right:-6px}.gm-style .transit-container .transit-line-group-separator{border-top:1px solid #e6e6e6;padding-top:5px}.gm-style .transit-container .transit-nlines-more-msg{color:#999;margin-top:-3px;padding-bottom:6px}.gm-style .transit-container .transit-line-group-vehicle-icons{display:inline-block;padding-right:10px;vertical-align:top;margin-top:1px}.gm-style .transit-container .transit-line-group-content{display:inline-block;min-width:100px;max-width:228px;margin-bottom:-3px}.gm-style .transit-container .transit-clear-lines{clear:both}.gm-style .transit-container .transit-div-line-name{float:left;padding:0 6px 6px 0;white-space:nowrap}.gm-style .transit-container .transit-div-line-name .gm-transit-long{width:107px}.gm-style .transit-container .transit-div-line-name .gm-transit-medium{width:50px}.gm-style .transit-container .transit-div-line-name .gm-transit-short{width:37px}.gm-style .transit-div-line-name .renderable-component-icon{float:left;margin-right:2px}.gm-style .transit-div-line-name .renderable-component-color-box{background-image:url(https://maps.gstatic.com/mapfiles/transparent.png);height:10px;width:4px;float:left;margin-top:3px;margin-right:3px;margin-left:1px}.gm-style.gm-china .transit-div-line-name .renderable-component-color-box{background-image:url(http://maps.gstatic.cn/mapfiles/transparent.png)}.gm-style .transit-div-line-name .renderable-component-text{text-align:left;overflow:hidden;text-overflow:ellipsis;display:block}.gm-style .transit-div-line-name .renderable-component-text-box{overflow:hidden;text-overflow:ellipsis;display:block;font-size:8pt;font-weight:400;text-align:center;padding:1px 2px}.gm-style .transit-div-line-name .renderable-component-text-box-white{border:solid 1px #ccc;background-color:white;padding:0 2px}.gm-style .transit-div-line-name .renderable-component-bold{font-weight:400}
+</style><style>.poi-info-window div,.poi-info-window a{color:#333;font-family:Roboto,Arial;font-size:13px;background-color:white;-moz-user-select:text;-webkit-user-select:text;-ms-user-select:text;user-select:text}.poi-info-window{cursor:default}.poi-info-window a:link{text-decoration:none;color:#427fed}.poi-info-window .view-link,.poi-info-window a:visited{color:#427fed}.poi-info-window .view-link:hover,.poi-info-window a:hover{cursor:pointer;text-decoration:underline}.poi-info-window .full-width{width:180px}.poi-info-window .title{overflow:hidden;font-weight:500;font-size:14px}.poi-info-window .address{margin-top:2px;color:#555}
+</style><style>.gm-style .gm-style-iw{font-weight:300;font-size:13px;overflow:hidden}.gm-style .gm-style-iw-a{position:absolute;width:9999px;height:0}.gm-style .gm-style-iw-t{position:absolute;width:100%}.gm-style .gm-style-iw-t::after{background:linear-gradient(45deg,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 51%,rgba(255,255,255,0) 100%);box-shadow:-2px 2px 2px 0 rgba(178,178,178,.4);content:"";height:15px;left:0;position:absolute;top:0;transform:translate(-50%,-50%) rotate(-45deg);width:15px}.gm-style .gm-style-iw-c{position:absolute;box-sizing:border-box;overflow:hidden;top:0;left:0;transform:translate(-50%,-100%);background-color:white;border-radius:8px;padding:12px;box-shadow:0 2px 7px 1px rgba(0,0,0,0.3)}.gm-style .gm-style-iw-d{box-sizing:border-box;overflow:auto}.gm-style .gm-style-iw-d::-webkit-scrollbar{width:18px;height:12px;-webkit-appearance:none}.gm-style .gm-style-iw-d::-webkit-scrollbar-track,.gm-style .gm-style-iw-d::-webkit-scrollbar-track-piece{background:#fff}.gm-style .gm-style-iw-c .gm-style-iw-d::-webkit-scrollbar-thumb{background-color:rgba(0,0,0,0.12);border:6px solid transparent;border-radius:9px;background-clip:content-box}.gm-style .gm-style-iw-c .gm-style-iw-d::-webkit-scrollbar-thumb:horizontal{border:3px solid transparent}.gm-style .gm-style-iw-c .gm-style-iw-d::-webkit-scrollbar-thumb:hover{background-color:rgba(0,0,0,0.3)}.gm-style .gm-style-iw-c .gm-style-iw-d::-webkit-scrollbar-corner{background:transparent}.gm-style .gm-iw{color:#2c2c2c}.gm-style .gm-iw b{font-weight:400}.gm-style .gm-iw a:link,.gm-style .gm-iw a:visited{color:#4272db;text-decoration:none}.gm-style .gm-iw a:hover{color:#4272db;text-decoration:underline}.gm-style .gm-iw .gm-title{font-weight:400;margin-bottom:1px}.gm-style .gm-iw .gm-basicinfo{line-height:18px;padding-bottom:12px}.gm-style .gm-iw .gm-website{padding-top:6px}.gm-style .gm-iw .gm-photos{padding-bottom:8px;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none}.gm-style .gm-iw .gm-sv,.gm-style .gm-iw .gm-ph{cursor:pointer;height:50px;width:100px;position:relative;overflow:hidden}.gm-style .gm-iw .gm-sv{padding-right:4px}.gm-style .gm-iw .gm-wsv{cursor:pointer;position:relative;overflow:hidden}.gm-style .gm-iw .gm-sv-label,.gm-style .gm-iw .gm-ph-label{cursor:pointer;position:absolute;bottom:6px;color:#fff;font-weight:400;text-shadow:rgba(0,0,0,0.7) 0 1px 4px;font-size:12px}.gm-style .gm-iw .gm-stars-b,.gm-style .gm-iw .gm-stars-f{height:13px;font-size:0}.gm-style .gm-iw .gm-stars-b{position:relative;background-position:0 0;width:65px;top:3px;margin:0 5px}.gm-style .gm-iw .gm-rev{line-height:20px;-ms-user-select:none;-moz-user-select:none;-webkit-user-select:none}.gm-style.gm-china .gm-iw .gm-rev{display:none}.gm-style .gm-iw .gm-numeric-rev{font-size:16px;color:#dd4b39;font-weight:400}.gm-style .gm-iw.gm-transit{margin-left:15px}.gm-style .gm-iw.gm-transit td{vertical-align:top}.gm-style .gm-iw.gm-transit .gm-time{white-space:nowrap;color:#676767;font-weight:bold}.gm-style .gm-iw.gm-transit img{width:15px;height:15px;margin:1px 5px 0 -20px;float:left}
+</style><style>.gm-iw {text-align:left;}.gm-iw .gm-numeric-rev {float:left;}.gm-iw .gm-photos,.gm-iw .gm-rev {direction:ltr;}.gm-iw .gm-stars-f, .gm-iw .gm-stars-b {background:url("https://maps.gstatic.com/mapfiles/api-3/images/review_stars.png") no-repeat;background-size: 65px 26px;float:left;}.gm-iw .gm-stars-f {background-position:left -13px;}.gm-iw .gm-sv-label,.gm-iw .gm-ph-label {left: 4px;}</style><link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700"><style>.gm-style-pbc{transition:opacity ease-in-out;background-color:rgba(0,0,0,0.45);text-align:center}.gm-style-pbt{font-size:22px;color:white;font-family:Roboto,Arial,sans-serif;position:relative;margin:0;top:50%;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%)}
+</style><style>.gm-style img{max-width: none;}.gm-style {font: 400 11px Roboto, Arial, sans-serif; text-decoration: none;}</style>
+<link href="/templates/300-up-1013/css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all">
+    <script id="facebook-jssdk" src="https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js"></script><script src="/templates/300-up-1013/js/vendor/jquery-1.12.0.min.js"></script>
+
+<link rel="canonical" href="https://demo1013.web30s.vn/lien-he">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="refresh" content="5400">
+<meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Cache-Control" content="no-cache">
+<meta property="fb:app_id" content="164566120964750">
+<meta name="format-detection" content="telephone=no">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+<meta name="revisit-after" content="1 days">
+<meta name="generator" content="Bán hàng online">
+<meta name="rating" content="General">
+<meta property="og:url" content="https://demo1013.web30s.vn/lien-he">
+<meta property="og:description" content="">
+<meta property="og:title" content="Liên hệ">
+<meta property="og:image" content="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992412349479_logo.png">
+<meta property="og:site_name" content="demo1013.web30s.vn">
+<meta property="og:type" content="product">
+<meta property="og:locale" content="vi_VN">
+<meta itemprop="image" content="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992412349479_logo.png">
+<meta property="article:section" content="Liên hệ">
+<meta property="article:tag" content="">
+<meta property="article:author" content="demo1013.web30s.vn">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@demo1013.web30s.vn">
+<meta name="twitter:title" content="Liên hệ">
+<meta name="twitter:description" content="">
+<meta name="twitter:image" content="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992412349479_logo.png">
+<meta name="twitter:url" content="https://demo1013.web30s.vn/lien-he">
+<title>Liên hệ</title>
+<link rel="shortcut icon" type="image/x-icon" href="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992412349479_logo.png">
+    <link href="https://demo1013.web30s.vn/css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <link href="https://demo1013.web30s.vn/css/global.css?v=6.8.1" rel="stylesheet" type="text/css">
+    <link href="https://demo1013.web30s.vn/css/divbox.css" rel="stylesheet" type="text/css">
+    <link href="https://demo1013.web30s.vn/css/bxslider.css" rel="stylesheet" type="text/css">
+
+<script src="https://demo1013.web30s.vn/js/divbox.js"></script>
+<script src="https://demo1013.web30s.vn/js/me.php"></script>
+<script src="https://demo1013.web30s.vn/js/jquery.easing.1.3.js"></script>
+<script src="https://demo1013.web30s.vn/js/swfobject.js"></script>
+<script src="https://demo1013.web30s.vn/js/jquery.bxslider.min.js"></script>
+<script src="https://demo1013.web30s.vn/js/md5.js"></script>
+<script src="https://demo1013.web30s.vn/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<link href="https://demo1013.web30s.vn/css/font-awesome-4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="https://demo1013.web30s.vn/templates/300-up-1013/css/customize.php" rel="stylesheet" type="text/css">
+
+
+
+<link href="https://demo1013.web30s.vn/admin_customize.css?t=4025&amp;a=1600189117" rel="stylesheet" type="text/css"><script>var _active_lang='vn';var fullpath='https://demo1013.web30s.vn';var cdn_path='https://demo1013.web30s.vn';var baivietid='4751';</script>
+<style type="text/css">
+	.dv_content_leftsp:nth-child(4){display: none}
+@-webkit-keyframes marqueeAnimation-497772  { 100%  {margin-top:-2290px}}</style><!-- //background css -->
+<!-- end backgorund css -->
+<link rel="stylesheet" href="/templates/300-up-1013/css/owl.carousel.css">
+<link rel="stylesheet" href="/templates/300-up-1013/css/nivo-slider.css">
+<!--<script src="/templates/300-up-1013/js/vendor/jquery-1.12.0.min.js"></script>-->
+<script src="/templates/300-up-1013/js/vendor/modernizr-2.8.3.min.js"></script> 
+
+
+<script> var _api_key = ""; var _is_demo = "1";</script><script src="/js/pamap_loader.js?t=20"></script><script type="text/javascript" charset="UTF-8" src="https://maps.google.com/maps-api-v3/api/js/42/4/intl/vi_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.google.com/maps-api-v3/api/js/42/4/intl/vi_ALL/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.google.com/maps-api-v3/api/js/42/4/intl/vi_ALL/map.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.google.com/maps-api-v3/api/js/42/4/intl/vi_ALL/marker.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.google.com/maps-api-v3/api/js/42/4/intl/vi_ALL/infowindow.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.google.com/maps-api-v3/api/js/42/4/intl/vi_ALL/geocoder.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.google.com/maps-api-v3/api/js/42/4/intl/vi_ALL/onion.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/ViewportInfoService.GetViewportInfo?1m6&amp;1m2&amp;1d10.753768328111414&amp;2d106.63317450159543&amp;2m2&amp;1d10.79951020766293&amp;2d106.74384033922007&amp;2u15&amp;4svi&amp;5e0&amp;6sm%40524000000&amp;7b0&amp;8e0&amp;12e2&amp;callback=_xdc_._kfa24s&amp;key=AIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;token=75035"></script><script type="text/javascript" charset="UTF-8" src="https://maps.google.com/maps/vt?pb=!1m4!1m3!1i15!2i26093!3i15396!1m4!1m3!1i15!2i26093!3i15397!1m4!1m3!1i15!2i26094!3i15396!1m4!1m3!1i15!2i26094!3i15397!1m4!1m3!1i15!2i26095!3i15396!1m4!1m3!1i15!2i26095!3i15397!1m4!1m3!1i15!2i26096!3i15396!1m4!1m3!1i15!2i26096!3i15397!2m3!1e0!2sm!3i524245624!3m12!2svi!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!4e3!12m1!5b1&amp;callback=_xdc_._jen2s7&amp;key=AIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;token=93524"></script><style type="text/css" data-fbcssmodules="css:fb.css.basecss:fb.css.dialog css:fb.css.iframewidget css:fb.css.customer_chat_plugin_iframe">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_dialog_advanced{border-radius:8px;padding:10px}.fb_dialog_content{background:#fff;color:#373737}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{left:5px;right:auto;top:5px}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{height:100%;left:0;margin:0;overflow:visible;position:absolute;top:-10000px;transform:none;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{background:none;height:auto;min-height:initial;min-width:initial;width:auto}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{clear:both;color:#fff;display:block;font-size:18px;padding-top:20px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .4);bottom:0;left:0;min-height:100%;position:absolute;right:0;top:0;width:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_mobile .fb_dialog_iframe{position:sticky;top:0}.fb_dialog_content .dialog_header{background:linear-gradient(from(#738aba), to(#2c4987));border-bottom:1px solid;border-color:#043b87;box-shadow:white 0 1px 1px -1px inset;color:#fff;font:bold 14px Helvetica, sans-serif;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:linear-gradient(from(#4267B2), to(#2a4887));background-clip:padding-box;border:1px solid #29487d;border-radius:3px;display:inline-block;line-height:18px;margin-top:3px;max-width:85px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{background:none;border:none;color:#fff;font:bold 12px Helvetica, sans-serif;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #4a4a4a;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f5f6f7;border:1px solid #4a4a4a;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-position:50% 50%;background-repeat:no-repeat;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}
+.fb_mpn_mobile_landing_page_slide_in{animation-duration:200ms;animation-name:fb_mpn_landing_page_slide_in;transition-timing-function:ease-in}.fb_mpn_mobile_landing_page_slide_out{animation-duration:200ms;animation-name:fb_mpn_landing_page_slide_out;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_in{animation-duration:300ms;animation-name:fb_mpn_bounce_in;transition-timing-function:ease-in}.fb_mpn_mobile_bounce_out{animation-duration:300ms;animation-name:fb_mpn_bounce_out;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2{animation-duration:300ms;animation-name:fb_bounce_in_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_from_left{animation-duration:300ms;animation-name:fb_bounce_in_from_left;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2{animation-duration:300ms;animation-name:fb_bounce_out_v2;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_from_left{animation-duration:300ms;animation-name:fb_bounce_out_from_left;transition-timing-function:ease-in}.fb_customer_chat_bounce_in_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_in_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bounce_out_v2_mobile_chat_started{animation-duration:300ms;animation-name:fb_bounce_out_v2_mobile_chat_started;transition-timing-function:ease-in}.fb_customer_chat_bubble_pop_in{animation-duration:250ms;animation-name:fb_customer_chat_bubble_bounce_in_animation}.fb_customer_chat_bubble_animated_no_badge{box-shadow:0 3px 12px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_no_badge:hover{box-shadow:0 5px 24px rgba(0, 0, 0, .3)}.fb_customer_chat_bubble_animated_with_badge{box-shadow:-5px 4px 14px rgba(0, 0, 0, .15);transition:box-shadow 150ms linear}.fb_customer_chat_bubble_animated_with_badge:hover{box-shadow:-5px 8px 24px rgba(0, 0, 0, .2)}.fb_invisible_flow{display:inherit;height:0;overflow-x:hidden;width:0}.fb_mobile_overlay_active{background-color:#fff;height:100%;overflow:hidden;position:fixed;visibility:hidden;width:100%}.fb_new_ui_mobile_overlay_active{overflow:hidden}@keyframes fb_mpn_landing_page_slide_in{0%{border-radius:50%;margin:0 24px;width:60px}40%{border-radius:18px}100%{margin:0 12px;width:100% - 24px}}@keyframes fb_mpn_landing_page_slide_out{0%{margin:0 12px;transform:scale(1);width:100% - 24px}60%{border-radius:18px}100%{border-radius:50%;margin:0 24px;transform:scale(1.2);width:60px}}@keyframes fb_mpn_bounce_in{0%{opacity:.5;top:100%}100%{opacity:1;top:0}}@keyframes fb_mpn_bounce_out{0%{opacity:1;top:0}100%{opacity:.5;top:100%}}@keyframes fb_bounce_in_v2{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}50%{transform:scale(1.03, 1.03);transform-origin:bottom right}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}}@keyframes fb_bounce_in_from_left{0%{opacity:0;transform:scale(0, 0);transform-origin:bottom left}50%{transform:scale(1.03, 1.03);transform-origin:bottom left}100%{opacity:1;transform:scale(1, 1);transform-origin:bottom left}}@keyframes fb_bounce_in_v2_mobile_chat_started{0%{opacity:0;top:20px}100%{opacity:1;top:0}}@keyframes fb_bounce_out_v2{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom right}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom right}}@keyframes fb_bounce_out_from_left{0%{opacity:1;transform:scale(1, 1);transform-origin:bottom left}100%{opacity:0;transform:scale(0, 0);transform-origin:bottom left}}@keyframes fb_bounce_out_v2_mobile_chat_started{0%{opacity:1;top:0}100%{opacity:0;top:20px}}@keyframes fb_customer_chat_bubble_bounce_in_animation{0%{bottom:6pt;opacity:0;transform:scale(0, 0);transform-origin:center}70%{bottom:18pt;opacity:1;transform:scale(1.2, 1.2)}100%{transform:scale(1, 1)}}</style><script type="text/javascript" charset="UTF-8" src="https://maps.google.com/maps-api-v3/api/js/42/4/intl/vi_ALL/controls.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/AuthenticationService.Authenticate?1shttps%3A%2F%2Fdemo1013.web30s.vn%2Flien-he&amp;4sAIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;callback=_xdc_._98wgmb&amp;key=AIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;token=82687"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/api/js/QuotaService.RecordEvent?1shttps%3A%2F%2Fdemo1013.web30s.vn%2Flien-he&amp;3sAIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;7s47acyt&amp;10e1&amp;callback=_xdc_._4j7cl7&amp;key=AIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;token=46777"></script></head>
+<body class="cbp-spmenu-push">
+		<div class="head_top header_admin">
+		<div class="bg_top"><script>
+	function jsupdate(k,idclass,jscolor) {
+	    if(k==0) 		$("."+idclass).css("background-color","#"+jscolor);
+	    else if (k==1)	$("."+idclass).css("color","#"+jscolor);
+	}
+</script>
+</div>
+	</div>
+	<header>
+	<div class="header-top-area black-bg ptb-3 ">
+		<div class="container">
+			<div class="hd-left">
+				<div class="header-top-left">
+					<span><a class="phone" href="tel:(028) 6256 3737">Hotline: (028) 6256 3737</a></span>
+				</div>
+			</div>
+			<div class="hd-right">
+				<div class="header-top-right dv-mem-login">
+					<ul>
+						<div class="glo-dangky-gruop">
+    <script>
+        function jsupdate(k, idclass, jscolor) {
+            if (k == 0) $("." + idclass).css("background-color", "#" + jscolor);
+            else if (k == 1) $("." + idclass).css("color", "#" + jscolor);
+        }
+    </script>
+            <ul>
+            <li><a href="https://demo1013.web30s.vn/login" onclick="ShowHidden('id_mem_login'); return false;" class="mem memdn">Đăng nhập</a></li>
+            <li><a href="https://demo1013.web30s.vn/reg" class="mem memdk">Đăng ký</a></li>
+        </ul> 
+    <div id="top_menu_admin_1" class="fix1000">
+        <div id="id_mem_login" class="trontron">
+            <form class="nomargin" id="memberloginit" action="https://demo1013.web30s.vn" method="post" name="TheFormLogin" onsubmit="return Check_LoginMember('id_tentruycap','id_matkhau'); return false;">
+                <input name="module" type="hidden" value="user">
+                <input name="action" type="hidden" value="member_login">
+                <div align="center"><h2 class="h2memberstop cus1">THÀNH VIÊN ĐĂNG NHẬP</h2>
+                </div>
+                Tên truy cập                <input name="tentruycap" type="text" class="box_input" id="id_tentruycap" maxlength="65">
+                Mật khẩu
+                <input name="matkhau" type="password" class="box_input" id="id_matkhau" value="" maxlength="65">
+                <input class="submitbutton" type="submit" name="dangky" id="button" value="đăng nhập">
+                <div style="cursor:pointer;" onclick="ShowHidden('id_mem_login');ShowHidden('id_mem_loss');">Quên mật khẩu?</div>
+            </form>
+            <div class="clear"></div>
+            <!-- <div class="dv-glo-login-mxh dv-glo-login-mxh-cus">
+        <span></span> <a href="/login-fb/"  class='fb'><i class="fa fa-facebook"></i></a> <a class='gg'  href="/login-google/"><i class="fa fa-google"></i></a>
+        <div class="clear"></div>
+      </div> -->
+            <div class="clear"></div>
+        </div>
+        <div id="id_mem_loss" style="position:absolute; top:30px; z-index:99999; display:none; background:#ccc; width:250px; margin-left:700px; padding:10px;" class="trontron">
+            <form class="nomargin" id="memberlossit" action="https://demo1013.web30s.vn" method="post" name="TheFormLogin" onsubmit="return Check_LossMember('email_loss'); return false;">
+                <input type="hidden" name="module" value="user">
+                <input type="hidden" name="action" value="member_loss">
+                <div align="center"><h2>QUÊN MẬT KHẨU</h2></div>
+
+                Xin nhập vào email của bạn:
+                <input name="email" type="text" class="box_input" id="email_loss" maxlength="65">
+                <input class="submitbutton" type="submit" name="dangky" id="id_quenmatkhau" value="QUÊN MẬT KHẨU">
+                <div style="cursor:pointer;" onclick="ShowHidden('id_mem_login');ShowHidden('id_mem_loss');">nhớ rồi, đăng nhập lại</div>
+            </form>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>						<li></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="header-bottom-area bg-color-1 ptb-25">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+					<div class="logo">
+						<a href="https://demo1013.web30s.vn"><img alt="Bán hàng online" class="img_logo" src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992412349479_logo.png"></a>
+					</div>
+				</div>
+				<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+					<div class="header-bottom-middle">
+						<div class="top-search">
+                            <span class="tex_top_zalo"><i class="fa fa-phone"></i>Zalo: <a href="Mở rộng 11">Mở rộng 12</a></span>
+							<span class="tex_top_skype"><i class="fa fa-skype"></i>Skype: <a href="skype:tuvanmuahang?chat">tuvanmuahang</a></span>
+							<span class="tex_top_email"><i class="fa fa-envelope"></i>Email: <a href="maitto:web@pavietnam.vn">web@pavietnam.vn</a></span>
+						</div>
+						<div class="search-box-2"> 
+							<div class="form">
+								<input type="text" class="key_timkiem" placeholder="Nhập từ khóa tìm kiếm" value="">
+								<a class="btn" onclick="SEARCH_btn()"><i class="fa fa-search"></i></a>
+							</div>
+							<script type="text/javascript">
+
+				                function SEARCH_btn() 
+				                	{
+					                  	var key = $(".key_timkiem").val().replace(/ /g,"+");
+					                    if(key.length < 2)
+					                      	{
+					                        	$(".key_timkiem").focus();
+					                      	}		
+					                    else window.location.href = "/search/?key="+key;
+				                  	}
+				                  	$('.key_timkiem').keypress(function(event){
+				                    	var keycode = (event.keyCode ? event.keyCode : event.which);
+				                    	if (keycode == '13') {
+				                      		SEARCH_btn();
+				                    }
+				              });
+				            </script>
+						</div>								
+					</div>
+					<div class="header-bottom-right">
+						<div class="shop-cart-area">
+							<div class="top-cart-wrapper">
+								<div class="block-cart">
+									<div class="top-cart-title">
+										<a href="/cart-add/">
+											<span class="title-cart">GIỎ HÀNG</span>
+											<span class="count-item">(1)</span>
+											<span class="price">16.990.000  VNĐ</span>
+										</a>
+									</div>											
+								</div>
+							</div>
+						</div>
+					</div>							
+				</div>
+			</div>
+		</div>
+	</div>	
+</header>
+<div class="mainmenu-area bg-color-2 hidden-xs hidden-sm">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <div class="mainmenu-left visible-lg  visible-md">
+          <div class="product-menu-title">
+            <h2>MENU SẢN PHẨM <i class="fa fa-arrow-circle-down"></i></h2>
+          </div>
+          <div class="product_vmegamenu  product_vmegamenu_child">
+            <ul>
+              <li><a href="/Dien-Thoai-390755" class="hover-icon"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992295377435_mobile-phone-8-20.png" alt="">Điện Thoại</a><div class="vmegamenu"> <span><a href="/iPhone-390764">iPhone</a><a href="/Samsung-390765">Samsung</a><a href="/HTC-390769">HTC</a><a href="/LG-390770">LG</a><a href="/Motorola-390771">Motorola</a><a href="/Sony-390767">Sony</a><a href="/Nokia-390763">Nokia</a><a href="/Sky-390768">Sky</a><a href="/OPPO-390766">OPPO</a></span> </div> </li><li><a href="/May-Tinh-390756" class="hover-icon"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992295565143_laptop-3-20.png" alt="">Máy Tính</a><div class="vmegamenu"> <span><a href="/Dell-390772">Dell</a><a href="/Macbook-390777">Macbook </a><a href="/Asus-390775">Asus </a><a href="/HP-390773">HP</a><a href="/Lenovo-390774">Lenovo</a><a href="/Acer-390776">Acer </a><a href="/MSI-390778">MSI</a></span> </div> </li><li><a href="/Phu-kien-cong-nghe-390861" class="hover-icon"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992296179431_headphones-2-20.png" alt="">Phụ kiện công nghệ</a><div class="vmegamenu"> <span><a href="/Chuot-391454">Chuột</a><a href="/Tai-nghe-391456">Tai nghe</a><a href="/USB-391457">USB</a><a href="/Camera-391459">Camera</a><a href="/Ban-phim-391458">Bàn phím</a><a href="/De-tan-nhiet-391460">Đế tản nhiệt</a><a href="/Phu-kien-khac-391461">Phụ kiện khác</a></span> </div> </li><li><a href="/May-giat-390871" class="hover-icon"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14993107395819_washing-machine-20.png" alt="">Máy giặt</a><div class="vmegamenu"> <span><a href="/Toshiba-391483">Toshiba</a><a href="/SHARP-391486">SHARP</a><a href="/Samsung-391488">Samsung</a><a href="/LG-391494">LG</a></span> </div> </li><li><a href="/Tivi-390872" class="hover-icon"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14993092571944_television-21-20.png" alt="">Tivi</a><div class="vmegamenu"> <span><a href="/Samsung-391470">Samsung</a></span> </div> </li><li><a href="/may-lanh"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/ic-maylanh.png" alt="">Máy lạnh</a></li><li><a href="/dien-dung-gia-dinh-noi-com"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/ic-dodunggd.png" alt="">Điện dụng gia đình, nồi cơm</a></li><li><a href="/tu-lanh"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/ic-tulanh.png" alt="">Tủ lạnh</a></li><li><a href="/san-pham-cu"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/ic-spcu.png" alt="">Sản phẩm cũ</a></li><li><a href="/do-dung-gia-dinh"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/New Project (3).png" alt="">Đồ dùng gia đình</a></li><li><a href="/loc-nuoc"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/New Project (4).png" alt="">Lọc nước</a></li><li><a href="/may-giac-say-quan-ao"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/New Project (5).png" alt="">Máy giặc sấy quần áo</a></li><li><a href="/sim-so-the-cao-thu-ho"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/New Project (6).png" alt="">Sim số, thẻ cào, thu hộ</a></li><li><a href="/noi-that"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/New Project (7).png" alt="">Nội thất</a></li>            </ul>
+          </div>
+        </div>  
+      </div>
+      <div class="col-lg-9 col-md-9">
+        <div class="mainmenu">
+          <nav>
+            <ul>
+              <!--  -->
+               <li class="grid"><a class="" href="https://demo1013.web30s.vn"><span>Trang chủ</span></a></li><li class="grid"><a class="" href="https://demo1013.web30s.vn/Gioi-Thieu-391691"><span>Giới Thiệu</span></a></li><li class="grid "><a class="" href="https://demo1013.web30s.vn/San-pham"><span>Sản phẩm</span></a><ul class="dl-submenu  "><li><a href="https://demo1013.web30s.vn/Dien-Thoai-390755">» Điện Thoại</a><ul class="dl-submenu"><li><a href="https://demo1013.web30s.vn/iPhone-390764">» iPhone</a></li><li><a href="https://demo1013.web30s.vn/Samsung-390765">» Samsung</a></li><li><a href="https://demo1013.web30s.vn/HTC-390769">» HTC</a></li><li><a href="https://demo1013.web30s.vn/LG-390770">» LG</a></li><li><a href="https://demo1013.web30s.vn/Motorola-390771">» Motorola</a></li><li><a href="https://demo1013.web30s.vn/Sony-390767">» Sony</a></li><li><a href="https://demo1013.web30s.vn/Nokia-390763">» Nokia</a></li><li><a href="https://demo1013.web30s.vn/Sky-390768">» Sky</a></li><li><a href="https://demo1013.web30s.vn/OPPO-390766">» OPPO</a></li></ul></li><li><a href="https://demo1013.web30s.vn/May-Tinh-390756">» Máy Tính</a><ul class="dl-submenu"><li><a href="https://demo1013.web30s.vn/Dell-390772">» Dell</a></li><li><a href="https://demo1013.web30s.vn/Macbook-390777">» Macbook </a></li><li><a href="https://demo1013.web30s.vn/Asus-390775">» Asus </a></li><li><a href="https://demo1013.web30s.vn/HP-390773">» HP</a></li><li><a href="https://demo1013.web30s.vn/Lenovo-390774">» Lenovo</a></li><li><a href="https://demo1013.web30s.vn/Acer-390776">» Acer </a></li><li><a href="https://demo1013.web30s.vn/MSI-390778">» MSI</a></li></ul></li><li><a href="https://demo1013.web30s.vn/Phu-kien-cong-nghe-390861">» Phụ kiện công nghệ</a><ul class="dl-submenu"><li><a href="https://demo1013.web30s.vn/Chuot-391454">» Chuột</a></li><li><a href="https://demo1013.web30s.vn/Tai-nghe-391456">» Tai nghe</a></li><li><a href="https://demo1013.web30s.vn/USB-391457">» USB</a></li><li><a href="https://demo1013.web30s.vn/Camera-391459">» Camera</a></li><li><a href="https://demo1013.web30s.vn/Ban-phim-391458">» Bàn phím</a></li><li><a href="https://demo1013.web30s.vn/De-tan-nhiet-391460">» Đế tản nhiệt</a></li><li><a href="https://demo1013.web30s.vn/Phu-kien-khac-391461">» Phụ kiện khác</a></li></ul></li><li><a href="https://demo1013.web30s.vn/May-giat-390871">» Máy giặt</a><ul class="dl-submenu"><li><a href="https://demo1013.web30s.vn/Toshiba-391483">» Toshiba</a></li><li><a href="https://demo1013.web30s.vn/SHARP-391486">» SHARP</a></li><li><a href="https://demo1013.web30s.vn/Samsung-391488">» Samsung</a></li><li><a href="https://demo1013.web30s.vn/LG-391494">» LG</a></li></ul></li><li><a href="https://demo1013.web30s.vn/Tivi-390872">» Tivi</a><ul class="dl-submenu"><li><a href="https://demo1013.web30s.vn/Samsung-391470">» Samsung</a></li></ul></li><li><a href="https://demo1013.web30s.vn/may-lanh">» Máy lạnh</a></li><li><a href="https://demo1013.web30s.vn/dien-dung-gia-dinh-noi-com">» Điện dụng gia đình, nồi cơm</a></li><li><a href="https://demo1013.web30s.vn/tu-lanh">» Tủ lạnh</a></li><li><a href="https://demo1013.web30s.vn/san-pham-cu">» Sản phẩm cũ</a></li><li><a href="https://demo1013.web30s.vn/do-dung-gia-dinh">» Đồ dùng gia đình</a></li><li><a href="https://demo1013.web30s.vn/loc-nuoc">» Lọc nước</a></li><li><a href="https://demo1013.web30s.vn/may-giac-say-quan-ao">» Máy giặc sấy quần áo</a></li><li><a href="https://demo1013.web30s.vn/sim-so-the-cao-thu-ho">» Sim số, thẻ cào, thu hộ</a></li><li><a href="https://demo1013.web30s.vn/noi-that">» Nội thất</a></li></ul></li><li class="grid "><a class="" href="https://demo1013.web30s.vn/Tin-tuc"><span>Tin tức</span></a><ul class="dl-submenu  "><li><a href="https://demo1013.web30s.vn/Tin-tuc-xa-hoi-405868">» Tin tức xã hội</a></li><li><a href="https://demo1013.web30s.vn/Tin-tuc-suc-khoe-405869">» Tin tức sức khỏe</a></li><li><a href="https://demo1013.web30s.vn/Tin-tuc-cong-nghe-405870">» Tin tức công nghệ</a></li><li><a href="https://demo1013.web30s.vn/Tin-cong-nghe-393620">» Tin công nghệ</a></li><li><a href="https://demo1013.web30s.vn/Tin-cap-nhat-393621">» Tin cập nhật</a></li></ul></li><li class="grid"><a class="" href="https://demo1013.web30s.vn/Dich-Vu-391689"><span>Dịch Vụ</span></a></li><li class="grid"><a class="" href="https://demo1013.web30s.vn/Tuyen-Dung-391690"><span>Tuyển Dụng</span></a></li><li class="grid active"><a class="" href="https://demo1013.web30s.vn/lien-he"><span>Liên hệ</span></a></li>            
+              <!--  --> 
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  -->
+<script src="/templates/300-up-1013/menu_mb/modernizr.custom.js"></script>
+<script src="/templates/300-up-1013/menu_mb/jquery.dlmenu.js"></script>
+<script>
+  $(function() {
+    $( '#dl-menu' ).dlmenu();
+  });
+
+  $(document).ready(function(){
+    $('body').click(function(e) {
+      $('#dl-menu').dlmenu('closeMenu'); 
+    });
+  });
+</script>
+
+<div class="dv-mnmb mobile menu_mobile">
+  <div class="container">
+    <a class="a_home" href="https://demo1013.web30s.vn">trang chủ</a>
+    <div id="dl-menu" class="dl-menuwrapper">
+      <button class="dl-trigger cur "></button>
+      <div class="clear"></div>
+      <ul class="dl-menu">
+      <li class="grid"><a class="" href="https://demo1013.web30s.vn"><span>Trang chủ</span></a></li><li class="grid"><a class="" href="https://demo1013.web30s.vn/Gioi-Thieu-391691"><span>Giới Thiệu</span></a></li><li class="grid "><a class="" href="https://demo1013.web30s.vn/San-pham"><span>Sản phẩm</span></a><ul class="dl-submenu  "><li class="dl-back"><a href="#">Back</a></li><li><a href="https://demo1013.web30s.vn/Dien-Thoai-390755">» Điện Thoại</a><ul class="dl-submenu"><li class="dl-back"><a href="#">Back</a></li><li><a href="https://demo1013.web30s.vn/iPhone-390764">» iPhone</a></li><li><a href="https://demo1013.web30s.vn/Samsung-390765">» Samsung</a></li><li><a href="https://demo1013.web30s.vn/HTC-390769">» HTC</a></li><li><a href="https://demo1013.web30s.vn/LG-390770">» LG</a></li><li><a href="https://demo1013.web30s.vn/Motorola-390771">» Motorola</a></li><li><a href="https://demo1013.web30s.vn/Sony-390767">» Sony</a></li><li><a href="https://demo1013.web30s.vn/Nokia-390763">» Nokia</a></li><li><a href="https://demo1013.web30s.vn/Sky-390768">» Sky</a></li><li><a href="https://demo1013.web30s.vn/OPPO-390766">» OPPO</a></li></ul></li><li><a href="https://demo1013.web30s.vn/May-Tinh-390756">» Máy Tính</a><ul class="dl-submenu"><li class="dl-back"><a href="#">Back</a></li><li><a href="https://demo1013.web30s.vn/Dell-390772">» Dell</a></li><li><a href="https://demo1013.web30s.vn/Macbook-390777">» Macbook </a></li><li><a href="https://demo1013.web30s.vn/Asus-390775">» Asus </a></li><li><a href="https://demo1013.web30s.vn/HP-390773">» HP</a></li><li><a href="https://demo1013.web30s.vn/Lenovo-390774">» Lenovo</a></li><li><a href="https://demo1013.web30s.vn/Acer-390776">» Acer </a></li><li><a href="https://demo1013.web30s.vn/MSI-390778">» MSI</a></li></ul></li><li><a href="https://demo1013.web30s.vn/Phu-kien-cong-nghe-390861">» Phụ kiện công nghệ</a><ul class="dl-submenu"><li class="dl-back"><a href="#">Back</a></li><li><a href="https://demo1013.web30s.vn/Chuot-391454">» Chuột</a></li><li><a href="https://demo1013.web30s.vn/Tai-nghe-391456">» Tai nghe</a></li><li><a href="https://demo1013.web30s.vn/USB-391457">» USB</a></li><li><a href="https://demo1013.web30s.vn/Camera-391459">» Camera</a></li><li><a href="https://demo1013.web30s.vn/Ban-phim-391458">» Bàn phím</a></li><li><a href="https://demo1013.web30s.vn/De-tan-nhiet-391460">» Đế tản nhiệt</a></li><li><a href="https://demo1013.web30s.vn/Phu-kien-khac-391461">» Phụ kiện khác</a></li></ul></li><li><a href="https://demo1013.web30s.vn/May-giat-390871">» Máy giặt</a><ul class="dl-submenu"><li class="dl-back"><a href="#">Back</a></li><li><a href="https://demo1013.web30s.vn/Toshiba-391483">» Toshiba</a></li><li><a href="https://demo1013.web30s.vn/SHARP-391486">» SHARP</a></li><li><a href="https://demo1013.web30s.vn/Samsung-391488">» Samsung</a></li><li><a href="https://demo1013.web30s.vn/LG-391494">» LG</a></li></ul></li><li><a href="https://demo1013.web30s.vn/Tivi-390872">» Tivi</a><ul class="dl-submenu"><li class="dl-back"><a href="#">Back</a></li><li><a href="https://demo1013.web30s.vn/Samsung-391470">» Samsung</a></li></ul></li><li><a href="https://demo1013.web30s.vn/may-lanh">» Máy lạnh</a></li><li><a href="https://demo1013.web30s.vn/dien-dung-gia-dinh-noi-com">» Điện dụng gia đình, nồi cơm</a></li><li><a href="https://demo1013.web30s.vn/tu-lanh">» Tủ lạnh</a></li><li><a href="https://demo1013.web30s.vn/san-pham-cu">» Sản phẩm cũ</a></li><li><a href="https://demo1013.web30s.vn/do-dung-gia-dinh">» Đồ dùng gia đình</a></li><li><a href="https://demo1013.web30s.vn/loc-nuoc">» Lọc nước</a></li><li><a href="https://demo1013.web30s.vn/may-giac-say-quan-ao">» Máy giặc sấy quần áo</a></li><li><a href="https://demo1013.web30s.vn/sim-so-the-cao-thu-ho">» Sim số, thẻ cào, thu hộ</a></li><li><a href="https://demo1013.web30s.vn/noi-that">» Nội thất</a></li></ul></li><li class="grid "><a class="" href="https://demo1013.web30s.vn/Tin-tuc"><span>Tin tức</span></a><ul class="dl-submenu  "><li class="dl-back"><a href="#">Back</a></li><li><a href="https://demo1013.web30s.vn/Tin-tuc-xa-hoi-405868">» Tin tức xã hội</a></li><li><a href="https://demo1013.web30s.vn/Tin-tuc-suc-khoe-405869">» Tin tức sức khỏe</a></li><li><a href="https://demo1013.web30s.vn/Tin-tuc-cong-nghe-405870">» Tin tức công nghệ</a></li><li><a href="https://demo1013.web30s.vn/Tin-cong-nghe-393620">» Tin công nghệ</a></li><li><a href="https://demo1013.web30s.vn/Tin-cap-nhat-393621">» Tin cập nhật</a></li></ul></li><li class="grid"><a class="" href="https://demo1013.web30s.vn/Dich-Vu-391689"><span>Dịch Vụ</span></a></li><li class="grid"><a class="" href="https://demo1013.web30s.vn/Tuyen-Dung-391690"><span>Tuyển Dụng</span></a></li><li class="grid active"><a class="" href="https://demo1013.web30s.vn/lien-he"><span>Liên hệ</span></a></li>        <!--  -->
+      </ul>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<div class="clearfix"> </div>
+<script>
+  $("span.menu").click(function(){
+    $(" ul.nav").slideToggle("slow" , function(){
+    });
+  });
+</script>
+<!--  -->	<!-- <div id="conten"> -->
+		<article>
+	  		<section class="content gallery pad1" style="padding:0">
+	      		<div class="midle_main_idclass fix1200_cus1">
+					
+<div class="main">
+    <div class="container">
+        <div class="dv-child-one-style">
+            <div class="dv-child-left">
+                <h3>Liên hệ</h3>
+                <div class="cont-tintuc">
+                        <div class="contact-detail -css-contact-detail">
+            </div>
+
+    <div class="contact-form -css-contact-form">
+        <form name="FormNameContact" action="https://demo1013.web30s.vn/contact/" method="post" id="FormNameContact">
+            <input type="hidden" name="module" value="form">
+            <input type="hidden" name="action" value="goilienhe">
+            <div class="-post-contact -css-post-contact">
+                <fieldset class="contact-name">
+                    <label><i class="fa fa-user fa-lg"></i></label>
+                    <input name="tendaydu" id="tendaydu" type="text" value="" placeholder="Họ tên" onfocus="this.placeholder=''" onblur="this.placeholder='Họ tên'">
+                </fieldset>
+                <fieldset class="contact-email">
+                    <label><i class="fa fa-envelope fa-lg"></i></label>
+                    <input name="email" type="text" value="" placeholder="Email" onfocus="this.placeholder=''" onblur="this.placeholder='Email'">
+                </fieldset>
+                <fieldset class="contact-address">
+                    <label><i class="fa fa-map-marker fa-lg"></i></label>
+                    <input name="diachi" type="text" value="" placeholder="Địa chỉ" onfocus="this.placeholder=''" onblur="this.placeholder='Địa chỉ'">
+                </fieldset>
+                <fieldset class="contact-phone">
+                    <label><i class="fa fa-mobile fa-lg"></i></label>
+                    <input name="dienthoai" type="tel" value="" minlength="10" maxlength="18" placeholder="Điện thoại" onfocus="this.placeholder=''" onblur="this.placeholder='Điện thoại'">
+                </fieldset>
+                <fieldset class="contact-messenger">
+                    <label><i class="fa fa-comment fa-lg"></i></label>
+                    <textarea name="noidung" cols="5" rows="5" placeholder="Nội dung" onfocus="this.placeholder=''" onblur="this.placeholder='Nội dung'"></textarea>
+                </fieldset>
+                <fieldset class="contact-security">
+                    <label><i class="fa fa-key fa-lg"></i></label>
+                    <input name="mabaove" class="haimabaove" type="text" placeholder="Mã số" onfocus="this.placeholder=''" onblur="this.placeholder='Mã số'">
+                    <div class="autoCaptcha contact-captcha"><img src="/imgcode.php?time=0.29417058979526023"><a class="renewCaptcha"><i class="fa fa-refresh" aria-hidden="true"></i></a></div>
+                    <div class="clear"></div>
+                </fieldset>
+                <fieldset class="contact-cofirm">
+                    <a onclick="document.getElementById('FormNameContact').reset(); document.getElementById('tendaydu').focus()" class="contact-reset"><i class="fa fa-refresh"></i> Làm lại                    </a>
+                    <a onclick="if(Check_Form_Name_Contact())document.getElementById('FormNameContact').submit()" class="contact-submit"><i class="fa fa-send"></i> Gởi đi                    </a>
+                    <div class="clear"></div>
+                </fieldset>
+                <div class="clear"></div>
+            </div>
+            <div class="clr"></div>
+        </form>
+    </div>
+
+            <div class="multiple_map">
+            <div></div>
+            <input type="hidden" id="address-0" value="254A Nguyễn Đình Chiểu , Phường 6, Quận 3, Tp. Hồ Chí Minh, Việt Nam">
+            <input type="hidden" id="latitude-0" value="10.777041">
+            <input type="hidden" id="longitude-0" value="106.688700">
+            <input type="hidden" id="zoom-0" value="15">
+            <script>
+                 $(function () {
+                     var APIScript = document.createElement('script');
+                    APIScript.text = ' var _api_key = ""; var _is_demo = "1";';
+                    document.getElementsByTagName('head')[0].appendChild(APIScript);
+                     
+                    var PAMapScript = document.createElement('script');
+                    PAMapScript.src = '/js/pamap_loader.js?t=20';
+                    document.getElementsByTagName('head')[0].appendChild(PAMapScript);
+                });
+            </script><div class="map_canvas" id="map_canvas-0" style="height: 350px; position: relative; overflow: hidden;" readonly="readonly" data-id-lat="latitude-0" data-id-lng="longitude-0" data-id-addr="address-0" data-id-zoom="zoom-0"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"><div tabindex="0" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; touch-action: pan-x pan-y;"><div style="z-index: 1; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 985; transform: matrix(1, 0, 0, 1, -11, -55);"><div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 0px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div style="position: absolute; z-index: 985; transform: matrix(1, 0, 0, 1, -11, -55);"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: -256px;"></div></div></div><div style="width: 27px; height: 43px; overflow: hidden; position: absolute; left: -14px; top: -43px; z-index: 0;"><img alt="" src="https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 27px; height: 43px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 985; transform: matrix(1, 0, 0, 1, -11, -55);"><div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i26095!3i15397!4i256!2m3!1e0!2sm!3i524245624!3m12!2svi!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!4e0&amp;key=AIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;token=52354" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 256px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i26096!3i15396!4i256!2m3!1e0!2sm!3i524245624!3m12!2svi!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!4e0&amp;key=AIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;token=107111" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i26094!3i15397!4i256!2m3!1e0!2sm!3i524245624!3m12!2svi!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!4e0&amp;key=AIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;token=123998" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 0px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i26095!3i15396!4i256!2m3!1e0!2sm!3i524245624!3m12!2svi!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!4e0&amp;key=AIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;token=47684" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -256px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i26094!3i15396!4i256!2m3!1e0!2sm!3i524245624!3m12!2svi!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!4e0&amp;key=AIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;token=119328" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i26096!3i15397!4i256!2m3!1e0!2sm!3i524245624!3m12!2svi!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!4e0&amp;key=AIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;token=111781" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -512px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i26093!3i15396!4i256!2m3!1e0!2sm!3i524245624!3m12!2svi!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!4e0&amp;key=AIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;token=59901" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -512px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear 0s;"><img draggable="false" alt="" role="presentation" src="https://maps.google.com/maps/vt?pb=!1m5!1m4!1i15!2i26093!3i15397!4i256!2m3!1e0!2sm!3i524245624!3m12!2svi!3sUS!5e18!12m4!1e68!2m2!1sset!2sRoadmap!12m3!1e37!2m1!1ssmartmaps!4e0&amp;key=AIzaSyDyxNK6shHjCa0a2ATwbs2kbsur0QTcMMI&amp;token=64571" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div></div></div><div class="gm-style-pbc" style="z-index: 2; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; opacity: 0;"><p class="gm-style-pbt"></p></div><div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;"><div style="z-index: 4; position: absolute; left: 50%; top: 50%; width: 100%; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"><div style="width: 27px; height: 43px; overflow: hidden; position: absolute; opacity: 0; left: -14px; top: -43px; z-index: 0;"><img alt="" src="https://maps.gstatic.com/mapfiles/api-3/images/spotlight-poi2.png" draggable="false" usemap="#gmimap0" style="position: absolute; left: 0px; top: 0px; width: 27px; height: 43px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"><map name="gmimap0" id="gmimap0"><area log="miw" coords="13.5,0,4,3.75,0,13.5,13.5,43,27,13.5,23,3.75" shape="poly" title="" style="cursor: pointer; touch-action: none;"></map></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"><div style="cursor: default; position: absolute; top: 0px; left: 0px; z-index: -93;"><div class="gm-style-iw-a" style="position: absolute; left: 0px; top: 0px;"><div class="gm-style-iw-t" style="right: 0px; bottom: 54px;"><div class="gm-style-iw gm-style-iw-c" style="padding-right: 0px; padding-bottom: 0px; max-width: 648px; max-height: 176px; min-width: 0px;"><div class="gm-style-iw-d" style="overflow: scroll; max-height: 158px;"><div><span id="address"><b>Địa chỉ:</b> 254A Nguyễn Đình Chiểu , Phường 6, Quận 3, Tp. Hồ Chí Minh, Việt Nam</span></div></div><button draggable="false" title="Đóng" aria-label="Đóng" type="button" class="gm-ui-hover-effect" style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; position: absolute; cursor: pointer; user-select: none; top: -6px; right: -6px; width: 30px; height: 30px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224px%22%20height%3D%2224px%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23000000%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M19%206.41L17.59%205%2012%2010.59%206.41%205%205%206.41%2010.59%2012%205%2017.59%206.41%2019%2012%2013.41%2017.59%2019%2019%2017.59%2013.41%2012z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="pointer-events: none; display: block; width: 14px; height: 14px; margin: 8px;"></button></div></div></div></div></div></div></div></div><iframe aria-hidden="true" frameborder="0" tabindex="-1" style="z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: none;"></iframe><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a target="_blank" rel="noopener" href="https://maps.google.com/maps?ll=10.777041,106.6887&amp;z=15&amp;t=m&amp;hl=vi&amp;gl=US&amp;mapclient=apiv3" title="Mở khu vực này trong Google Maps (mở cửa sổ mới)" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 66px; height: 26px; cursor: pointer;"><img alt="" src="https://maps.gstatic.com/mapfiles/api-3/images/google4.png" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a></div><div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto, Arial, sans-serif; color: rgb(34, 34, 34); box-sizing: border-box; box-shadow: rgba(0, 0, 0, 0.2) 0px 4px 16px; z-index: 10000002; display: none; width: 300px; height: 180px; position: absolute; left: 272px; top: 85px;"><div style="padding: 0px 0px 10px; font-size: 16px; box-sizing: border-box;">Dữ liệu Bản đồ</div><div style="font-size: 13px;">Dữ liệu bản đồ ©2020</div><button draggable="false" title="Đóng" aria-label="Đóng" type="button" class="gm-ui-hover-effect" style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; position: absolute; cursor: pointer; user-select: none; top: 0px; right: 0px; width: 37px; height: 37px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224px%22%20height%3D%2224px%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23000000%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M19%206.41L17.59%205%2012%2010.59%206.41%205%205%206.41%2010.59%2012%205%2017.59%206.41%2019%2012%2013.41%2017.59%2019%2019%2017.59%2013.41%2012z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="pointer-events: none; display: block; width: 13px; height: 13px; margin: 12px;"></button></div><div class="gmnoprint" style="z-index: 1000001; position: absolute; right: 215px; bottom: 0px; width: 109px;"><div draggable="false" class="gm-style-cc" style="user-select: none; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a style="text-decoration: none; cursor: pointer; display: none;">Dữ liệu Bản đồ</a><span>Dữ liệu bản đồ ©2020</span></div></div></div><div class="gmnoscreen" style="position: absolute; right: 0px; bottom: 0px;"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Dữ liệu bản đồ ©2020</div></div><div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; user-select: none; height: 14px; line-height: 14px; position: absolute; right: 114px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a href="https://www.google.com/intl/vi_US/help/terms_maps.html" target="_blank" rel="noopener" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Điều khoản sử dụng</a></div></div><button draggable="false" title="Chuyển đổi chế độ xem toàn màn hình" aria-label="Chuyển đổi chế độ xem toàn màn hình" type="button" class="gm-control-active gm-fullscreen-control" style="background: none rgb(255, 255, 255); border: 0px; margin: 10px; padding: 0px; position: absolute; cursor: pointer; user-select: none; border-radius: 2px; height: 40px; width: 40px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; overflow: hidden; top: 0px; right: 0px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%20018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%2C0v2v4h2V2h4V0H2H0z%20M16%2C0h-4v2h4v4h2V2V0H16z%20M16%2C16h-4v2h4h2v-2v-4h-2V16z%20M2%2C12H0v4v2h2h4v-2H2V12z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23333%22%20d%3D%22M0%2C0v2v4h2V2h4V0H2H0z%20M16%2C0h-4v2h4v4h2V2V0H16z%20M16%2C16h-4v2h4h2v-2v-4h-2V16z%20M2%2C12H0v4v2h2h4v-2H2V12z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23111%22%20d%3D%22M0%2C0v2v4h2V2h4V0H2H0z%20M16%2C0h-4v2h4v4h2V2V0H16z%20M16%2C16h-4v2h4h2v-2v-4h-2V16z%20M2%2C12H0v4v2h2h4v-2H2V12z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"></button><div draggable="false" class="gm-style-cc" style="user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a target="_blank" rel="noopener" title="Báo cáo lỗi trong bản đồ đường hoặc hình ảnh đến Google" href="https://www.google.com/maps/@10.777041,106.6887,15z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;">Báo cáo một lỗi bản đồ</a></div></div><div class="gmnoprint gm-bundled-control gm-bundled-control-on-bottom" draggable="false" controlwidth="40" controlheight="153" style="margin: 10px; user-select: none; position: absolute; bottom: 167px; right: 40px;"><div class="gmnoprint" controlwidth="40" controlheight="81" style="position: absolute; left: 0px; top: 72px;"><div draggable="false" style="user-select: none; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; cursor: pointer; background-color: rgb(255, 255, 255); width: 40px; height: 81px;"><button draggable="false" title="Phóng to" aria-label="Phóng to" type="button" class="gm-control-active" style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; position: relative; cursor: pointer; user-select: none; overflow: hidden; width: 40px; height: 40px; top: 0px; left: 0px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpolygon%20fill%3D%22%23666%22%20points%3D%2218%2C7%2011%2C7%2011%2C0%207%2C0%207%2C7%200%2C7%200%2C11%207%2C11%207%2C18%2011%2C18%2011%2C11%2018%2C11%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpolygon%20fill%3D%22%23333%22%20points%3D%2218%2C7%2011%2C7%2011%2C0%207%2C0%207%2C7%200%2C7%200%2C11%207%2C11%207%2C18%2011%2C18%2011%2C11%2018%2C11%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpolygon%20fill%3D%22%23111%22%20points%3D%2218%2C7%2011%2C7%2011%2C0%207%2C0%207%2C7%200%2C7%200%2C11%207%2C11%207%2C18%2011%2C18%2011%2C11%2018%2C11%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"></button><div style="position: relative; overflow: hidden; width: 30px; height: 1px; margin: 0px 5px; background-color: rgb(230, 230, 230); top: 0px;"></div><button draggable="false" title="Thu nhỏ" aria-label="Thu nhỏ" type="button" class="gm-control-active" style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; position: relative; cursor: pointer; user-select: none; overflow: hidden; width: 40px; height: 40px; top: 0px; left: 0px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%2C7h18v4H0V7z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23333%22%20d%3D%22M0%2C7h18v4H0V7z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218%22%20height%3D%2218%22%20viewBox%3D%220%200%2018%2018%22%3E%0A%20%20%3Cpath%20fill%3D%22%23111%22%20d%3D%22M0%2C7h18v4H0V7z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"></button></div></div><div class="gm-svpc" dir="ltr" title="Kéo Người hình mắc áo vào bản đồ để mở Chế độ xem phố" controlwidth="40" controlheight="40" style="background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; width: 40px; height: 40px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; touch-action: none; position: absolute; left: 0px; top: 0px;"><div style="position: absolute; left: 50%; top: 50%;"></div><div style="position: absolute; left: 50%; top: 50%;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2223%22%20height%3D%2238%22%20viewBox%3D%220%200%2023%2038%22%3E%0A%3Cpath%20d%3D%22M16.6%2C38.1h-5.5l-0.2-2.9-0.2%2C2.9h-5.5L5%2C25.3l-0.8%2C2a1.53%2C1.53%2C0%2C0%2C1-1.9.9l-1.2-.4a1.58%2C1.58%2C0%2C0%2C1-1-1.9v-0.1c0.3-.9%2C3.1-11.2%2C3.1-11.2a2.66%2C2.66%2C0%2C0%2C1%2C2.3-2l0.6-.5a6.93%2C6.93%2C0%2C0%2C1%2C4.7-12%2C6.8%2C6.8%2C0%2C0%2C1%2C4.9%2C2%2C7%2C7%2C0%2C0%2C1%2C2%2C4.9%2C6.65%2C6.65%2C0%2C0%2C1-2.2%2C5l0.7%2C0.5a2.78%2C2.78%2C0%2C0%2C1%2C2.4%2C2s2.9%2C11.2%2C2.9%2C11.3a1.53%2C1.53%2C0%2C0%2C1-.9%2C1.9l-1.3.4a1.63%2C1.63%2C0%2C0%2C1-1.9-.9l-0.7-1.8-0.1%2C12.7h0Zm-3.6-2h1.7L14.9%2C20.3l1.9-.3%2C2.4%2C6.3%2C0.3-.1c-0.2-.8-0.8-3.2-2.8-10.9a0.63%2C0.63%2C0%2C0%2C0-.6-0.5h-0.6l-1.1-.9h-1.9l-0.3-2a4.83%2C4.83%2C0%2C0%2C0%2C3.5-4.7A4.78%2C4.78%200%200%2C0%2011%202.3H10.8a4.9%2C4.9%2C0%2C0%2C0-1.4%2C9.6l-0.3%2C2h-1.9l-1%2C.9h-0.6a0.74%2C0.74%2C0%2C0%2C0-.6.5c-2%2C7.5-2.7%2C10-3%2C10.9l0.3%2C0.1%2C2.5-6.3%2C1.9%2C0.3%2C0.2%2C15.8h1.6l0.6-8.4a1.52%2C1.52%2C0%2C0%2C1%2C1.5-1.4%2C1.5%2C1.5%2C0%2C0%2C1%2C1.5%2C1.4l0.9%2C8.4h0Zm-10.9-9.6h0Zm17.5-.1h0Z%22%20style%3D%22fill%3A%23333%3Bopacity%3A0.7%3Bisolation%3Aisolate%22%2F%3E%0A%3Cpath%20d%3D%22M5.9%2C13.6l1.1-.9h7.8l1.2%2C0.9%22%20style%3D%22fill%3A%23ce592c%22%2F%3E%0A%3Cellipse%20cx%3D%2210.9%22%20cy%3D%2213.1%22%20rx%3D%222.7%22%20ry%3D%220.3%22%20style%3D%22fill%3A%23ce592c%3Bopacity%3A0.5%3Bisolation%3Aisolate%22%2F%3E%0A%3Cpath%20d%3D%22M20.6%2C26.1l-2.9-11.3a1.71%2C1.71%2C0%2C0%2C0-1.6-1.2H5.7a1.69%2C1.69%2C0%2C0%2C0-1.5%2C1.3l-3.1%2C11.3a0.61%2C0.61%2C0%2C0%2C0%2C.3.7l1.1%2C0.4a0.61%2C0.61%2C0%2C0%2C0%2C.7-0.3l2.7-6.7%2C0.2%2C16.8h3.6l0.6-9.3a0.47%2C0.47%2C0%2C0%2C1%2C.44-0.5h0.06c0.4%2C0%2C.4.2%2C0.5%2C0.5l0.6%2C9.3h3.6L15.7%2C20.3l2.5%2C6.6a0.52%2C0.52%2C0%2C0%2C0%2C.66.31h0l1.2-.4a0.57%2C0.57%2C0%2C0%2C0%2C.5-0.7h0Z%22%20style%3D%22fill%3A%23fdbf2d%22%2F%3E%0A%3Cpath%20d%3D%22M7%2C13.6l3.9%2C6.7%2C3.9-6.7%22%20style%3D%22fill%3A%23cf572e%3Bopacity%3A0.6%3Bisolation%3Aisolate%22%2F%3E%0A%3Ccircle%20cx%3D%2210.9%22%20cy%3D%227%22%20r%3D%225.9%22%20style%3D%22fill%3A%23fdbf2d%22%2F%3E%0A%3C%2Fsvg%3E%0A" aria-label="Kiểm soát người hình mắc áo trong chế độ xem phố" style="height: 30px; width: 30px; position: absolute; transform: translate(-50%, -50%); pointer-events: none;"><img src="data:image/svg+xml,%3Csvg%20width%3D%2224px%22%20height%3D%2238px%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20viewBox%3D%220%200%2024%2038%22%3E%0A%3Cpath%20d%3D%22M22%2C26.6l-2.9-11.3a2.78%2C2.78%2C0%2C0%2C0-2.4-2l-0.7-.5a6.82%2C6.82%2C0%2C0%2C0%2C2.2-5%2C6.9%2C6.9%2C0%2C0%2C0-13.8%2C0%2C7%2C7%2C0%2C0%2C0%2C2.2%2C5.1l-0.6.5a2.55%2C2.55%2C0%2C0%2C0-2.3%2C2s-3%2C11.1-3%2C11.2v0.1a1.58%2C1.58%2C0%2C0%2C0%2C1%2C1.9l1.2%2C0.4a1.63%2C1.63%2C0%2C0%2C0%2C1.9-.9l0.8-2%2C0.2%2C12.8h11.3l0.2-12.6%2C0.7%2C1.8a1.54%2C1.54%2C0%2C0%2C0%2C1.5%2C1%2C1.09%2C1.09%2C0%2C0%2C0%2C.5-0.1l1.3-.4a1.85%2C1.85%2C0%2C0%2C0%2C.7-2h0Zm-1.2.9-1.2.4a0.61%2C0.61%2C0%2C0%2C1-.7-0.3l-2.5-6.6-0.2%2C16.8h-9.4L6.6%2C21l-2.7%2C6.7a0.52%2C0.52%2C0%2C0%2C1-.66.31h0l-1.1-.4a0.52%2C0.52%2C0%2C0%2C1-.31-0.66v0l3.1-11.3a1.69%2C1.69%2C0%2C0%2C1%2C1.5-1.3h0.2l1-.9h2.3a5.9%2C5.9%2C0%2C1%2C1%2C3.2%2C0h2.3l1.1%2C0.9h0.2a1.71%2C1.71%2C0%2C0%2C1%2C1.6%2C1.2l2.9%2C11.3a0.84%2C0.84%2C0%2C0%2C1-.4.7h0Z%22%20style%3D%22fill%3A%23333%3Bfill-opacity%3A0.2%22%2F%3E%22%0A%3C%2Fsvg%3E%0A%0A" aria-label="Người hình mắc áo ở đầu Bản đồ" style="display: none; height: 30px; width: 30px; position: absolute; transform: translate(-50%, -50%); pointer-events: none;"><img src="data:image/svg+xml,%3Csvg%20width%3D%2240px%22%20height%3D%2250px%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20viewBox%3D%220%200%2040%2050%22%3E%0A%3Cpath%20d%3D%22M34.00%2C-30.40l-2.9-11.3a2.78%2C2.78%2C0%2C0%2C0-2.4-2l-0.7-.5a6.82%2C6.82%2C0%2C0%2C0%2C2.2-5%2C6.9%2C6.9%2C0%2C0%2C0-13.8%2C0%2C7%2C7%2C0%2C0%2C0%2C2.2%2C5.1l-0.6.5a2.55%2C2.55%2C0%2C0%2C0-2.3%2C2s-3%2C11.1-3%2C11.2v0.1a1.58%2C1.58%2C0%2C0%2C0%2C1%2C1.9l1.2%2C0.4a1.63%2C1.63%2C0%2C0%2C0%2C1.9-.9l0.8-2%2C0.2%2C12.8h11.3l0.2-12.6%2C0.7%2C1.8a1.54%2C1.54%2C0%2C0%2C0%2C1.5%2C1%2C1.09%2C1.09%2C0%2C0%2C0%2C.5-0.1l1.3-.4a1.85%2C1.85%2C0%2C0%2C0%2C.7-2h0Zm-1.2.9-1.2.4a0.61%2C0.61%2C0%2C0%2C1-.7-0.3l-2.5-6.6-0.2%2C16.8h-9.4L18.60%2C-36.00l-2.7%2C6.7a0.52%2C0.52%2C0%2C0%2C1-.66.31h0l-1.1-.4a0.52%2C0.52%2C0%2C0%2C1-.31-0.66v0l3.1-11.3a1.69%2C1.69%2C0%2C0%2C1%2C1.5-1.3h0.2l1-.9h2.3a5.9%2C5.9%2C0%2C1%2C1%2C3.2%2C0h2.3l1.1%2C0.9h0.2a1.71%2C1.71%2C0%2C0%2C1%2C1.6%2C1.2l2.9%2C11.3a0.84%2C0.84%2C0%2C0%2C1-.4.7h0Zm1.2%2C59.1-2.9-11.3a2.78%2C2.78%2C0%2C0%2C0-2.4-2l-0.7-.5a6.82%2C6.82%2C0%2C0%2C0%2C2.2-5%2C6.9%2C6.9%2C0%2C0%2C0-13.8%2C0%2C7%2C7%2C0%2C0%2C0%2C2.2%2C5.1l-0.6.5a2.55%2C2.55%2C0%2C0%2C0-2.3%2C2s-3%2C11.1-3%2C11.2v0.1a1.58%2C1.58%2C0%2C0%2C0%2C1%2C1.9l1.2%2C0.4a1.63%2C1.63%2C0%2C0%2C0%2C1.9-.9l0.8-2%2C0.2%2C12.8h11.3l0.2-12.6%2C0.7%2C1.8a1.54%2C1.54%2C0%2C0%2C0%2C1.5%2C1%2C1.09%2C1.09%2C0%2C0%2C0%2C.5-0.1l1.3-.4a1.85%2C1.85%2C0%2C0%2C0%2C.7-2h0Zm-1.2.9-1.2.4a0.61%2C0.61%2C0%2C0%2C1-.7-0.3l-2.5-6.6-0.2%2C16.8h-9.4L18.60%2C24.00l-2.7%2C6.7a0.52%2C0.52%2C0%2C0%2C1-.66.31h0l-1.1-.4a0.52%2C0.52%2C0%2C0%2C1-.31-0.66v0l3.1-11.3a1.69%2C1.69%2C0%2C0%2C1%2C1.5-1.3h0.2l1-.9h2.3a5.9%2C5.9%2C0%2C1%2C1%2C3.2%2C0h2.3l1.1%2C0.9h0.2a1.71%2C1.71%2C0%2C0%2C1%2C1.6%2C1.2l2.9%2C11.3a0.84%2C0.84%2C0%2C0%2C1-.4.7h0Z%22%20style%3D%22fill%3A%23333%3Bfill-opacity%3A0.2%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M15.40%2C38.80h-4a1.64%2C1.64%2C0%2C0%2C1-1.4-1.1l-3.1-8a0.9%2C0.9%2C0%2C0%2C1-.5.1l-1.4.1a1.62%2C1.62%2C0%2C0%2C1-1.6-1.4l-1.1-13.1%2C1.6-1.3a6.87%2C6.87%2C0%2C0%2C1-3-4.6A7.14%2C7.14%200%200%2C1%202%204a7.6%2C7.6%2C0%2C0%2C1%2C4.7-3.1%2C7.14%2C7.14%2C0%2C0%2C1%2C5.5%2C1.1%2C7.28%2C7.28%2C0%2C0%2C1%2C2.3%2C9.6l2.1-.1%2C0.1%2C1c0%2C0.2.1%2C0.5%2C0.1%2C0.8a2.41%2C2.41%2C0%2C0%2C1%2C1%2C1s1.9%2C3.2%2C2.8%2C4.9c0.7%2C1.2%2C2.1%2C4.2%2C2.8%2C5.9a2.1%2C2.1%2C0%2C0%2C1-.8%2C2.6l-0.6.4a1.63%2C1.63%2C0%2C0%2C1-1.5.2l-0.6-.3a8.93%2C8.93%2C0%2C0%2C0%2C.5%2C1.3%2C7.91%2C7.91%2C0%2C0%2C0%2C1.8%2C2.6l0.6%2C0.3v4.6l-4.5-.1a7.32%2C7.32%2C0%2C0%2C1-2.5-1.5l-0.4%2C3.6h0Zm-10-19.2%2C3.5%2C9.8%2C2.9%2C7.5h1.6V35l-1.9-9.4%2C3.1%2C5.4a8.24%2C8.24%2C0%2C0%2C0%2C3.8%2C3.8h2.1v-1.4a14%2C14%2C0%2C0%2C1-2.2-3.1%2C44.55%2C44.55%2C0%2C0%2C1-2.2-8l-1.3-6.3%2C3.2%2C5.6c0.6%2C1.1%2C2.1%2C3.6%2C2.8%2C4.9l0.6-.4c-0.8-1.6-2.1-4.6-2.8-5.8-0.9-1.7-2.8-4.9-2.8-4.9a0.54%2C0.54%2C0%2C0%2C0-.4-0.3l-0.7-.1-0.1-.7a4.33%2C4.33%2C0%2C0%2C0-.1-0.5l-5.3.3%2C2.2-1.9a4.3%2C4.3%2C0%2C0%2C0%2C.9-1%2C5.17%2C5.17%2C0%2C0%2C0%2C.8-4%2C5.67%2C5.67%2C0%2C0%2C0-2.2-3.4%2C5.09%2C5.09%2C0%2C0%2C0-4-.8%2C5.67%2C5.67%2C0%2C0%2C0-3.4%2C2.2%2C5.17%2C5.17%2C0%2C0%2C0-.8%2C4%2C5.67%2C5.67%2C0%2C0%2C0%2C2.2%2C3.4%2C3.13%2C3.13%2C0%2C0%2C0%2C1%2C.5l1.6%2C0.6-3.2%2C2.6%2C1%2C11.5h0.4l-0.3-8.2h0Z%22%20style%3D%22fill%3A%23333%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M3.35%2C15.90l1.1%2C12.5a0.39%2C0.39%2C0%2C0%2C0%2C.36.42l0.14%2C0%2C1.4-.1a0.66%2C0.66%2C0%2C0%2C0%2C.5-0.4l-0.2-3.8-3.3-8.6h0Z%22%20style%3D%22fill%3A%23fdbf2d%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M5.20%2C28.80l1.1-.1a0.66%2C0.66%2C0%2C0%2C0%2C.5-0.4l-0.2-3.8-1.2-3.1Z%22%20style%3D%22fill%3A%23ce592b%3Bfill-opacity%3A0.25%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M21.40%2C35.70l-3.8-1.2-2.7-7.8L12.00%2C15.5l3.4-2.9c0.2%2C2.4%2C2.2%2C14.1%2C3.7%2C17.1%2C0%2C0%2C1.3%2C2.6%2C2.3%2C3.1v2.9m-8.4-8.1-2-.3%2C2.5%2C10.1%2C0.9%2C0.4v-2.9%22%20style%3D%22fill%3A%23e5892b%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M17.80%2C25.40c-0.4-1.5-.7-3.1-1.1-4.8-0.1-.4-0.1-0.7-0.2-1.1l-1.1-2-1.7-1.6s0.9%2C5%2C2.4%2C7.1a19.12%2C19.12%2C0%2C0%2C0%2C1.7%2C2.4h0Z%22%20style%3D%22fill%3A%23cf572e%3Bopacity%3A0.6%3Bisolation%3Aisolate%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M14.40%2C37.80h-3a0.43%2C0.43%2C0%2C0%2C1-.4-0.4l-3-7.8-1.7-4.8-3-9%2C8.9-.4s2.9%2C11.3%2C4.3%2C14.4c1.9%2C4.1%2C3.1%2C4.7%2C5%2C5.8h-3.2s-4.1-1.2-5.9-7.7a0.59%2C0.59%2C0%2C0%2C0-.6-0.4%2C0.62%2C0.62%2C0%2C0%2C0-.3.7s0.5%2C2.4.9%2C3.6a34.87%2C34.87%2C0%2C0%2C0%2C2%2C6h0Z%22%20style%3D%22fill%3A%23fdbf2d%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M15.40%2C12.70l-3.3%2C2.9-8.9.4%2C3.3-2.7%22%20style%3D%22fill%3A%23ce592b%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M9.10%2C21.10l1.4-6.2-5.9.5%22%20style%3D%22fill%3A%23cf572e%3Bopacity%3A0.6%3Bisolation%3Aisolate%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M12.00%2C13.5a4.75%2C4.75%2C0%2C0%2C1-2.6%2C1.1c-1.5.3-2.9%2C0.2-2.9%2C0s1.1-.6%2C2.7-1%22%20style%3D%22fill%3A%23bb3d19%22%3E%3C%2Fpath%3E%0A%3Ccircle%20cx%3D%227.92%22%20cy%3D%228.19%22%20r%3D%226.3%22%20style%3D%22fill%3A%23fdbf2d%22%3E%3C%2Fcircle%3E%0A%3Cpath%20d%3D%22M4.70%2C13.60a6.21%2C6.21%2C0%2C0%2C0%2C8.4-1.9v-0.1a8.89%2C8.89%2C0%2C0%2C1-8.4%2C2h0Z%22%20style%3D%22fill%3A%23ce592b%3Bfill-opacity%3A0.25%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M21.20%2C27.20l0.6-.4a1.09%2C1.09%2C0%2C0%2C0%2C.4-1.3c-0.7-1.5-2.1-4.6-2.8-5.8-0.9-1.7-2.8-4.9-2.8-4.9a1.6%2C1.6%2C0%2C0%2C0-2.17-.65l-0.23.15a1.68%2C1.68%2C0%2C0%2C0-.4%2C2.1s2.3%2C3.9%2C3.1%2C5.3c0.6%2C1%2C2.1%2C3.7%2C2.9%2C5.1a0.94%2C0.94%2C0%2C0%2C0%2C1.24.49l0.16-.09h0Z%22%20style%3D%22fill%3A%23fdbf2d%22%3E%3C%2Fpath%3E%0A%3Cpath%20d%3D%22M19.40%2C19.80c-0.9-1.7-2.8-4.9-2.8-4.9a1.6%2C1.6%2C0%2C0%2C0-2.17-.65l-0.23.15-0.3.3c1.1%2C1.5%2C2.9%2C3.8%2C3.9%2C5.4%2C1.1%2C1.8%2C2.9%2C5%2C3.8%2C6.7l0.1-.1a1.09%2C1.09%2C0%2C0%2C0%2C.4-1.3%2C57.67%2C57.67%2C0%2C0%2C0-2.7-5.6h0Z%22%20style%3D%22fill%3A%23ce592b%3Bfill-opacity%3A0.25%22%3E%3C%2Fpath%3E%0A%3C%2Fsvg%3E%0A" aria-label="Kiểm soát người hình mắc áo trong chế độ xem phố" style="display: none; height: 40px; width: 40px; position: absolute; transform: translate(-60%, -45%); pointer-events: none;"></div></div><div class="gmnoprint" controlwidth="40" controlheight="40" style="display: none; position: absolute;"><div style="width: 40px; height: 40px;"><button draggable="false" title="Xoay bản đồ 90 độ" aria-label="Xoay bản đồ 90 độ" type="button" class="gm-control-active" style="background: none rgb(255, 255, 255); display: none; border: 0px; margin: 0px 0px 32px; padding: 0px; position: relative; cursor: pointer; user-select: none; width: 40px; height: 40px; top: 0px; left: 0px; overflow: hidden; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2222%22%20viewBox%3D%220%200%2024%2022%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20fill-rule%3D%22evenodd%22%20d%3D%22M20%2010c0-5.52-4.48-10-10-10s-10%204.48-10%2010v5h5v-5c0-2.76%202.24-5%205-5s5%202.24%205%205v5h-4l6.5%207%206.5-7h-4v-5z%22%20clip-rule%3D%22evenodd%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2222%22%20viewBox%3D%220%200%2024%2022%22%3E%0A%20%20%3Cpath%20fill%3D%22%23333%22%20fill-rule%3D%22evenodd%22%20d%3D%22M20%2010c0-5.52-4.48-10-10-10s-10%204.48-10%2010v5h5v-5c0-2.76%202.24-5%205-5s5%202.24%205%205v5h-4l6.5%207%206.5-7h-4v-5z%22%20clip-rule%3D%22evenodd%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2222%22%20viewBox%3D%220%200%2024%2022%22%3E%0A%20%20%3Cpath%20fill%3D%22%23111%22%20fill-rule%3D%22evenodd%22%20d%3D%22M20%2010c0-5.52-4.48-10-10-10s-10%204.48-10%2010v5h5v-5c0-2.76%202.24-5%205-5s5%202.24%205%205v5h-4l6.5%207%206.5-7h-4v-5z%22%20clip-rule%3D%22evenodd%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 18px; width: 18px;"></button><button draggable="false" title="Nghiêng bản đồ" aria-label="Nghiêng bản đồ" type="button" class="gm-tilt gm-control-active" style="background: none rgb(255, 255, 255); display: block; border: 0px; margin: 0px; padding: 0px; position: relative; cursor: pointer; user-select: none; width: 40px; height: 40px; top: 0px; left: 0px; overflow: hidden; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2018%2016%22%3E%0A%20%20%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%2C16h8V9H0V16z%20M10%2C16h8V9h-8V16z%20M0%2C7h8V0H0V7z%20M10%2C0v7h8V0H10z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2018%2016%22%3E%0A%20%20%3Cpath%20fill%3D%22%23333%22%20d%3D%22M0%2C16h8V9H0V16z%20M10%2C16h8V9h-8V16z%20M0%2C7h8V0H0V7z%20M10%2C0v7h8V0H10z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2218px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2018%2016%22%3E%0A%20%20%3Cpath%20fill%3D%22%23111%22%20d%3D%22M0%2C16h8V9H0V16z%20M10%2C16h8V9h-8V16z%20M0%2C7h8V0H0V7z%20M10%2C0v7h8V0H10z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="width: 18px;"></button></div></div></div><div class="gmnoprint" style="margin: 10px; z-index: 0; position: absolute; cursor: pointer; left: 0px; top: 0px;"><div class="gm-style-mtc" style="float: left; position: relative;"><div role="button" tabindex="0" title="Hiển thị bản đồ phố" aria-label="Hiển thị bản đồ phố" aria-pressed="true" draggable="false" style="direction: ltr; overflow: hidden; text-align: center; height: 40px; display: table-cell; vertical-align: middle; position: relative; color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 18px; background-color: rgb(255, 255, 255); padding: 0px 17px; border-bottom-left-radius: 2px; border-top-left-radius: 2px; background-clip: padding-box; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; min-width: 58px; font-weight: 500;">Bản đồ</div><div style="background-color: white; z-index: -1; padding: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; position: absolute; left: 0px; top: 40px; text-align: left; display: none;"><div draggable="false" title="Hiển thị bản đồ phố với địa hình" style="color: black; font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 18px; background-color: rgb(255, 255, 255); padding: 5px 8px 5px 5px; direction: ltr; text-align: left; white-space: nowrap;"><span role="checkbox" style="vertical-align: middle;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224px%22%20height%3D%2224px%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23000000%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M19%203H5c-1.11%200-2%20.9-2%202v14c0%201.1.89%202%202%202h14c1.11%200%202-.9%202-2V5c0-1.1-.89-2-2-2zm-9%2014l-5-5%201.41-1.41L10%2014.17l7.59-7.59L19%208l-9%209z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 1em; width: 1em; transform: translateY(0.15em); display: none;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224px%22%20height%3D%2224px%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23000000%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M19%205v14H5V5h14m0-2H5c-1.1%200-2%20.9-2%202v14c0%201.1.9%202%202%202h14c1.1%200%202-.9%202-2V5c0-1.1-.9-2-2-2z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 1em; width: 1em; transform: translateY(0.15em);"></span><label style="vertical-align: middle; cursor: pointer;">Địa hình</label></div></div></div><div class="gm-style-mtc" style="float: left; position: relative;"><div role="button" tabindex="0" title="Hiển thị hình ảnh qua vệ tinh" aria-label="Hiển thị hình ảnh qua vệ tinh" aria-pressed="false" draggable="false" style="direction: ltr; overflow: hidden; text-align: center; height: 40px; display: table-cell; vertical-align: middle; position: relative; color: rgb(86, 86, 86); font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 18px; background-color: rgb(255, 255, 255); padding: 0px 17px; border-bottom-right-radius: 2px; border-top-right-radius: 2px; background-clip: padding-box; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; min-width: 57px; border-left: 0px;">Vệ tinh</div><div style="background-color: white; z-index: -1; padding: 2px; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; position: absolute; right: 0px; top: 40px; text-align: left; display: none;"><div draggable="false" title="Hiển thị hình ảnh có tên phố" style="color: black; font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 18px; background-color: rgb(255, 255, 255); padding: 5px 8px 5px 5px; direction: ltr; text-align: left; white-space: nowrap;"><span role="checkbox" style="vertical-align: middle;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224px%22%20height%3D%2224px%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23000000%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M19%203H5c-1.11%200-2%20.9-2%202v14c0%201.1.89%202%202%202h14c1.11%200%202-.9%202-2V5c0-1.1-.89-2-2-2zm-9%2014l-5-5%201.41-1.41L10%2014.17l7.59-7.59L19%208l-9%209z%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 1em; width: 1em; transform: translateY(0.15em);"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224px%22%20height%3D%2224px%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22%23000000%22%3E%0A%20%20%20%20%3Cpath%20d%3D%22M19%205v14H5V5h14m0-2H5c-1.1%200-2%20.9-2%202v14c0%201.1.9%202%202%202h14c1.1%200%202-.9%202-2V5c0-1.1-.9-2-2-2z%22%2F%3E%0A%20%20%20%20%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%0A%3C%2Fsvg%3E%0A" style="height: 1em; width: 1em; transform: translateY(0.15em); display: none;"></span><label style="vertical-align: middle; cursor: pointer;">Nhãn</label></div></div></div></div></div></div></div>        </div>
+                    </div>
+            </div>
+            <div class="dv-child-right">
+    <div class="product">
+        <div class="dv_content_leftsp">
+            <h3>MENU SẢN PHẨM</h3>
+            <ul class="dv_list_dmsp">
+                 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<li><a href="https://demo1013.web30s.vn/Dien-Thoai-390755">Điện Thoại</a><span class="SHOW_menu_left" data="Dien-Thoai-390755" data-on="0"><i class="fa fa-angle-down"></i></span><ul class="dv_list_dmsp_2 ul-data-Dien-Thoai-390755"><li><a href="https://demo1013.web30s.vn/iPhone-390764">iPhone</a></li><li><a href="https://demo1013.web30s.vn/Samsung-390765">Samsung</a></li><li><a href="https://demo1013.web30s.vn/HTC-390769">HTC</a></li><li><a href="https://demo1013.web30s.vn/LG-390770">LG</a></li><li><a href="https://demo1013.web30s.vn/Motorola-390771">Motorola</a></li><li><a href="https://demo1013.web30s.vn/Sony-390767">Sony</a></li><li><a href="https://demo1013.web30s.vn/Nokia-390763">Nokia</a></li><li><a href="https://demo1013.web30s.vn/Sky-390768">Sky</a></li><li><a href="https://demo1013.web30s.vn/OPPO-390766">OPPO</a></li></ul></li><li><a href="https://demo1013.web30s.vn/May-Tinh-390756">Máy Tính</a><span class="SHOW_menu_left" data="May-Tinh-390756" data-on="0"><i class="fa fa-angle-down"></i></span><ul class="dv_list_dmsp_2 ul-data-May-Tinh-390756"><li><a href="https://demo1013.web30s.vn/Dell-390772">Dell</a></li><li><a href="https://demo1013.web30s.vn/Macbook-390777">Macbook </a></li><li><a href="https://demo1013.web30s.vn/Asus-390775">Asus </a></li><li><a href="https://demo1013.web30s.vn/HP-390773">HP</a></li><li><a href="https://demo1013.web30s.vn/Lenovo-390774">Lenovo</a></li><li><a href="https://demo1013.web30s.vn/Acer-390776">Acer </a></li><li><a href="https://demo1013.web30s.vn/MSI-390778">MSI</a></li></ul></li><li><a href="https://demo1013.web30s.vn/Phu-kien-cong-nghe-390861">Phụ kiện công nghệ</a><span class="SHOW_menu_left" data="Phu-kien-cong-nghe-390861" data-on="0"><i class="fa fa-angle-down"></i></span><ul class="dv_list_dmsp_2 ul-data-Phu-kien-cong-nghe-390861"><li><a href="https://demo1013.web30s.vn/Chuot-391454">Chuột</a></li><li><a href="https://demo1013.web30s.vn/Tai-nghe-391456">Tai nghe</a></li><li><a href="https://demo1013.web30s.vn/USB-391457">USB</a></li><li><a href="https://demo1013.web30s.vn/Camera-391459">Camera</a></li><li><a href="https://demo1013.web30s.vn/Ban-phim-391458">Bàn phím</a></li><li><a href="https://demo1013.web30s.vn/De-tan-nhiet-391460">Đế tản nhiệt</a></li><li><a href="https://demo1013.web30s.vn/Phu-kien-khac-391461">Phụ kiện khác</a></li></ul></li><li><a href="https://demo1013.web30s.vn/May-giat-390871">Máy giặt</a><span class="SHOW_menu_left" data="May-giat-390871" data-on="0"><i class="fa fa-angle-down"></i></span><ul class="dv_list_dmsp_2 ul-data-May-giat-390871"><li><a href="https://demo1013.web30s.vn/Toshiba-391483">Toshiba</a></li><li><a href="https://demo1013.web30s.vn/SHARP-391486">SHARP</a></li><li><a href="https://demo1013.web30s.vn/Samsung-391488">Samsung</a></li><li><a href="https://demo1013.web30s.vn/LG-391494">LG</a></li></ul></li><li><a href="https://demo1013.web30s.vn/Tivi-390872">Tivi</a><span class="SHOW_menu_left" data="Tivi-390872" data-on="0"><i class="fa fa-angle-down"></i></span><ul class="dv_list_dmsp_2 ul-data-Tivi-390872"><li><a href="https://demo1013.web30s.vn/Samsung-391470">Samsung</a></li></ul></li><li><a href="https://demo1013.web30s.vn/may-lanh">Máy lạnh</a></li><li><a href="https://demo1013.web30s.vn/dien-dung-gia-dinh-noi-com">Điện dụng gia đình, nồi cơm</a></li><li><a href="https://demo1013.web30s.vn/tu-lanh">Tủ lạnh</a></li><li><a href="https://demo1013.web30s.vn/san-pham-cu">Sản phẩm cũ</a></li><li><a href="https://demo1013.web30s.vn/do-dung-gia-dinh">Đồ dùng gia đình</a></li><li><a href="https://demo1013.web30s.vn/loc-nuoc">Lọc nước</a></li><li><a href="https://demo1013.web30s.vn/may-giac-say-quan-ao">Máy giặc sấy quần áo</a></li><li><a href="https://demo1013.web30s.vn/sim-so-the-cao-thu-ho">Sim số, thẻ cào, thu hộ</a></li><li><a href="https://demo1013.web30s.vn/noi-that">Nội thất</a></li>            </ul>
+            <script type="text/javascript">
+                $(".SHOW_menu_left").click(function () {
+                    var data = $(this).attr('data');
+                    var data_text = $(this).html();
+                    var data_on = $(this).attr("data-on");
+
+                    if (data_on == 0 && data_text != "") {
+                        $(".SHOW_menu_left").attr("data-on", "0");
+                        $(".SHOW_menu_left").html("<i class='fa fa-angle-down'></i>");
+                        $(this).html("<i class='fa fa-angle-up'></i>");
+                        $(this).attr("data-on", "1");
+                        $(".dv_list_dmsp_2").hide('500');
+                        $(".ul-data-" + data).show('500');
+                    }
+                    else {
+                        $(this).attr("data-on", "0");
+                        $(this).html("<i class='fa fa-angle-down'></i>");
+                        $(".ul-data-" + data).hide('500');
+                    }
+                });
+            </script>
+        </div>
+        <div class="dv_content_leftsp">
+            <h3>SẢN PHẨM ĐẶC BIỆT</h3>
+            <div class="dv-marqueew">
+                <div class="marqueew" style="height: 400px;"><div class="js-marquee-wrapper" style="margin-top: 400px; animation: 75.0469s linear 0s 1 normal none running marqueeAnimation-497772;"><div class="js-marquee" style="margin-right: 0px; float: none; margin-bottom: 0px;">
+                    <div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/HTC-Desire-816-390850"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14992499646377_700_htc-816-2.jpg" alt="HTC Desire 816" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/HTC-Desire-816-390850">HTC Desire 816</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">1,600,000 <sup>đ</sup></span>
+		                  <span class="item_goc"></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div><div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/Laptop-Dell-Vostro-V5459A-391444"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14993061463270_700_laptop-dell-vostro-v5459a-1.jpg" alt="Laptop Dell Vostro V5459A" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/Laptop-Dell-Vostro-V5459A-391444">Laptop Dell Vostro V5459A</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">17,490,000 <sup>đ</sup></span>
+		                  <span class="item_goc">17,990,000 <sup>đ</sup></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div><div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/Chuot-may-tinh-Genius-NX-7015-Wireless-391466"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14993083342600_700_chuot-may-tinh-genius-nx-7015-wireless-gold.jpg" alt="Chuột máy tính Genius NX-7015, Wireless" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/Chuot-may-tinh-Genius-NX-7015-Wireless-391466">Chuột máy tính Genius NX-7015, Wireless</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">299,000 <sup>đ</sup></span>
+		                  <span class="item_goc"></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div><div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/TIVI-QLED-SAMSUNG-QA55Q7FAMKXXV-391472"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14993096887924_smart-tv-4k-qled-q7f-04.jpg" alt="TIVI QLED SAMSUNG QA55Q7FAMKXXV" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/TIVI-QLED-SAMSUNG-QA55Q7FAMKXXV-391472">TIVI QLED SAMSUNG QA55Q7FAMKXXV</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">54,900,000 <sup>đ</sup></span>
+		                  <span class="item_goc"></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div><div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/TIVI-PREMIUM-UHD-SAMSUNG-55-INCH-UA55MU7000KXXV-391477"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14993101875974_MU7000-01.jpg" alt="TIVI PREMIUM UHD SAMSUNG 55 INCH UA55MU7000KXXV" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/TIVI-PREMIUM-UHD-SAMSUNG-55-INCH-UA55MU7000KXXV-391477">TIVI PREMIUM UHD SAMSUNG 55 INCH UA55MU7000KXXV</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">38,900,000 <sup>đ</sup></span>
+		                  <span class="item_goc"></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div><div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/MAY-GIAT-LG-8-KG-WF-S8019BW-391504"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14993111672056_may-giat-lg-wf-s8019bw.jpg" alt="MÁY GIẶT LG 8 KG WF-S8019BW" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/MAY-GIAT-LG-8-KG-WF-S8019BW-391504">MÁY GIẶT LG 8 KG WF-S8019BW</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">3,900,000 <sup>đ</sup></span>
+		                  <span class="item_goc"></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div><div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/Samsung-Galaxy-S8-Plus-390840"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14992224956268_samsung_s8plus.jpg" alt="Samsung Galaxy S8 Plus" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/Samsung-Galaxy-S8-Plus-390840">Samsung Galaxy S8 Plus</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">17,999,000 <sup>đ</sup></span>
+		                  <span class="item_goc"></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div>                </div><div class="js-marquee" style="margin-right: 0px; float: none; margin-bottom: 0px;">
+                    <div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/HTC-Desire-816-390850"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14992499646377_700_htc-816-2.jpg" alt="HTC Desire 816" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/HTC-Desire-816-390850">HTC Desire 816</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">1,600,000 <sup>đ</sup></span>
+		                  <span class="item_goc"></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div><div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/Laptop-Dell-Vostro-V5459A-391444"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14993061463270_700_laptop-dell-vostro-v5459a-1.jpg" alt="Laptop Dell Vostro V5459A" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/Laptop-Dell-Vostro-V5459A-391444">Laptop Dell Vostro V5459A</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">17,490,000 <sup>đ</sup></span>
+		                  <span class="item_goc">17,990,000 <sup>đ</sup></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div><div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/Chuot-may-tinh-Genius-NX-7015-Wireless-391466"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14993083342600_700_chuot-may-tinh-genius-nx-7015-wireless-gold.jpg" alt="Chuột máy tính Genius NX-7015, Wireless" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/Chuot-may-tinh-Genius-NX-7015-Wireless-391466">Chuột máy tính Genius NX-7015, Wireless</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">299,000 <sup>đ</sup></span>
+		                  <span class="item_goc"></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div><div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/TIVI-QLED-SAMSUNG-QA55Q7FAMKXXV-391472"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14993096887924_smart-tv-4k-qled-q7f-04.jpg" alt="TIVI QLED SAMSUNG QA55Q7FAMKXXV" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/TIVI-QLED-SAMSUNG-QA55Q7FAMKXXV-391472">TIVI QLED SAMSUNG QA55Q7FAMKXXV</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">54,900,000 <sup>đ</sup></span>
+		                  <span class="item_goc"></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div><div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/TIVI-PREMIUM-UHD-SAMSUNG-55-INCH-UA55MU7000KXXV-391477"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14993101875974_MU7000-01.jpg" alt="TIVI PREMIUM UHD SAMSUNG 55 INCH UA55MU7000KXXV" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/TIVI-PREMIUM-UHD-SAMSUNG-55-INCH-UA55MU7000KXXV-391477">TIVI PREMIUM UHD SAMSUNG 55 INCH UA55MU7000KXXV</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">38,900,000 <sup>đ</sup></span>
+		                  <span class="item_goc"></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div><div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/MAY-GIAT-LG-8-KG-WF-S8019BW-391504"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14993111672056_may-giat-lg-wf-s8019bw.jpg" alt="MÁY GIẶT LG 8 KG WF-S8019BW" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/MAY-GIAT-LG-8-KG-WF-S8019BW-391504">MÁY GIẶT LG 8 KG WF-S8019BW</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">3,900,000 <sup>đ</sup></span>
+		                  <span class="item_goc"></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div><div class="dv-spleft">
+		              <a href="https://demo1013.web30s.vn/Samsung-Galaxy-S8-Plus-390840"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14992224956268_samsung_s8plus.jpg" alt="Samsung Galaxy S8 Plus" class="img-responsive"></a>
+		                <h4><a href="https://demo1013.web30s.vn/Samsung-Galaxy-S8-Plus-390840">Samsung Galaxy S8 Plus</a></h4>
+		                <div class="price-left">
+		                  <span class="item_price">17,999,000 <sup>đ</sup></span>
+		                  <span class="item_goc"></span>
+		                </div>
+		              <div class="dv-nd"></div>
+		              <div class="clearfix"> </div>
+		          </div>                </div></div></div>
+            </div>
+            <script type="text/javascript" src="/templates/300-up-1013/js/jquery.marquee.min.js"></script>
+            <script>$('.marqueew').marquee({
+                    duration: 19000,
+                    gap: 0,
+                    delayBeforeStart: 0,
+                    direction: 'up',
+                    duplicated: true,
+                    pauseOnHover: true,
+                    startVisible: true
+                });
+            </script>
+        </div>
+        <div class="dv_content_leftsp">
+            <h3>TIN TỨC HOT</h3>
+            <div id="newsRight">
+                <a href="https://demo1013.web30s.vn/ky-niem-20-nam-ra-mat-harry-potter-facebook-hoa-phep-tang-fan" title="Kỷ Niệm 20 Năm Ra Mắt Harry Potter, Facebook Hóa Phép Tặng Fan"> 
+		                <img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14994180803983_bo-truyen-harry-potter.jpg" width="230" alt="Kỷ Niệm 20 Năm Ra Mắt Harry Potter, Facebook Hóa Phép Tặng Fan">
+		                <h4>Kỷ Niệm 20 Năm Ra Mắt Harry Potter, Facebook Hóa Phép Tặng Fan</h4>
+		                <div class="clear"></div>
+		              </a><a href="https://demo1013.web30s.vn/dieu-gi-cua-joystick-mobile-khien-gioi-tre-thich-thu" title="Điều Gì Của Joystick Mobile Khiến Giới Trẻ Thích Thú"> 
+		                <img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14994180148558_khong-tuong-thich-voi-mot-so-game.jpg" width="230" alt="Điều Gì Của Joystick Mobile Khiến Giới Trẻ Thích Thú">
+		                <h4>Điều Gì Của Joystick Mobile Khiến Giới Trẻ Thích Thú</h4>
+		                <div class="clear"></div>
+		              </a><a href="https://demo1013.web30s.vn/smartphone-tam-trung-se-som-so-huu-cong-nghe-sac-nhanh-cao-cap" title="Smartphone Tầm Trung Sẽ Sớm Sở Hữu Công Nghệ Sạc Nhanh Cao Cấp"> 
+		                <img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14994179389643_qualcomm-snapdragon-450_1.jpg" width="230" alt="Smartphone Tầm Trung Sẽ Sớm Sở Hữu Công Nghệ Sạc Nhanh Cao Cấp">
+		                <h4>Smartphone Tầm Trung Sẽ Sớm Sở Hữu Công Nghệ Sạc Nhanh Cao Cấp</h4>
+		                <div class="clear"></div>
+		              </a><a href="https://demo1013.web30s.vn/sau-note-8-dong-galaxy-a-va-c-se-duoc-vinh-du-trang-bi-camera-kep" title="Sau Note 8, Dòng Galaxy A Và C Sẽ Được Vinh Dự Trang Bị Camera Kép"> 
+		                <img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14994178519424_camera-kep-tren-galaxy-c_2.jpg" width="230" alt="Sau Note 8, Dòng Galaxy A Và C Sẽ Được Vinh Dự Trang Bị Camera Kép">
+		                <h4>Sau Note 8, Dòng Galaxy A Và C Sẽ Được Vinh Dự Trang Bị Camera Kép</h4>
+		                <div class="clear"></div>
+		              </a><a href="https://demo1013.web30s.vn/muon-chon-dien-thoai-chup-anh-dep-nen-doc-bai-viet-nay" title="Muốn chọn điện thoại chụp ảnh đẹp nên đọc bài viết này!"> 
+		                <img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14998316103390_panasonic-lumix_800x450-300x200.jpg" width="230" alt="Muốn chọn điện thoại chụp ảnh đẹp nên đọc bài viết này!">
+		                <h4>Muốn chọn điện thoại chụp ảnh đẹp nên đọc bài viết này!</h4>
+		                <div class="clear"></div>
+		              </a>            </div>
+        </div>
+        <div class="dv_content_leftsp">
+            <h3>1</h3>
+            <ul class="tags_links">
+                                    <li>
+                        <a href="https://demo1013.web30s.vn/San-pham/?keysearch=2">2</a>
+                    </li>
+                                <div class="clear"></div>
+            </ul>
+        </div>
+
+            </div>
+</div>            <div class="clear"></div>
+        </div>
+    </div>
+</div>				</div>
+			</section>
+		</article>
+	<!-- </div> -->
+	
+<footer>
+    <div class="footer-top-area border-1 ptb-40 bg-color-3">
+        <div class="container">
+            <div class="dv-footer-1">
+                <div class="footer-title">
+                    <h4>Liên Hệ Chúng Tôi</h4>
+                </div>
+                <div class="footer-widget">
+                    <div class="contact-info">
+                        <div class="nd"><p>Địa chỉ: 254A Nguyễn Đình Chiểu , Phường 6, Quận 3, Tp. Hồ Chí Minh, Việt Nam</p>
+
+<ul>
+</ul>
+
+<p>Email: lienhe@demo1013.vn</p>
+
+<p>Điện thoại: 1900 9477</p>
+</div>
+                    </div>
+                </div>
+                            </div>
+            <div class="dv-footer-2">
+                <div class="footer-title">
+                    <h4>Giới thiệu</h4>
+                </div>
+                <div class="footer-widget">
+                    <div class="list-unstyled">
+                        <ul class="nav-bottom navi_bottom  navi_bottom_cus1"><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Ve-Chung-Toi-391640">Về Chúng Tôi</a></li><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Lich-Su-Hinh-Thanh-391641">Lịch Sử Hình Thành</a></li><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Tam-nhin-su-menh-391642">Tầm nhìn - sứ mệnh</a></li><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Bo-may-to-chuc-391643">Bộ máy tổ chức</a></li><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="He-thong-phan-phoi-391644">Hệ thống phân phối</a></li></ul>                    </div>
+                </div>
+            </div>
+            <div class="dv-footer-3">
+                <div class="footer-title">
+                    <h4>Dịch vụ</h4>
+                </div>
+                <div class="footer-widget">
+                    <div class="list-unstyled">
+                        <ul class="nav-bottom navi_bottom  navi_bottom_cus1"><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Giao-hang-Nhan-hang-391645">Giao hàng &amp; Nhận hàng</a></li><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Trung-tam-ho-tro-391646">Trung tâm hỗ trợ</a></li><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Huong-dan-doi-tra-hang-391647">Hướng dẫn đổi trả hàng</a></li><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Huong-dan-dat-hang-391648">Hướng dẫn đặt hàng</a></li><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Huong-dan-thanh-toan-391649">Hướng dẫn thanh toán</a></li></ul>                    </div>
+                </div>
+            </div>
+            <div class="dv-footer-4">
+                <div class="footer-title">
+                    <h4>Thông tin</h4>
+                </div>
+                <div class="footer-widget">
+                    <div class="list-unstyled">
+                        <ul class="nav-bottom navi_bottom  navi_bottom_cus1"><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Chinh-Sach-Rieng-Tu-391650">Chính Sách Riêng Tư</a></li><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Dieu-Khoan-Dieu-Kien-391651">Điều Khoản &amp; Điều Kiện</a></li><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Thoa-Thuan-Nguoi-Dung-391652">Thỏa Thuận Người Dùng</a></li><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Chinh-sach-doi-tra-391653">Chính sách đổi trả</a></li><li class="li_bottom li_bottom_cus1"> <i class="" aria-hidden="true"></i> <a class="a_navi_bottom a_navi_bottom_cus1" href="Chinh-sach-bao-hanh-391654">Chính sách bảo hành</a></li></ul>                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    $(window).bind("load", function () {
+        var h_1 = $(".dv-footer-1").height();
+        var h_2 = $(".dv-footer-2").height();
+        var h_3 = $(".dv-footer-3").height();
+        var h_4 = $(".dv-footer-4").height();
+        var max_1 = h_1;
+        var max_2 = h_3;
+        if (h_1 < h_2) max_1 = h_2;
+        if (h_3 < h_4) max_2 = h_4;
+
+        var w_document = $(window).width();
+        if (w_document > 479 && w_document < 992) {
+            if (max_1 != 0) {
+                $(".dv-footer-1").height(max_1);
+                $(".dv-footer-2").height(max_1);
+            }
+            if (max_2 != 0) {
+                $(".dv-footer-3").height(max_2);
+                $(".dv-footer-4").height(max_2);
+            }
+        }
+    });
+</script>
+
+<div class="copyright-area text-center bg-color-3">
+    <div class="container">
+        <div class="copyright-border ptb-20">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-min-12">
+                    <div class="copyright text-left">
+                        <p><span class="footer_copyright"><a target="_blank" href="https://web30s.vn/" title="Thiết Kế Website bởi P.A Việt Nam" class="a_copyright">Thiết Kế Website bởi P.A Việt Nam <img src="https://demo1013.web30s.vn/images/logo_web30s_footer.png" alt="web30s.vn" style="margin-left: 2px;height: 20px;position: relative; vertical-align: middle;" class="img_coppy_right_footer"></a></span></p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-min-12">
+                    <div class="payment text-right">
+                        <img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/visa payment.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="social_block">
+    <ul>
+        <li class="facebook"><a href="https://www.facebook.com/pavietnam.com.vn" target="_blank">Facebook</a>
+        </li>
+        <li class="twitter"><a href="https://twitter.com/wwwpavietnamcom" target="_blank">twitter</a></li>
+        <li class="youtube"><a href="https://www.youtube.com/channel/UC2CD0jJ4HZLCZReyCyzwp0g" target="_blank">youtube</a></li>
+        <li class="google-plus"><a href="https://plus.google.com/114627120430815730885" target="_blank">google
+                plus</a></li>
+        <li class="pinterest"><a href="https://web30s.vn/" target="_blank">pinterest</a>
+        </li>
+    </ul>
+</div>
+
+
+<script src="/templates/300-up-1013/js/bootstrap.min.js"></script>
+<script src="/templates/300-up-1013/js/jquery.nivo.slider.pack.js"></script>
+<script src="/templates/300-up-1013/js/jquery-ui.min.js"></script>
+<script src="/templates/300-up-1013/js/jquery.magnific-popup.min.js"></script>
+<script src="/templates/300-up-1013/js/jquery.meanmenu.js"></script>
+<script src="/templates/300-up-1013/js/jquery.scrollup.min.js"></script>
+<script src="/templates/300-up-1013/js/owl.carousel.min.js"></script>
+<script src="/templates/300-up-1013/js/plugins.js"></script>
+<script src="/templates/300-up-1013/js/main.js"></script><a id="scrollUp" href="#top" style="position: fixed; z-index: 2147483647; display: block;"><i class="fa fa-angle-up"></i></a><script>
+    if ($('a.lightbox').length > 0) {
+        $('a.lightbox').divbox();
+    }
+</script>
+<div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            xfbml: true,
+            version: 'v4.0',
+            appId: 164566120964750,
+            autoLogAppEvents: true
+        });
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+
+ <div class="dv-box-sosanh dv-box-sosanh-cus" style="">
+	<a href="/so-sanh/">So sánh <span class="js-sosanh">(0)</span></a>
+	<a class="cur cur-cus del" onclick="SOSANH_sp(0, 'xoa_all', 'LIÊN HỆ','Sản phẩm đã được thêm vào so sánh!','Đã thêm đủ số lượng sản phẩm cần so sánh')">x</a>
+</div>
+<div class="dv-sosanh-min dv-sosanh-min-cus">
+	<div class="container">
+		<div class="dv-sosanh-box dv-sosanh-1 dv-sosanh-1-cus">
+			<div class="dv-cont-box-ss-1" style="">
+							</div>
+			<div class="dv-sosanh-box-ip dv-sosanh-box-ip-1 dv-sosanh-box-ip-cus" style="">
+				<label>
+					<ul class="aj_search_tk aj_search_tk-cus aj_search_tk1"></ul>
+					<input type="text" class="ip_sosanh_h1" placeholder="Nhập tên sản phẩm cần so sánh" onkeyup="AJ_seach_sp(this,'1','LIÊN HỆ','Sản phẩm đã được thêm vào so sánh!')">
+				</label>
+			</div>
+		</div>
+		<div class="dv-sosanh-box dv-sosanh-2 dv-sosanh-2-cus">
+			<div class="dv-cont-box-ss-2" style="">
+							</div>
+			<div class="dv-sosanh-box-ip dv-sosanh-box-ip-2 dv-sosanh-box-ip-cus" style="">
+				<label>
+					<ul class="aj_search_tk aj_search_tk-cus  aj_search_tk2"></ul>
+					<input type="text" class="ip_sosanh_h2" placeholder="Nhập tên sản phẩm cần so sánh" onkeyup="AJ_seach_sp(this,'2','LIÊN HỆ','Sản phẩm đã được thêm vào so sánh!')">
+				</label>
+			</div>
+		</div>
+		<div class="dv-sosanh-box dv-sosanh-3 dv-sosanh-3-cus">
+			<div class="dv-cont-box-ss-3" style="">
+							</div>
+			<div class="dv-sosanh-box-ip dv-sosanh-box-ip-3 dv-sosanh-box-ip-cus" style="">
+				<label>
+					<ul class="aj_search_tk aj_search_tk-cus aj_search_tk3"></ul>
+					<input type="text" class="ip_sosanh_h3" placeholder="Nhập tên sản phẩm cần so sánh" onkeyup="AJ_seach_sp(this,'3','LIÊN HỆ','Sản phẩm đã được thêm vào so sánh!')">
+				</label>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
+<script type="text/javascript">
+// add by 1k 30-6-2017
+var pl_check_time_run = 0;
+var pl_time_run;
+function AJ_seach_sp(obj, cls, lienhe, text_tontai_ss){
+	var aj_text  = $(obj).val();
+	if(aj_text.length > 1)
+		{
+			pl_check_time_run = 1;
+			clearInterval(pl_time_run);
+			pl_time_run = setInterval(function() {
+				//tim kiem
+				if(pl_check_time_run == 1)
+					{
+						var action = "search_sp";
+						$.ajax({
+				            type: "POST",
+				            url: "/search_sosanh",
+				            data: {"action": action, "key" : aj_text, "cls": cls, "lienhe": lienhe, "text_tontai_ss": text_tontai_ss},
+				            success: function(response){
+				            	if(response != '')
+				            		{
+				            			$(".aj_search_tk" + cls).html(response);
+				            			$(".aj_search_tk" + cls).show();
+				            		}
+				            	else
+									{
+										$(".aj_search_tk" + cls).html("");
+										$(".aj_search_tk" + cls).hide();
+									}
+				            }
+				        });
+						pl_check_time_run = 0;
+					}
+				clearInterval(pl_time_run);
+				//
+			}, 600);
+		}
+	else
+		{
+			$(".aj_search_tk" + cls).html("");
+			$(".aj_search_tk" + cls).hide();
+		}
+}
+
+function SOSANH_add_sp(id, action, cls, lienhe, text_tontai_ss)
+	{
+		$.ajax({
+            type: "POST",
+            url: "/search_sosanh",
+            data: {"action": action, "key" : id, "cls": cls, "lienhe": lienhe},
+            success: function(response){
+            	// console.log(response)
+			        response = JSON.parse(response);
+			        if(response.ma_loi == '-1') 		alert(text_tontai_ss);
+			        else if(response.num_row != 0)
+			        	{
+			        		$(".js-sosanh").html("("+response.so_sp+")");
+			        		$(".dv-sosanh-box-ip-" + cls).hide();
+			        		$(".dv-cont-box-ss-" + cls).html(response.html);
+			        		$(".dv-cont-box-ss-" + cls).show();
+			        		$(".aj_search_tk" + cls).html('');
+			        		$(".aj_search_tk" + cls).hide();
+						$(".ip_sosanh_h" + cls).val('');
+						$(".dv-box-sosanh").show();
+			        	}
+			        SOSANH_auto_height();
+            }
+        });
+	}
+
+function SOSANH_remove_sp(id, action, cls)
+	{
+		$.ajax({
+            type: "POST",
+            url: "/search_sosanh",
+            data: {"action": action, "key" : id, "cls": cls},
+            success: function(response){
+            	// console.log(response);
+			        if(response != 0)
+			        	{
+			        		response = JSON.parse(response);
+			        		$(".js-sosanh").html("("+response.so_sp+")");
+			        		$(".dv-sosanh-box-ip-" + cls).show();
+			        		$(".dv-cont-box-ss-" + cls).html("");
+			        		$(".dv-cont-box-ss-" + cls).hide();
+			        		if(response.so_sp == 0)
+			        			{
+			        				XOA_all_ss();
+			        			}
+			        	}
+            }
+        });
+	}
+
+function SOSANH_sp (id, action, lienhe, text_tontai_ss, text_limit_3_ss) {
+	var div_1 = $(".dv-cont-box-ss-1").html();
+	var div_2 = $(".dv-cont-box-ss-2").html();
+	var div_3 = $(".dv-cont-box-ss-3").html();
+	var cls   = 0;
+	if(div_1.trim()  == '')
+		{
+			cls   = 1;
+		}
+	else if(div_2.trim()  == '')
+		{
+			cls   = 2;
+		}
+	else if(div_3.trim()  == '')
+		{
+			cls   = 3;
+		}
+	$.ajax({
+        type: "POST",
+        url: "/add_sosanh",
+        data: {"action": action, "id" : id, "cls" : cls, "lienhe" : lienhe},
+        success: function(response){
+        	// console.log(response)
+        	if(response != '')
+        		{
+        			response = JSON.parse(response);
+        			if(response.ma_loi == '-1')
+        				{
+        					alert(text_tontai_ss);
+        					$(".dv-sosanh-min").show();
+        				}
+        			else if(response.ma_loi == '-2')
+        				{
+        					alert(text_limit_3_ss);
+        					$(".dv-sosanh-min").show();
+        				}
+        			else if(response.so_sp  == 0)
+        				{
+        					XOA_all_ss();
+        				}
+        			else if(response.so_sp  != 0)
+        				{
+        					// console.log(response);
+        					$(".dv-box-sosanh").show();
+        					$(".js-sosanh").html("("+response.so_sp+")");
+
+        					$(".dv-sosanh-min").show();
+        					//kiem tra ai con trong
+							$(".dv-cont-box-ss-" + response.cls).html(response.html);
+							$(".dv-cont-box-ss-" + response.cls).show();
+							$(".dv-sosanh-box-ip-" + response.cls).hide();
+        					//end
+        				}
+        		}
+        }
+    });
+}
+function XOA_all_ss(){
+	$(".dv-box-sosanh").hide();
+	$(".dv-sosanh-min").hide();
+
+	$(".dv-cont-box-ss-1").html("");
+	$(".dv-cont-box-ss-1").hide();
+	$(".dv-sosanh-box-ip-1").show();
+
+	$(".dv-cont-box-ss-2").html("");
+	$(".dv-cont-box-ss-2").hide();
+	$(".dv-sosanh-box-ip-2").show();
+
+	$(".dv-cont-box-ss-3").html("");
+	$(".dv-cont-box-ss-3").hide();
+	$(".dv-sosanh-box-ip-3").show();
+}
+function SOSANH_auto_height()
+	{
+
+		// glo-ss-thuonghieu-1
+		var max_th = $(".glo-ss-thuonghieu-1").height();
+		if(max_th < $(".glo-ss-thuonghieu-2").height()) max_th = $(".glo-ss-thuonghieu-2").height();
+		if(max_th < $(".glo-ss-thuonghieu-3").height()) max_th = $(".glo-ss-thuonghieu-3").height();
+		$(".glo-ss-thuonghieu-1").height(max_th);
+		$(".glo-ss-thuonghieu-2").height(max_th);
+		$(".glo-ss-thuonghieu-3").height(max_th);
+
+		// glo-ss-mota-1
+		var max_th = $(".glo-ss-mota-1").height();
+		if(max_th < $(".glo-ss-mota-2").height()) max_th = $(".glo-ss-mota-2").height();
+		if(max_th < $(".glo-ss-mota-3").height()) max_th = $(".glo-ss-mota-3").height();
+		$(".glo-ss-mota-1").height(max_th);
+		$(".glo-ss-mota-2").height(max_th);
+		$(".glo-ss-mota-3").height(max_th);
+
+		// glo-ss-name
+		var max_th = $(".h3-sosanh-1").height();
+		if(max_th < $(".h3-sosanh-2").height()) max_th = $(".h3-sosanh-2").height();
+		if(max_th < $(".h3-sosanh-3").height()) max_th = $(".h3-sosanh-3").height();
+		$(".h3-sosanh-1").height(max_th);
+		$(".h3-sosanh-2").height(max_th);
+		$(".h3-sosanh-3").height(max_th);
+
+		// gb-con-price-ss
+		var max_th = $(".gb-con-price-ss-1").height();
+		if(max_th < $(".gb-con-price-ss-2").height()) max_th = $(".gb-con-price-ss-2").height();
+		if(max_th < $(".gb-con-price-ss-3").height()) max_th = $(".gb-con-price-ss-3").height();
+		$(".gb-con-price-ss-1").height(max_th);
+		$(".gb-con-price-ss-2").height(max_th);
+		$(".gb-con-price-ss-3").height(max_th);
+		//glo-ss-chitiet-1
+		var max_th = $(".glo-ss-chitiet-1").height();
+		if(max_th < $(".glo-ss-chitiet-2").height()) max_th = $(".glo-ss-chitiet-2").height();
+		if(max_th < $(".glo-ss-chitiet-3").height()) max_th = $(".glo-ss-chitiet-3").height();
+		$(".glo-ss-chitiet-1").height(max_th);
+		$(".glo-ss-chitiet-2").height(max_th);
+		$(".glo-ss-chitiet-3").height(max_th);
+		//content height
+	}
+$(function(){
+	SOSANH_auto_height();
+});
+// end add by 1k 30-6-2017
+</script>
+</body></html>
