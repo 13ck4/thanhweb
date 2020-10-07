@@ -1,194 +1,138 @@
+<article>
+	<section class="content gallery pad1" style="padding:0">
+		<div class="midle_main_idclass fix1200_cus1">
+			<div class="main">
+				<div class="content_top">
+					<div class="container">
+						<div class="dv-child-one-style">
+                            <div class="dv-child-left">
+                                <h3>GIỎ HÀNG</h3>
+                                <div class="shopping-cart">
+                                    <?php if($total_items > 0) : ?>
+                                        <form action="<?php echo base_url('cart/update')?>" method="post">
+                                            <input type="hidden" name="module" value="order">
+                                            <input type="hidden" name="action" value="cart_maxvalue">
+                                            <div class="column-labels">
+                                                <label class="product-cart-image">Hình ảnh</label>
+                                                <label class="product-cart-details">Sản phẩm</label>
+                                                <label class="product-cart-price">Đơn giá</label>
+                                                <label class="product-cart-quantity">Số lượng</label>
+                                                <label class="product-cart-removal">Remove</label>
+                                                <label class="product-cart-line-price">Thành tiền</label>
+                                            </div>
+                                            
+                                            <?php $total_amount = 0; ?>
+                                            <?php foreach ($carts as $row):?>
+                                                <?php $total_amount = $total_amount + $row['subtotal']?>
+                                                <div class="product-cart-boxitem">
+                                                    <div class="product-cart-image">
+                                                        <a href="<?php echo base_url('product/view/'.$row['id'])?>" title="<?=$row['name']?>">
+                                                            <img src="<?php echo base_url('upload/product/'.$row['image_link'])?>">
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-cart-details">
+                                                        <div class="product-cart-title">
+                                                            <a href="<?php echo base_url('product/view/'.$row['id'])?>"><?=$row['name']?></a></div>
+                                                        <p class="product-cart-description"></p>
+                                                    </div>
+                                                    <div class="product-cart-price">
+                                                        <div><b><?=number_format($row['price'])?></b> VND</div>
+                                                    </div>
+                                                    <div class="product-cart-quantity">
+                                                        <input class="input-number" name="qty_<?php echo $row['id'] ?>" style="width:70px" min="1" type="number" value="<?=$row['qty']?>"></td>
+                                                    </div>
+                                                    <div class="product-cart-removal">
+                                                        <a class="remove-product-cart" href="<?php echo base_url('cart/del/'.$row['id']) ?>">
+                                                            <i class="fa fa-trash"></i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="product-cart-line-price">
+                                                        <b class="product-cart-line-price-num" id="idfullmoney1"><?=number_format($row['subtotal'])?></b> VND                    </div>
+                                                </div>
+                                            <?php endforeach?>
+                                            
 
-<style type="text/css">
-    body{font-family:Roboto, sans-serif; font-weight:normal; }
-    h1{font-family:Roboto, sans-serif; font-weight:100; }
-    #sp-header-top{ background-color:#ffffff; }
-    #sp-breadcrumb-block{ background-image:url("/demo/senvietdeal/images/bg-bredum.png");background-color:#f6f6f6; }
-    #sp-block-acymailling{ background-color:#ffffff; }
-    #sp-block-bottom-2{ background-color:#ffffff; }
-    #sp-footer{ background-color:#060d11; }
-    div.mod_search35 input[type="search"]{ width:auto; }
-</style>
 
-<section id="sp-breadcrumb-block">
-    <div class="container">
-        <div class="row">
-            <div id="sp-breadcrumb" class="col-sm-12 col-md-12">
-                <div class="sp-column ">
-                    <div class="sp-module ">
-                        <div class="sp-module-content">
-                            <ol class="breadcrumb">
-                                <?php foreach ($carts as $row):?>
-                                    <li class="lage-text"><?=$row['name']?></li>
-                                <?php endforeach?>
-                                <li><a href="<?php echo base_url() ?>" class="pathway">Home</a></li>
-                                <?php foreach ($carts as $row):?>
-                                    <li class="active"><?=$row['name']?></li>
-                                <?php endforeach?>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<section id="sp-main-body">
-    <div class="container">
-        <div class="row">
-            <div id="sp-component" class="col-sm-9 col-md-9">
-                <div class="sp-column ">
-                    <div class="jshop j-cart">
-                        <?php if($total_items > 0) : ?>
-                        <form action="<?php echo base_url('cart/update')?>" method="post">
-                            <table class="jshop cart">
-                                <tbody>
-                                    <tr>
-                                        <th width="20%">Hình ảnh</th>
-                                        <th>Sản phẩm</th>    
-                                        <th width="15%">Đơn giá</th>
-                                        <th width="15%">Số lượng</th>
-                                        <th width="15%">Thành tiền</th>
-                                        <th width="10%">Xóa</th>
-                                    </tr>
-                                    <?php $total_amount = 0; ?>
-                                    <?php foreach ($carts as $row):?>
-                                    <?php $total_amount = $total_amount + $row['subtotal']?>
-                                        <tr class="jshop_prod_cart odd">
-                                            <td class="jshop_img_description_center">
-                                                <img class="jshop_img" src="<?php echo base_url('/upload/product/'.$row['image_link'])?>" alt="<?=$row['name']?>" title="<?=$row['name']?>">
-                                            </td>
-                                            <td class="product_name">
-                                                <?=$row['name']?>                  
-                                            </td>
-                                            <td>
-                                                <?=number_format($row['price'])?>                        
-                                            </td>
-                                            <td>
-                                            <input type="number" name="qty_<?php echo $row['id'] ?>" value="<?=$row['qty']?>" min="1" class="inputbox" style="width: 25px">
-                                                <button type="submit" class="cart_reload">
-                                                    <img style="cursor:pointer" src="http://senvietweb.com/demo/senvietdeal/components/com_jshopping/images/reload.png" title="Cập nhật giỏ hàng" alt="Cập nhật giỏ hàng">
-                                                </button>
-                                            </td>
-                                            <td>
-                                                <b style="color: red"><?=number_format($row['subtotal'])?>đ </b>                   
-                                            </td>
-                                            <td>
-                                                <a href="<?php echo base_url('cart/del/'.$row['id']) ?>"><img src="http://senvietweb.com/demo/senvietdeal/components/com_jshopping/images/remove.png" alt="Delete" title="Delete"></a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach ?>
-                                </tbody>
-                            </table>
-                            <div class="cartdescr"></div>
-                            <br>
-                            <table class="jshop jshop_subtotal">
-                                <tbody>
-                                    <!-- <tr>
-                                        <td class="name">
-                                        Tạm tính    </td>
-                                        <td class="value">
-                                        <?php echo number_format($total_amount)?>đ     </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="name">
-                                            Thuế          </td>
-                                        <td class="value">
-                                            <?php echo number_format($total_amount)?>đ    </td>
-                                    </tr> -->
-                                    <tr class="total">
-                                        <td class="name">
-                                            Thành tiền    </td>
-                                        <td class="value">
-                                            <b style="color: red;">    <?php echo number_format($total_amount)?>đ  </b>
-                                        </td>
-                                    </tr>
-                                
-                                </tbody>
-                            </table>
-                            <table class="jshop" style="margin-top:10px">
-                                <tbody>
-                                    <tr id="checkout">
-                                        <td width="50%" class="td_1">
-                                            <a href="<?php echo base_url('san-pham') ?>">
-                                                <img src="http://senvietweb.com/demo/senvietdeal/components/com_jshopping/images/arrow_left.gif" alt="Quay lại">
-                                                Tiếp Tục Mua Hàng      
-                                            </a>
-                                        </td>
-                                        <td width="50%" class="td_2">
-                                            <a href="<?php echo site_url('order/checkout') ?>">
-                                                Thanh Toán         
-                                                <img src="http://senvietweb.com/demo/senvietdeal/components/com_jshopping/images/arrow_right.gif" alt="Tiếp theo">
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </form>
-                        <?php else : ?>
-                            <h2> Không có sản phẩm nào trong giỏ hàng </h2>
-                            <a href="<?php echo base_url('san-pham') ?>">
-                                <img src="http://senvietweb.com/demo/senvietdeal/components/com_jshopping/images/arrow_left.gif" alt="Quay lại">
-                                Quay lại       
-                            </a>
-                        <?php endif?>
-                        <br><br>
-                        </div>
-                            <span id="mxcpr">
-                                <a rel="nofollow" target="_blank" href="https://www.webdesigner-profi.de/">Webseite www.webdesigner-profi.de</a>
-                            </span>
-                        </div>
-                    </div>
-                    <div id="sp-right" class="col-sm-3 col-md-3">
-                        <div class="sp-column ">
-                            <div class="sp-module ">
-                                <div class="sp-module-content">
-                                    <div class="custom">
-                                        <ul style="background: white; padding: 15px; border: 1px solid white; height: 100%; width: 100%; box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);">
-                                            <li>
-                                                <h4 style="text-align: left;">
-                                                    <span style="font-size: 12pt; font-family: 'times new roman', times, serif;">Đặt hàng nhanh</span>
-                                                </h4>
-                                                <span style="font-size: 14pt; color: #ff0000;">
-                                                    <strong>
-                                                        <span class="hotline" style="font-family: 'times new roman', times, serif;">0169.377.9225</span>
-                                                    </strong>
-                                                </span>
-                                            </li>
-                                            <li style="text-align: left;">
-                                                <span style="font-size: 12pt; font-family: 'times new roman', times, serif;">Giao hàng và thu tiền tận nơi trên toàn quốc</span>
-                                            </li>
-                                            <li style="text-align: left;">
-                                                <span style="font-size: 12pt; font-family: 'times new roman', times, serif;">Miễn phí vận chuyển cho đơn hàng từ 2 sản phẩm</span>
-                                            </li>
-                                            <li style="text-align: left;">
-                                                <span style="font-size: 12pt; font-family: 'times new roman', times, serif;">Đặt hàng số lượng lớn xin liên hệ&nbsp;
-                                                    <span class="red" style="color: #ff0000;">
-                                                        <strong>0169.377.9225</strong>
-                                                    </span>
-                                                </span>
-                                            </li>
-                                            <li style="text-align: left;">
-                                                <span style="font-size: 12pt; font-family: 'times new roman', times, serif;">Khiếu nại sản phẩm&nbsp;
-                                                    <span class="red" style="color: #ff0000;">
-                                                        <strong>0169.377.9225</strong>
-                                                    </span>
-                                                </span>
-                                            </li>
-                                            <li style="text-align: left;">
-                                                <span style="font-size: 12pt; font-family: 'times new roman', times, serif;">Thời gian đổi hàng là 7 ngày</span>
-                                            </li>
-                                            <li style="text-align: left;"></li>
-                                        </ul>
-                                    <p style="text-align: left;">&nbsp;</p>
+                                            <button class="checkout-cart pull-left" type="submit" name="update">Cập Nhật Giỏ Hàng</button>
+                                        
+                                            <a href="<?php echo site_url('order/checkout') ?>" class="checkout-cart" >Mua Hàng</a>
+                                            <button class="checkout-cart" name="Submit" type="button"  href="<?php echo site_url()?>"> Tiếp Tục Mua Hàng</button>
+                                        </form>
+                                    <?php else : ?>
+                                        <h2> Không có sản phẩm nào trong giỏ hàng </h2>
+                                    <?php endif?>
                                 </div>
+                                <script type="text/javascript">
+                                    $(document).ready(function () {
+
+                                        /* Set rates + misc */
+                                        var fadeTime = 300;
+
+
+                                        /* Assign actions */
+                                        $('.input-number').on('change keyup mouseup', function () {
+                                            updateQuantity(this);
+                                        });
+
+                                        /* Recalculate cart */
+                                        function recalculateCart() {
+                                            var total = 0;
+
+                                            /* Sum up row totals */
+                                            $('.product-cart-boxitem').each(function () {
+                                                total += parseFloat($(this).children('.product-cart-line-price').children('.product-cart-line-price-num-hide').text());
+                                            });
+
+                                            /* Update totals display */
+                                            $('.totals-value').fadeOut(fadeTime, function () {
+                                                $('#ttmoney').html(formatCurrency(total));
+                                                if (total == 0) {
+                                                    $('.checkout-cart').fadeOut(fadeTime);
+                                                } else {
+                                                    $('.checkout-cart').fadeIn(fadeTime);
+                                                }
+                                                $('.totals-value').fadeIn(fadeTime);
+                                            });
+                                        }
+
+
+                                        /* Update quantity */
+                                        function updateQuantity(quantityInput) {
+
+                                            /* Calculate line price */
+                                            var productRow = $(quantityInput).parent().parent();
+                                            var price = parseFloat(productRow.children('.product-cart-price').children('.product-cart-price-num').text());
+                                            var quantity = $(quantityInput).val();
+                                            var linePrice = price * quantity;
+
+                                            /* Update line price display and recalc cart totals */
+                                            productRow.children('.product-cart-line-price').children('.product-cart-line-price-num').each(function () {
+                                                $(this).fadeOut(fadeTime, function () {
+                                                    $(this).text(formatCurrency(linePrice));
+                                                    $(this).parent().children('.product-cart-line-price-num-hide').text(linePrice);
+                                                    recalculateCart();
+                                                    $(this).fadeIn(fadeTime);
+                                                });
+                                            });
+                                        }
+
+                                        $('.remove-product-cart').click(function () {
+                                            var id = $(this).data('id');
+                                            window.location.href='https://demo1013.web30s.vn/cart-del/' + id;
+                                        });
+                                    });
+
+                                </script>                
                             </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+							<div class="dv-child-right">
+								<?php $this->load->view('site/left.php');?>
+							</div>	      
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>				
+		</div>
+	</section>
+</article>
+

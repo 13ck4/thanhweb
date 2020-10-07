@@ -59,7 +59,13 @@ $route['san-pham'] = 'product';
 
 $route['(:any)-c(:num)'] = 'product/catalog/$2';
 $route['(:any)-page(:num)'] = 'product/index/$1';
+
+$route['san-pham/(:any)-(:num).html'] = 'product/view/$2';
+
+$route['chi-tiet/(:any)-(:num).html'] = 'news/view/$2';
+
 $route['default_controller'] = 'home';
 
 $route['404_override'] = 'my404';
 $route['translate_uri_dashes'] = FALSE;
+

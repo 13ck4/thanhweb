@@ -1,23 +1,43 @@
-.header-top{
-    background: #ddd;
+.mainmenu ul li a i.fa-angle-right{
+    float: right;
+    line-height: 25px;
+    font-size: 18px;
 }
-.header-top ul li{
-    list-style: none;
+.dv-danhsach-sp{
+    min-height: 360px;
+}
+.pagination {
+    display: block;
+    padding: 5px 10px;
+    float:right;
+}
+.pagination a {
+    background: #f3f3f3;
+    border: 1px solid #c4c4c4;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 #eaeaea, 0 1px 0 #ffffff inset;
+    color: #717171;
+    display: inline-block;
     float: left;
-    margin-right: 5px;
+    font-weight: 700;
+    line-height: 25px;
+    margin-right: 4px;
+    min-height: 25px;
+    padding: 0 10px;
+    text-decoration: none;
 }
-.header-top a{
-    line-height: 50px;
-}
-.logo_search{
-    padding: 50px 0;
-}
-.navbar .container-fluid{
-    background: #0e0ea8;
-}
-.navbar ul li:hover{
-    background: #3976e4;
-}
-.navbar ul li a{
-    color: #fff !important;
+.pagination strong{
+    background: #f3f3f3;
+    border: 1px solid #c4c4c4;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 #eaeaea, 0 1px 0 #ffffff inset;
+    color: maroon;
+    display: inline-block;
+    float: left;
+    font-weight: 700;
+    line-height: 25px;
+    margin-right: 4px;
+    min-height: 25px;
+    padding: 0 10px;
+    text-decoration: none;
 }

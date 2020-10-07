@@ -35,6 +35,14 @@
 					}
 					$this->data['catalog_list'] = $catalog_list;
 
+
+					//lay danh sach san pham moi
+					$this->load->model('product_model');
+					$input = array();
+					$input['limit'] = array(9, 0);
+					$product_newest = $this->product_model->get_list($input);
+					$this->data['product_newest'] = $product_newest;
+
 					//lay danh sach bai viet moi.
 					$this->load->model('news_model');
 					$input = array();

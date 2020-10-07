@@ -1,65 +1,48 @@
-
-<style type="text/css">
-    body{font-family:Roboto, sans-serif; font-weight:normal; }
-    h1{font-family:Roboto, sans-serif; font-weight:100; }
-    #sp-header-top{ background-color:#ffffff; }
-    #sp-breadcrumb-block{ background-image:url("/demo/senvietdeal/images/bg-bredum.png");background-color:#f6f6f6; }
-    #sp-block-acymailling{ background-color:#ffffff; }
-    #sp-block-bottom-2{ background-color:#ffffff; }
-    #sp-footer{ background-color:#060d11; }
-    div.mod_search35 input[type="search"]{ width:auto; }
-</style>  
-
-<section id="sp-breadcrumb-block">
-    <div class="container">
-        <div class="row">
-            <div id="sp-breadcrumb" class="col-sm-12 col-md-12">
-                <div class="sp-column ">
-                    <div class="sp-module ">
-                        <div class="sp-module-content">
-                            <ol class="breadcrumb">
-                                <li class="lage-text">Tin tức &amp; sự kiện</li>
-                                <li><a href="<?php echo base_url() ?>" class="pathway">Home</a></li>
-                                <li class="active">Tin tức &amp; sự kiện</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="sp-main-body">
-    <div class="container">
-        <div class="row">
-            <div id="sp-component" class="col-sm-12 col-md-12">
-                <div class="sp-column ">
-                    <div class="blog padding-page" itemscope="" itemtype="http://schema.org/Blog">
-                        <?php foreach($news_list as $new) : ?>
-                        <div class="items-row row-0 row clearfix">
-                            <div class="col-sm-12">
-                                <article class="item column-1" itemprop="blogPost" itemscope="" itemtype="http://schema.org/BlogPosting">
-                                    <div class="entry-image intro-image">
-                                        <a href="<?php echo base_url('news/view/'.$new->id)?>">
-                                            <img width="100%" src="<?php echo base_url('/upload/news/'.$new->image_link)?>" alt="<?=$new->title?>" title="<?=$new->title?>" itemprop="thumbnailUrl">
-                                        </a>
-                                    </div>
-                                    <div class="entry-header">
-                                        <h2 itemprop="name">
-                                            <a href="<?php echo base_url('news/view/'.$new->id)?>" itemprop="url">
-                                                <?= $new->title ?>
-                                            </a>
-                                        </h2>
-                                    </div>
-                                    <p><?php echo mb_substr($new->intro,0,500,'utf8').'...';?></p>
-                                </article>
-                            </div>
-                        </div>
-                        <?php endforeach ?>                 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<article>
+	<section class="content gallery pad1" style="padding:0">
+		<div class="midle_main_idclass fix1200_cus1">
+			<div class="main">
+				<div class="content_top">
+					<div class="container">
+						<div class="dv-child-one-style">
+							<div class="dv-child-left">
+								<h3>Tin Tức</h3>
+								<div class="cont-tintuc">
+                                    <?php foreach($news_list as $new) : ?>
+                                        <?php 
+                                            $name = convert_vi_to_en($new->title); 
+                                            $name = strtolower($name);
+                                        ?>
+                                        <div class="one-news">
+                                            <div class="news-img">
+                                                <a href="<?php echo base_url()?>chi-tiet/<?=$name?>-<?=$new->id?>.html" title="<?=$new->title?>">
+                                                    <img width="100%" src="<?php echo base_url('/upload/news/'.$new->image_link)?>" alt="<?=$new->title?>" title="<?=$new->title?>" itemprop="thumbnailUrl">
+                                                </a>
+                                            </div>
+                                            <div class="news-view">
+                                                <div class="tieude_tintuc">
+                                                    <a href="<?php echo base_url()?>chi-tiet/<?=$name?>-<?=$new->id?>.html" title="<?=$new->title?>" itemprop="url">
+                                                        <?= $new->title ?>
+                                                    </a>
+                                                </div>
+                                                <div class="news-day">Ngày đăng: 24-07-18 </div>
+                                                <div class="dv-mota-tintuc">
+                                                    <?php echo mb_substr($new->intro,0,500,'utf8').'...';?>
+                                                </div>
+                                            </div>
+                                            <div class="clear"> </div>
+                                        </div>
+                                    <?php endforeach ?>
+                                </div>
+							</div>
+							<div class="dv-child-right">
+								<?php $this->load->view('site/left.php');?>
+							</div>	      
+							<div class="clear"></div>
+						</div>
+					</div>
+				</div>
+			</div>				
+		</div>
+	</section>
+</article>

@@ -1,1005 +1,1217 @@
-<section id="sp-main-body">
-    <div class="row">
-        <div id="sp-component" class="col-sm-12 col-md-12">
-            <div class="sp-column ">
-                <div id="sp-page-builder" class="sp-page-builder home-page page-8">
-                    <div class="page-content">
-                        <section id="yt_slideshow" class="sppb-section  padding-5px" >
-                            <div class="sppb-row-container" >
-                                <div class="sppb-row" >
-                                    <div class="sppb-col-md-3" >
-                                        <div class="sppb-addon-container ">
-                                            <div class="clearfix">
-                                                <div class="sppb-addon sppb-addon-module ">
-                                                    <div class="sppb-addon-content">
-                                                        <div id="container_menu" class="sambar layout1">
-                                                            <div class="sambar-inner menu_vertical">
-                                                                <a class="btn-sambar" data-sapi="collapse" href="javascript:void(0)">
-                                                                    <span class="icon-bar"></span>
-                                                                    <span class="icon-bar"></span>
-                                                                    <span class="icon-bar"></span>
-                                                                </a>
-                                                                <h3 class="title-mod">
-                                                                    <i class="fa fa-align-left" aria-hidden="true"></i>Danh Mục Sản Phẩm
-                                                                </h3>
-                                                                <div style="background-color: #ffffff; " class="sj-megamenu  menu-slide-down dropdown  sj-megamenu-hover" data-jsapi="on" >
-                                                                    <ul class="sj-megamenu-parent menu-fade sj-megamenu-vertical hidden-sm hidden-xs col-md-3" style="float: left;">
-                                                                        <?php foreach($catalog_list as $row) : ?>
-                                                                        <?php 
-                                                                            $name = convert_vi_to_en($row->name); 
-                                                                            $name = strtolower($name);
-                                                                        ?>
-                                                                        <li class="sj-menu-item sj-has-<?php  if(!empty($row->subs)) echo 'child'; else echo "";?>  item-584 level-1 mega-left ">
-                                                                            <a href="<?php echo base_url($name.'-c'.$row->id) ?>" title="<?=$row->name?>">
-                                                                                <img src="<?php echo public_url('site/images/icon1.png')?>" alt="<?=$row->name?>">
-                                                                                <span class="subtitle"><?=$row->name?></span>
-                                                                            </a>
-                                                                            <?php  if(!empty($row->subs)) : ?>
-                                                                            <div class="sj-dropdown sj-dropdown-main sj-dropdown-mega sj-menu-right" style="width: 540px; background-color: rgb(255, 255, 255); top: 0px; left: auto; right: -540px;">
-                                                                                <div class="sj-dropdown-inner">
-                                                                                    <div class="sj-megamenu-row">
-                                                                                        <div class="sj-megamenu-col-sm-12">
-                                                                                            <div class="sp-module ">
-                                                                                                <div class="sp-module-content">
-                                                                                                    <div class="custom">
-                                                                                                        <ul class="custom-vertical-1">
-                                                                                                            <?php foreach($row->subs as $sub) : ?>  
-                                                                                                            <?php 
-                                                                                                                $name = convert_vi_to_en($sub->name); 
-                                                                                                                $name = strtolower($name);
-                                                                                                            ?>  
-                                                                                                            <li class="item">
-                                                                                                                <div class="img">
-                                                                                                                    <img src="<?php echo public_url('site/images/v3.png') ?>" alt="Banner"></div>
-                                                                                                                <div class="content">
-                                                                                                                    <h3 class="title">
-                                                                                                                        <a title="" href="<?php echo base_url($name.'-c'.$sub->id) ?>" title="<?= $sub->name ?>"><?= $sub->name ?></a>
-                                                                                                                    </h3>
-                                                                                                                    <span class="des"><?php echo mb_substr($sub->site_title,0,100,'utf8').'...'; ?></span> 
-                                                                                                                </div>
-                                                                                                            </li>
-                                                                                                            <?php endforeach?>
-                                                                                                        </ul>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <?php endif?>
-                                                                        </li>
-                                                                        <?php endforeach ?>
-                                                                    </ul>
-                                                                </div>
-                                                                <div class="offcanvas-menu menu_dropdown">
-                                                                    <a href="#" class="close-offcanvas"><i class="fa fa-remove"></i></a>
-                                                                    <div class="offcanvas-inner">
-                                                                        <ul class="nav menu">
-                                                                            <?php foreach($catalog_list as $row) : ?>
-                                                                                <?php 
-                                                                                    $name = convert_vi_to_en($row->name); 
-                                                                                    $name = strtolower($name);
-                                                                                ?>
-                                                                                <li class="item"><a href="<?php echo base_url($name.'-c'.$row->id) ?>" title="<?=$row->name?>"><?=$row->name?></a></li>
-                                                                            <?php endforeach?>
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sppb-col-md-6" style="float:left;">
-                                        <?php 
-                                            $this->load->view('site/slide.php', $this->data);
-                                        ?>
-                                    </div>
-                                    <!-- <div class="sppb-col-md-3" >
-                                        
-                                    </div> -->
-                                </div>
-                            </div>
-                        </section>
-
-                        
-
-
-
-                        <section id="scoll2" class="sppb-section ">
-                            <div class="sppb-row-container">
-                                <!-- Nav tabs -->
-                                <ul class="nav nav-tabs" role="tablist">
-                                    <li role="presentation" class="active">
-                                        <a href="#description" aria-controls="home" role="tab" data-toggle="tab">Nội dung</a>
-                                    </li>
-                                    <li role="presentation">
-                                        <a href="#other" aria-controls="messages" role="tab" data-toggle="tab">Khác</a>
-                                    </li>
-                                </ul>
-                                <!-- Tab panes -->
-                                <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane active" id="description">
-                                        <div class="sppb-row">
-                                            <div class="sppb-col-md-12">
-                                                <div class="sppb-addon-container">
-                                                    <div class="clearfix">
-                                                        <div class="sppb-addon sppb-addon-module listing-tab-dev color1">
-                                                            <div class="sppb-addon-content">
-                                                                <h3 class="sppb-addon-title">
-                                                                    <span>Sản Phẩm Mới Nhất</span>
-                                                                </h3>
-                                                                <div id="product_new" class="sj-responsive-listing">
-                                                                    <div class="respl-wrap cf">
-                                                                        <div class="respl-items respl01-5 respl02-4 respl03-3 respl04-2 grid cf  module-158 isotope">
-                                                                            <?php foreach($product_newest as $row) : ?>
-                                                                            <div class="respl-item  category-1 isotope-item">
-                                                                                <div class="item-inner">
-                                                                                    <div class="item-image cf">
-                                                                                        <a class="img" href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                            <img src="<?php echo base_url('/upload/product/'.$row->image_link)?>" alt="<?=$row->name?>" title="<?=$row->name?>">                  
-                                                                                        </a>
-                                                                                        <a class="addtocart" href="<?php echo site_url('cart/add/'.$row->id)?>">
-                                                                                            Mua ngay          
-                                                                                        </a>
-                                                                                        <?php if($row->discount > 0) :?>
-                                                                                            <span class="sale">
-                                                                                                Sale              
-                                                                                            </span>
-                                                                                        <?php endif?>
-                                                                                    </div>
-                                                                                    <div class="item-info">
-                                                                                        <h3 class="item-title ">
-                                                                                            <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                                <?=$row->name?>                              
-                                                                                            </a>
-                                                                                        </h3>
-                                                                                        <div class="main-price">
-                                                                                            <div class="item-price">
-                                                                                                <span class="price"><?php if($row->discount > 0) :?>
-                                                                                                <?php $price_new = $row->price - $row->discount; ?>
-                                                                                                <?php echo number_format($price_new) ?>đ <span class="old-price"><?php echo number_format($row->price) ?> đ</span>
-                                                                                                <?php else : ?>
-                                                                                                    <?php echo number_format($row->price) ?>đ
-                                                                                                <?php endif ?>
-                                                                                                </span>
-                                                                                            </div>
-                                                                                            <div class="price-sale">
-                                                                                                <span class="num">Lượt Xem</span>
-                                                                                                <span class="text"><b><?=$row->view?></b></span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <?php endforeach?>
-                                                                        </div>
-                                                                        <div class="respl-loader respl-btn ">
-                                                                            <a class="respl-button" href="<?php echo base_url('san-pham')?>">
-                                                                                <span class="loader-image"></span>
-                                                                                <span class="loader-label">
-                                                                                    Xem thêm sản phẩm               
-                                                                                </span>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="clear"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane" id="other">
-                                        <div class="sppb-row">
-                                            <div class="sppb-col-md-12">
-                                                <div class="sppb-addon-container">
-                                                    <div class="clearfix">
-                                                        <div class="sppb-addon sppb-addon-module listing-tab-dev color1">
-                                                            <div class="sppb-addon-content">
-                                                                <h3 class="sppb-addon-title">
-                                                                    <span>Sản Phẩm Mới Nhất</span>
-                                                                </h3>
-                                                                <div id="product_new" class="sj-responsive-listing">
-                                                                    <div class="respl-wrap cf">
-                                                                        <div class="respl-items respl01-5 respl02-4 respl03-3 respl04-2 grid cf  module-158 isotope">
-                                                                            <?php foreach($product_newest as $row) : ?>
-                                                                            <div class="respl-item  category-1 isotope-item">
-                                                                                <div class="item-inner">
-                                                                                    <div class="item-image cf">
-                                                                                        <a class="img" href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                            <img src="<?php echo base_url('/upload/product/'.$row->image_link)?>" alt="<?=$row->name?>" title="<?=$row->name?>">                  
-                                                                                        </a>
-                                                                                        <a class="addtocart" href="<?php echo site_url('cart/add/'.$row->id)?>">
-                                                                                            Mua ngay          
-                                                                                        </a>
-                                                                                        <?php if($row->discount > 0) :?>
-                                                                                            <span class="sale">
-                                                                                                Sale              
-                                                                                            </span>
-                                                                                        <?php endif?>
-                                                                                    </div>
-                                                                                    <div class="item-info">
-                                                                                        <h3 class="item-title ">
-                                                                                            <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                                <?=$row->name?>                              
-                                                                                            </a>
-                                                                                        </h3>
-                                                                                        <div class="main-price">
-                                                                                            <div class="item-price">
-                                                                                                <span class="price"><?php if($row->discount > 0) :?>
-                                                                                                <?php $price_new = $row->price - $row->discount; ?>
-                                                                                                <?php echo number_format($price_new) ?>đ <span class="old-price"><?php echo number_format($row->price) ?> đ</span>
-                                                                                                <?php else : ?>
-                                                                                                    <?php echo number_format($row->price) ?>đ
-                                                                                                <?php endif ?>
-                                                                                                </span>
-                                                                                            </div>
-                                                                                            <div class="price-sale">
-                                                                                                <span class="num">Lượt Xem</span>
-                                                                                                <span class="text"><b><?=$row->view?></b></span>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <?php endforeach?>
-                                                                        </div>
-                                                                        <div class="respl-loader respl-btn ">
-                                                                            <a class="respl-button" href="<?php echo base_url('san-pham')?>">
-                                                                                <span class="loader-image"></span>
-                                                                                <span class="loader-label">
-                                                                                    Xem thêm sản phẩm               
-                                                                                </span>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="clear"></div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                                
-
-
-
-
-
-                        <!-- <section id="scoll2" class="sppb-section ">
-                            <div class="sppb-row-container">
-                                <div class="sppb-row">
-                                    <div class="sppb-col-md-12">
-                                        <div class="sppb-addon-container">
-                                            <div class="clearfix">
-                                                <div class="sppb-addon sppb-addon-module listing-tab-dev color1">
-                                                    <div class="sppb-addon-content">
-                                                        <h3 class="sppb-addon-title">
-                                                            <span>Sản Phẩm Mới Nhất</span>
-                                                        </h3>
-                                                        <div id="product_new" class="sj-responsive-listing">
-                                                            <div class="respl-wrap cf">
-                                                                <div class="respl-items respl01-5 respl02-4 respl03-3 respl04-2 grid cf  module-158 isotope" style="position: relative; height: 1217px; overflow: visible;">
-                                                                    <?php foreach($product_newest as $row) : ?>
-                                                                    <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
-                                                                        <div class="item-inner">
-                                                                            <div class="item-image cf">
-                                                                                <a class="img" href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                    <img src="<?php echo base_url('/upload/product/'.$row->image_link)?>" alt="<?=$row->name?>" title="<?=$row->name?>">                  
-                                                                                </a>
-                                                                                <a class="addtocart" href="<?php echo site_url('cart/add/'.$row->id)?>">
-                                                                                    Mua ngay          
-                                                                                </a>
-                                                                                <?php if($row->discount > 0) :?>
-                                                                                    <span class="sale">
-                                                                                        Sale              
-                                                                                    </span>
-                                                                                <?php endif?>
-                                                                            </div>
-                                                                            <div class="item-info">
-                                                                                <h3 class="item-title ">
-                                                                                    <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                        <?=$row->name?>                              
-                                                                                    </a>
-                                                                                </h3>
-                                                                                <div class="main-price">
-                                                                                    <div class="item-price">
-                                                                                        <span class="price"><?php if($row->discount > 0) :?>
-                                                                                        <?php $price_new = $row->price - $row->discount; ?>
-                                                                                        <?php echo number_format($price_new) ?>đ <span class="old-price"><?php echo number_format($row->price) ?> đ</span>
-                                                                                        <?php else : ?>
-                                                                                            <?php echo number_format($row->price) ?>đ
-                                                                                        <?php endif ?>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                    <div class="price-sale">
-                                                                                        <span class="num">Lượt Xem</span>
-                                                                                        <span class="text"><b><?=$row->view?></b></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <?php endforeach?>
-                                                                </div>
-                                                                <div class="respl-loader respl-btn ">
-                                                                    <a class="respl-button" href="<?php echo base_url('san-pham')?>">
-                                                                        <span class="loader-image"></span>
-                                                                        <span class="loader-label">
-                                                                            Xem thêm sản phẩm               
-                                                                        </span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="clear"></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section> -->
-                        <!-- <section id="scoll3" class="sppb-section ">
-                            <div class="sppb-row-container">
-                                <div class="sppb-row">
-                                    <div class="sppb-col-md-12">
-                                        <div class="sppb-addon-container">
-                                            <div class="clearfix">
-                                                <div class="sppb-addon sppb-addon-module listing-tab-dev color2">
-                                                    <div class="sppb-addon-content">
-                                                        <h3 class="sppb-addon-title"><span>Sản Phẩm Đươc Mua Nhiều Nhất</span></h3>
-                                                        <div id="product_buy_more" class="sj-responsive-listing">
-                                                            <div class="respl-wrap cf">
-                                                                <div class="mains row">
-                                                                    <div class="pretext">
-                                                                        <ul class="list-banner">
-                                                                            <li><a href="#" title=""><img src="<?php echo public_url('site/images/banner5.jpg')?>" alt=""></a></li>
-                                                                            <li><a href="#" title=""><img src="<?php echo public_url('site/images/banner6.jpg')?>" alt=""></a></li>
-                                                                        </ul>      
-                                                                    </div>
-                                                                    <div class="respl-items respl01-4 respl02-3 respl03-2 respl04-2 grid cf  module-159 isotope" style="position: relative; height: 770px; overflow: visible;">
-                                                                        <?php foreach($product_buyed as $row) : ?>
-                                                                        <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
-                                                                            <div class="item-inner">
-                                                                                <div class="item-image cf">
-                                                                                    <a class="img" href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                        <img src="<?php echo base_url('/upload/product/'.$row->image_link)?>" alt="<?=$row->name?>" title="<?=$row->name?>">                  
-                                                                                    </a>
-                                                                                    <a class="addtocart" href="<?php echo site_url('cart/add/'.$row->id)?>">
-                                                                                        Mua ngay          
-                                                                                    </a>
-                                                                                    <?php if($row->discount > 0) :?>
-                                                                                        <span class="sale">
-                                                                                            Sale              
-                                                                                        </span>
-                                                                                    <?php endif?>
-                                                                                </div>
-                                                                                <div class="item-info">
-                                                                                    <h3 class="item-title ">
-                                                                                        <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                        <?=$row->name?>                              
-                                                                                        </a>
-                                                                                    </h3>
-                                                                                    <div class="main-price">
-                                                                                        <div class="item-price">
-                                                                                            <span class="price">
-                                                                                                <?php if($row->discount > 0) :?>
-                                                                                                    <?php $price_new = $row->price - $row->discount; ?>
-                                                                                                    <?php echo number_format($price_new) ?>đ 
-                                                                                                    <span class="old-price"><?php echo number_format($row->price) ?> đ</span>
-                                                                                                <?php else : ?>
-                                                                                                    <?php echo number_format($row->price) ?>đ
-                                                                                                <?php endif ?>
-                                                                                            </span>
-                                                                                        </div>
-                                                                                        <div class="price-sale">
-                                                                                            <span class="num">Lượt Xem</span>
-                                                                                            <span class="text"><b><?=$row->view?></b></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <?php endforeach?>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="respl-loader respl-btn ">
-                                                                    <a class="respl-button" href="<?php base_url('san-pham') ?>">
-                                                                    <span class="loader-image"></span>
-                                                                    <span class="loader-label">
-                                                                        Xem thêm sản phẩm                   
-                                                                    </span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="clear"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section> -->
-                        <section id="scoll4" class="sppb-section ">
-                            <div class="sppb-row-container">
-                                <div class="sppb-row">
-                                    <div class="sppb-col-md-12">
-                                        <div class="sppb-addon-container">
-                                            <div class="clearfix">
-                                                <div class="sppb-addon sppb-addon-module listing-tab-dev color3">
-                                                    <div class="sppb-addon-content">
-                                                        <h3 class="sppb-addon-title">
-                                                            <span>Thời trang nam</span>
-                                                        </h3>
-                                                        <div id="product_view_more" class="sj-responsive-listing">    
-                                                            <div class="respl-wrap cf">
-                                                                <div class="mains row">
-                                                                    <div class="respl-items respl01-4 respl02-3 respl03-2 respl04-2 grid cf  module-160 isotope" style="position: relative; height: 804px; overflow: visible;">
-                                                                        <?php foreach($product_view as $row) : ?>
-                                                                        <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
-                                                                            <div class="item-inner">
-                                                                                <div class="item-image cf">
-                                                                                    <a class="img" href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                        <img src="<?php echo base_url('/upload/product/'.$row->image_link)?>" alt="<?=$row->name?>" title="<?=$row->name?>">                  
-                                                                                    </a>
-                                                                                    <a class="addtocart" href="<?php echo site_url('cart/add/'.$row->id)?>">
-                                                                                        Mua ngay          
-                                                                                    </a>
-                                                                                    <?php if($row->discount > 0) :?>
-                                                                                        <span class="sale">
-                                                                                            Sale              
-                                                                                        </span>
-                                                                                    <?php endif?>
-                                                                                </div>
-                                                                                <div class="item-info">
-                                                                                    <h3 class="item-title ">
-                                                                                        <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                        <?=$row->name?>                              
-                                                                                        </a>
-                                                                                    </h3>
-                                                                                    <div class="main-price">
-                                                                                        <div class="item-price">
-                                                                                            <span class="price">
-                                                                                                <?php if($row->discount > 0) :?>
-                                                                                                    <?php $price_new = $row->price - $row->discount; ?>
-                                                                                                    <?php echo number_format($price_new) ?>đ 
-                                                                                                    <span class="old-price"><?php echo number_format($row->price) ?> đ</span>
-                                                                                                <?php else : ?>
-                                                                                                    <?php echo number_format($row->price) ?>đ
-                                                                                                <?php endif ?>
-                                                                                            </span>
-                                                                                        </div>
-                                                                                        <div class="price-sale">
-                                                                                            <span class="num">Lượt Xem</span>
-                                                                                            <span class="text"><b><?=$row->view?></b></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <?php endforeach?>
-                                                                    </div>
-                                                                    <div class="pretext">
-                                                                        <ul class="list-banner">
-                                                                            <li>
-                                                                                <a href="#" title=""><img src="<?php echo public_url('site/images/banner7.jpg')?>" alt=""></a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#" title=""><img src="<?php echo public_url('site/images/banner8.jpg')?>" alt=""></a>
-                                                                            </li>
-                                                                        </ul>      
-                                                                    </div>
-                                                                </div>
-                                                                <div class="respl-loader respl-btn ">
-                                                                    <a class="respl-button" href="<?php echo base_url('san-pham') ?>">
-                                                                        <span class="loader-image"></span>
-                                                                        <span class="loader-label">
-                                                                            Xem thêm sản phẩm                   
-                                                                        </span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="clear"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <section id="scoll5" class="sppb-section ">
-                            <div class="sppb-row-container">
-                                <div class="sppb-row">
-                                    <div class="sppb-col-md-12">
-                                        <div class="sppb-addon-container">
-                                            <div class="clearfix">
-                                                <div class="sppb-addon sppb-addon-module listing-tab-dev color4">
-                                                    <div class="sppb-addon-content">
-                                                        <h3 class="sppb-addon-title">
-                                                            <span>Hàng điện tử kỹ thuật số</span>
-                                                        </h3>
-                                                        <div id="product_hot" class="sj-responsive-listing">
-                                                            <div class="respl-wrap cf">
-                                                                <div class="respl-items respl01-5 respl02-4 respl03-3 respl04-2 grid cf  module-161 isotope" style="position: relative; height: 400px; overflow: visible;">
-                                                                    <?php foreach($product_view as $row) : ?>
-                                                                    <div class="respl-item  category-1 isotope-item" style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px);">
-                                                                        <div class="item-inner">
-                                                                            <div class="item-image cf">
-                                                                                <a class="img" href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                    <img src="<?php echo base_url('/upload/product/'.$row->image_link)?>" alt="<?=$row->name?>" title="<?=$row->name?>">
-                                                                                </a>
-                                                                                <a class="addtocart" href="<?php echo site_url('cart/add/'.$row->id)?>">
-                                                                                    Mua ngay          
-                                                                                </a>
-                                                                                <?php if($row->discount > 0) :?>
-                                                                                    <span class="sale">
-                                                                                        Sale              
-                                                                                    </span>
-                                                                                <?php endif?>
-                                                                            </div>
-                                                                            <div class="item-info">
-                                                                                <h3 class="item-title ">
-                                                                                    <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                            <?=$row->name?>                              
-                                                                                    </a>
-                                                                                </h3>
-                                                                                <div class="main-price">
-                                                                                    <div class="item-price">
-                                                                                        <span class="price">
-                                                                                            <?php if($row->discount > 0) :?>
-                                                                                                <?php $price_new = $row->price - $row->discount; ?>
-                                                                                                <?php echo number_format($price_new) ?>đ <span class="old-price"><?php echo number_format($row->price) ?> đ</span>
-                                                                                            <?php else : ?>
-                                                                                                <?php echo number_format($row->price) ?>đ
-                                                                                            <?php endif ?>
-                                                                                        </span>
-                                                                                    </div>
-                                                                                    <div class="price-sale">
-                                                                                        <span class="num">Lượt Xem</span>
-                                                                                        <span class="text"><b><?=$row->view?></b></span>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <?php endforeach?>
-                                                                </div>
-                                                                <div class="banner-bottom">
-                                                                    <ul class="list-banner">
-                                                                        <li><a href="#" title=""><img src="<?php echo public_url('site/images/banner9.jpg')?>" alt=""></a></li>
-                                                                        <li><a href="#" title=""><img src="<?php echo public_url('site/images/banner10.jpg')?>" alt=""></a></li>
-                                                                    </ul>   
-                                                                </div>
-                                                                <div class="respl-loader respl-btn ">
-                                                                    <a class="respl-button" href="<?php echo base_url('san-pham') ?>">
-                                                                        <span class="loader-image"></span>
-                                                                        <span class="loader-label">
-                                                                            Xem thêm sản phẩm                   
-                                                                        </span>
-                                                                    </a>
-                                                                </div>
-                                                                <div class="clear"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <section class="sppb-section">
-                            <div class="sppb-row-container">
-                                <div class="sppb-row">
-                                    <div class="sppb-col-md-4">
-                                        <div class="sppb-addon-container">
-                                            <div class="clearfix">
-                                                <div class="sppb-addon sppb-addon-module si-extraslider-dev style2-dev color1">
-                                                    <div class="sppb-addon-content">
-                                                        <h3 class="sppb-addon-title">
-                                                            <span>Túi xách thời trang</span>
-                                                        </h3>    
-                                                        <div class="sj-extraslider style2-dev slide preset02-1" data-start-jcarousel="1">
-                                                            <div class="extraslider-inner">
-                                                                <div class="item active">
-                                                                    <div class="line">
-                                                                        <?php foreach ($product_newest as $row): ?>
-                                                                        <div class="item-wrap style2 last ">
-                                                                            <div class="item-image">
-                                                                                <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                    <img src="<?php echo base_url('/upload/product/'.$row->image_link)?>" alt="<?=$row->name?>" title="<?=$row->name?>">      
-                                                                                </a>   
-                                                                            </div>
-                                                                            <div class="item-info">
-                                                                                <h3 class="item-title">
-                                                                                    <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                        <?=$row->name?>               
-                                                                                    </a>               
-                                                                                </h3>
-                                                                                <div class="item-content">                     
-                                                                                    <div class="main-price">
-                                                                                        <div class="item-price">
-                                                                                            <span class="price">
-                                                                                                <?php if($row->discount > 0) :?>
-                                                                                                    <?php $price_new = $row->price - $row->discount; ?>
-                                                                                                    <?php echo number_format($price_new) ?>đ <span class="old-price"><?php echo number_format($row->price) ?> đ</span>
-                                                                                                <?php else : ?>
-                                                                                                    <?php echo number_format($row->price) ?>đ
-                                                                                                <?php endif ?>
-                                                                                            </span>
-                                                                                        </div>
-                                                                                        <div class="price-sale">
-                                                                                        <span class="num">Lược Xem</span>
-                                                                                        <span class="text"><b><?=$row->view?></b></span>
-                                                                                    </div>
-                                                                                </div>                                   
-                                                                            </div>
-                                                                        </div>
-                                                                    </div> 
-                                                                    <?php endforeach ?>
-                                                                    <div class="respl-loader respl-btn " style="width:100%; text-align: center;">
-                                                                        <a class="respl-button" style="background: #6fbf1d; color: #fff;line-height:50px; padding:10px"  href="<?php echo base_url('san-pham') ?>">
-                                                                            <span class="loader-image"></span>
-                                                                            <span class="loader-label">
-                                                                                Xem thêm sản phẩm                   
-                                                                            </span>
-                                                                        </a>
-                                                                    </div>
-                                                                </div><!--line-->
-                                                            </div><!--end item--> 
-                                                        </div><!--end extraslider-inner -->
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="sppb-col-md-4">
-                                    <div class="sppb-addon-container">
-                                        <div class="clearfix">
-                                            <div class="sppb-addon sppb-addon-module si-extraslider-dev style2-dev color2">
-                                                <div class="sppb-addon-content">
-                                                    <h3 class="sppb-addon-title"><span>Mỹ phẩm</span></h3>    
-                                                        <div class="sj-extraslider style2-dev slide preset02-1" data-start-jcarousel="1">
-                                                            <div class="extraslider-inner">
-                                                                <div class="item active">
-                                                                    <div class="line">
-                                                                        <?php foreach ($product_buyed as $row): ?>
-                                                                        <div class="item-wrap style2 last ">
-                                                                            <div class="item-image">
-                                                                                <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                    <img src="<?php echo base_url('/upload/product/'.$row->image_link)?>" alt="<?=$row->name?>" title="<?=$row->name?>">      
-                                                                                </a>   
-                                                                            </div>
-                                                                            <div class="item-info">
-                                                                                <h3 class="item-title">
-                                                                                    <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                    <?=$row->name?>               
-                                                                                    </a>               
-                                                                                </h3>
-                                                                                <div class="item-content">                     
-                                                                                    <div class="main-price">
-                                                                                        <div class="item-price">
-                                                                                            <span class="price">
-                                                                                                <?php if($row->discount > 0) :?>
-                                                                                                    <?php $price_new = $row->price - $row->discount; ?>
-                                                                                                    <?php echo number_format($price_new) ?>đ <span class="old-price"><?php echo number_format($row->price) ?> đ</span>
-                                                                                                <?php else : ?>
-                                                                                                    <?php echo number_format($row->price) ?>đ
-                                                                                                <?php endif ?>
-                                                                                            </span>
-                                                                                        </div>
-                                                                                        <div class="price-sale">
-                                                                                            <span class="num">Lược Xem</span>
-                                                                                            <span class="text"><b><?=$row->view?></b></span>
-                                                                                        </div>
-                                                                                    </div>                                   
-                                                                                </div>
-                                                                            </div>
-                                                                        </div> 
-                                                                        <?php endforeach ?>
-                                                                        <div class="respl-loader respl-btn " style="width:100%; text-align: center;">
-                                                                            <a class="respl-button" style="background: #6fbf1d; color: #fff;line-height:50px; padding:10px"  href="<?php echo base_url('san-pham') ?>">
-                                                                                <span class="loader-image"></span>
-                                                                                <span class="loader-label">
-                                                                                Xem thêm sản phẩm                   
-                                                                                </span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div><!--line-->                           
-                                                                </div><!--end item--> 
-                                                            </div><!--end extraslider-inner -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="sppb-col-md-4">
-                                        <div class="sppb-addon-container">
-                                            <div class="clearfix">
-                                                <div class="sppb-addon sppb-addon-module si-extraslider-dev style2-dev color3">
-                                                    <div class="sppb-addon-content">
-                                                        <h3 class="sppb-addon-title">
-                                                            <span>Đồng hồ thời trang</span>
-                                                        </h3>    
-                                                        <div id="watch_style" class="sj-extraslider style2-dev slide preset02-1" data-start-jcarousel="1">          
-                                                            <div class="extraslider-control  button-type2">
-                                                                <a class="button-prev" href="#watch_style" data-jslide="prev">
-                                                                    <i class="fa fa-caret-left" aria-hidden="true"></i>
-                                                                </a>
-                                                                <a class="button-next" href="#watch_style" data-jslide="next">
-                                                                    <i class="fa fa-caret-right" aria-hidden="true"></i>
-                                                                </a>
-                                                            </div>
-                                                            <div class="extraslider-inner">
-                                                                <div class="item active">
-                                                                    <div class="line">
-                                                                        <?php foreach ($product_view as $row): ?>
-                                                                        <div class="item-wrap style2 last ">
-                                                                            <div class="item-image">
-                                                                                <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                    <img src="<?php echo base_url('/upload/product/'.$row->image_link)?>" alt="<?=$row->name?>" title="<?=$row->name?>">      
-                                                                                </a>   
-                                                                            </div>
-                                                                            <div class="item-info">
-                                                                                <h3 class="item-title">
-                                                                                    <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-                                                                                        <?=$row->name?>               
-                                                                                    </a>               
-                                                                                </h3>
-                                                                                <div class="item-content">                     
-                                                                                    <div class="main-price">
-                                                                                        <div class="item-price">
-                                                                                            <span class="price">
-                                                                                                <?php if($row->discount > 0) :?>
-                                                                                                    <?php $price_new = $row->price - $row->discount; ?>
-                                                                                                    <?php echo number_format($price_new) ?>đ <span class="old-price"><?php echo number_format($row->price) ?> đ</span>
-                                                                                                <?php else : ?>
-                                                                                                    <?php echo number_format($row->price) ?>đ
-                                                                                                <?php endif ?>
-                                                                                            </span>
-                                                                                        </div>
-                                                                                        <div class="price-sale">
-                                                                                            <span class="num">Lược Xem</span>
-                                                                                            <span class="text"><b><?=$row->view?></b></span>
-                                                                                        </div>
-                                                                                    </div>                                   
-                                                                                </div>
-                                                                            </div>
-                                                                        </div> 
-                                                                        <?php endforeach ?>
-                                                                        <div class="respl-loader respl-btn " style="width:100%; text-align: center;">
-                                                                            <a class="respl-button" style="background: #6fbf1d; color: #fff;line-height:50px; padding:10px"  href="<?php echo base_url('san-pham') ?>">
-                                                                                <span class="loader-image"></span>
-                                                                                <span class="loader-label">
-                                                                                    Xem thêm sản phẩm                   
-                                                                                </span>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div><!--line-->              
-                                                                </div><!--end item-->                              
-                                                            </div><!--end extraslider-inner -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                        <section id="block-scoll" class="sppb-section ">
-                            <div class="sppb-row-container">
-                                <div class="sppb-row">
-                                    <div class="sppb-col-md-12">
-                                        <div class="sppb-addon-container">
-                                            <div class="clearfix">
-                                                <div class="sppb-addon sppb-addon-module ">
-                                                    <div class="sppb-addon-content">
-                                                        <div class="custom">
-                                                            <ul class="list-info-service">
-                                                                <li class="item">
-                                                                    <div class="icon">
-                                                                        <img src="<?php echo public_url('site/images/s1.png')?>" alt="">
-                                                                    </div>
-                                                                    <div class="content">
-                                                                        <h3>GIAO HÀNG TOÀN QUỐC</h3>
-                                                                        <p>Miễn phí từ 2 sản phẩm</p>
-                                                                    </div>
-                                                                </li>
-                                                                <li class="item">
-                                                                    <div class="icon">
-                                                                        <img src="<?php echo public_url('site/images/t2.png')?>" alt="">
-                                                                    </div>
-                                                                    <div class="content">
-                                                                        <h3>THANH TOÁN NHẬN HÀNG</h3>
-                                                                        <p>Trả tiền khi nhận hàng</p>
-                                                                    </div>
-                                                                </li>
-                                                                <li class="item">
-                                                                    <div class="icon">
-                                                                        <img src="<?php echo public_url('site/images/t3.png')?>" alt="">
-                                                                    </div>
-                                                                    <div class="content">
-                                                                        <h3>7 NGÀY ĐỔI HÀNG</h3>
-                                                                        <p>Có thể đổi sản phẩm khác</p>
-                                                                    </div>
-                                                                </li>
-                                                                <li class="item">
-                                                                    <div class="icon">
-                                                                        <img src="<?php echo public_url('site/images/t4.png')?>" alt="">
-                                                                    </div>
-                                                                    <div class="content">
-                                                                        <h3>HOTLINE</h3>
-                                                                        <p>Mr. Luật - 0169.377.9225</p>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="sppb-hidden-sm sppb-hidden-xs clearfix">
-                                                <div class="sppb-addon sppb-addon-module ">
-                                                    <div class="sppb-addon-content">
-                                                        <div class="custom">
-                                                            <ul class="list-scoll" style="margin-left:40px;">
-                                                                <li class="item-scoll scoll2">
-                                                                    <a href="#scoll2">
-                                                                        <span class="text" style="width:100px;">Mới Nhất</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="item-scoll scoll3">
-                                                                    <a href="#scoll3">  
-                                                                        <span class="text" style="width:150px;">Mua Nhiều Nhất</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="item-scoll scoll4">
-                                                                    <a href="#scoll4">
-                                                                        <span class="text" style="width:150px;">Xem Nhiều Nhất</span>
-                                                                    </a>
-                                                                </li>
-                                                                <li class="item-scoll scoll5">
-                                                                    <a href="#scoll5">
-                                                                        <span class="text" style="width:150px;">Đồ Điện Tử</span>
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-<script type="text/javascript">
-    jQuery(document).ready(function($) {
-        $('#container_menu .menu_vertical .sj-megamenu-vertical .sj-dropdown.sj-menu-left').each(function(){
-            $(this).css('top', '0px');  
-            $(this).css('right', 'auto'); 
-            $(this).css('left', '-'+$(this).outerWidth()+'px');
-        });
-        $('#container_menu .menu_vertical .sj-megamenu-vertical .sj-dropdown.sj-menu-right').each(function() {
-            $(this).css('top', '0px');
-            $(this).css('left', 'auto');
-            $(this).css('right', '-'+$(this).outerWidth()+'px');
-        });
-    })
+<script src="<?php echo public_url('site/css/modernizr.custom.js')?>"></script>
+<script src="<?php echo public_url('site/js/jquery.dlmenu.js')?>"></script>
+<script>
+	$(function() {
+		$( '#dl-menu' ).dlmenu();
+	});
+	$(document).ready(function(){
+		$('body').click(function(e) {
+		$('#dl-menu').dlmenu('closeMenu'); 
+		});
+	});
 </script>
-<script type="text/javascript">
-    jQuery(document).ready(function($) {
-        $(document).on('click', '#container_menu a.btn-sambar', function (event) {
-            if ($(this).parent('.sambar-inner').hasClass('offcanvas')) {
-                $(this).parent('.sambar-inner').removeClass('offcanvas');
-            }
-            else {
-                $(this).parent('.sambar-inner').removeClass('offcanvas').addClass('offcanvas');
-            }
+<div class="dv-mnmb mobile menu_mobile">
+	<div class="container">
+		<a class="a_home" href="https://demo1013.web30s.vn">trang chủ</a>
+		<div id="dl-menu" class="dl-menuwrapper">
+			<button class="dl-trigger cur "></button>
+			<div class="clear"></div>
+			<ul class="dl-menu">
+				<li class='grid active'>
+					<a class='' href='https://demo1013.web30s.vn'>
+						<span>Trang chủ</span>
+					</a>
+				</li>
+				<li class='grid'>
+					<a class='' href='https://demo1013.web30s.vn/Gioi-Thieu-391691' >
+						<span>Giới Thiệu</span>
+					</a>
+				</li>
+				<li class='grid '>
+					<a class='' href='https://demo1013.web30s.vn/San-pham' >
+						<span>Sản phẩm</span>
+					</a>
+					<ul class="dl-submenu  " >
+						<li>
+							<a href='https://demo1013.web30s.vn/Dien-Thoai-390755'>» Điện Thoại</a>
+							<ul class='dl-submenu'>
+								<li>
+									<a href='https://demo1013.web30s.vn/iPhone-390764'>» iPhone</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/Samsung-390765'>» Samsung</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/HTC-390769'>» HTC</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/LG-390770'>» LG</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/Motorola-390771'>» Motorola</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/Sony-390767'>» Sony</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/Nokia-390763'>» Nokia</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/Sky-390768'>» Sky</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/OPPO-390766'>» OPPO</a>
+							</ul>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/May-Tinh-390756'>» Máy Tính</a>
+							<ul class='dl-submenu'>
+								<li>
+									<a href='https://demo1013.web30s.vn/Dell-390772'>» Dell</a>
+								<li>	
+									<a href='https://demo1013.web30s.vn/Macbook-390777'>» Macbook </a>
+								<li>
+									<a href='https://demo1013.web30s.vn/Asus-390775'>» Asus </a>
+								<li>
+									<a href='https://demo1013.web30s.vn/HP-390773'>» HP</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/Lenovo-390774'>» Lenovo</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/Acer-390776'>» Acer </a>
+								<li>
+									<a href='https://demo1013.web30s.vn/MSI-390778'>» MSI</a>
+							</ul>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/Phu-kien-cong-nghe-390861'>» Phụ kiện công nghệ</a>
+							<ul class='dl-submenu'>
+								<li>
+									<a href='https://demo1013.web30s.vn/Chuot-391454'>» Chuột</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/Tai-nghe-391456'>» Tai nghe</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/USB-391457'>» USB</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/Camera-391459'>» Camera</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/Ban-phim-391458'>» Bàn phím</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/De-tan-nhiet-391460'>» Đế tản nhiệt</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/Phu-kien-khac-391461'>» Phụ kiện khác</a>
+							</ul>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/May-giat-390871'>» Máy giặt</a>
+							<ul class='dl-submenu'>
+								<li>
+									<a href='https://demo1013.web30s.vn/Toshiba-391483'>» Toshiba</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/SHARP-391486'>» SHARP</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/Samsung-391488'>» Samsung</a>
+								<li>
+									<a href='https://demo1013.web30s.vn/LG-391494'>» LG</a>
+							</ul>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/Tivi-390872'>» Tivi</a>
+							<ul class='dl-submenu'>
+								<li>
+									<a href='https://demo1013.web30s.vn/Samsung-391470'>» Samsung</a>
+							</ul>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/may-lanh'>» Máy lạnh</a>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/dien-dung-gia-dinh-noi-com'>» Điện dụng gia đình, nồi cơm</a>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/tu-lanh'>» Tủ lạnh</a>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/san-pham-cu'>» Sản phẩm cũ</a>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/do-dung-gia-dinh'>» Đồ dùng gia đình</a>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/loc-nuoc'>» Lọc nước</a>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/may-giac-say-quan-ao'>» Máy giặc sấy quần áo</a>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/sim-so-the-cao-thu-ho'>» Sim số, thẻ cào, thu hộ</a>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/noi-that'>» Nội thất</a>
+						</li>
+					</ul>
+				</li>
+				<li class='grid '>
+					<a  class='' href='https://demo1013.web30s.vn/Tin-tuc' >
+						<span>Tin tức</span>
+					</a>
+					<ul class="dl-submenu  " >
+						<li>
+							<a href='https://demo1013.web30s.vn/Tin-tuc-xa-hoi-405868'>» Tin tức xã hội</a>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/Tin-tuc-suc-khoe-405869'>» Tin tức sức khỏe</a>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/Tin-tuc-cong-nghe-405870'>» Tin tức công nghệ</a>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/Tin-cong-nghe-393620'>» Tin công nghệ</a>
+						</li>
+						<li>
+							<a href='https://demo1013.web30s.vn/Tin-cap-nhat-393621'>» Tin cập nhật</a>
+						</li>
+					</ul>
+				</li>
+				<li class='grid'>
+					<a class='' href='https://demo1013.web30s.vn/Dich-Vu-391689' >
+						<span>Dịch Vụ</span>
+					</a>
+				</li>
+				<li class='grid'>
+					<a class='' href='https://demo1013.web30s.vn/Tuyen-Dung-391690' >
+						<span>Tuyển Dụng</span>
+					</a>
+				</li>
+				<li class='grid'>
+					<a class='' href='https://demo1013.web30s.vn/lien-he' >
+						<span>Liên hệ</span>
+					</a>
+				</li>        <!--  -->
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
 
-            if ($('body').hasClass('js-close-any')) {
-                $('body').removeClass('js-close-any')
-                $(this).parent('.sambar-inner').find('.offcanvas-overlay').removeClass('opened');
-            }
-            else {
-                $('body').removeClass('js-close-any').addClass('js-close-any');
-                $(this).parent('.sambar-inner').find('.offcanvas-overlay').removeClass('opened').addClass('opened');
-            }   
-        });
-        $(document).on('click', '.close-offcanvas, .offcanvas-overlay', function(event) {
-            event.preventDefault();
-            $('.sambar-inner').removeClass('offcanvas');
-            $('body').removeClass('offcanvas');
-            $('.offcanvas-overlay').removeClass('opened');            
-        });
-
-        // Close any
-        $( document ).on( 'click', '.js-close-any', function ( event ) {
-            $('.btn-sambar').removeClass('open');
-            $('body').removeClass('js-close-any');
-            $('body').removeClass('offcanvas');
-            $('.sambar-inner').removeClass('offcanvas');
-            $('.offcanvas-overlay').removeClass('opened');      
-        })
-        $('ul.nav li.parent .touch-button').on('click', function(e) {
-            if ($(this).hasClass('opened')) {
-                $(this).removeClass('opened');
-            }
-            else {
-                $(this).removeClass('opened').addClass('opened');
-            }
-            $sub = $(this).parent('li.parent').find('>ul');
-            if ($sub.hasClass('flexnav-show') === true) {
-                $sub.removeClass('flexnav-show').slideUp(250);
-            }
-            else {
-                $sub.addClass('flexnav-show').slideDown(250);
-            }
-            return false;
-        })
+<div class="clearfix"> </div>
+<script>
+  $("span.menu").click(function(){
+    $(" ul.nav").slideToggle("slow" , function(){
     });
+  });
 </script>
+<article style="position: relative;" id="article">
+	<section class="content gallery pad1" style='padding:0'>
+		<div class="midle_main_idclass fix1200_cus1">
+			<div class="slider-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-3 col-md-3 hidden-sm hidden-xs"></div>
+						<div class="col-lg-6 col-md-6 col-sm-12">
+							<div class="main-slider">
+								<div class="slider-container">
+									<?php 
+										$this->load->view('site/slide.php', $this->data);
+									?>
+								</div>  
+							</div>
+							<div class="slider-product dotted-style-1 pt-25">
+								<div class="slider-product-active">
+									<?php foreach($product_newest as $key=>$row) : ?>
+										<div class='single-product single-product-sidebar white-bg glo-trang-thai-sp'>
+											<div class='product-img product-img-left'>
+												<a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>">
+													<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
+												</a>
+											</div>
+											<div class='product-content product-content-right'>
+												<div class='pro-title'>
+													<h4><a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>"><?=$product_newest[$key]->name?></a></h4>
+												</div>
+												<div class='price-box'>
+													<?php if($product_newest[$key]->discount > 0) :?>
+														<?php $price_new = $product_newest[$key]->price - $product_newest[$key]->discount; ?>
+														<span class="price product-price"><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+														<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+													<?php else : ?>
+														<span class='product-price product-price-km'><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup></span>
+													<?php endif ?>
+												</div>
+												<div class='product-icon'>
+													<div class='product-icon-left f-left wid-100'>
+														<a href='<?php echo site_url('cart/add/'.$product_newest[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+														<!-- <a class='cur sosanh_right ' onclick='SOSANH_sp("2403199","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a> -->
+													</div>
+												</div>
+											</div>          
+										</div>
+									<?php endforeach?>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12 hidden-sm hidden-xs">
+							<div class="slider-sidebar">
+								<div class="slider-single-img mb-20">
+									<a href="#">
+									<img class="img_a" src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992441044645_banner_phaitren.jpg" alt="mở rộng 1 - không xài" />
+									<img class="img_b" src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992441044645_banner_phaitren.jpg" alt="mở rộng 1 - không xài" />
+									</a>
+								</div>
+								<div class="slider-single-img mb-20">
+									<a href="#">
+									<img class="img_a" src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992440699522_banner_phaitren2.jpg" alt="mở rộng 1 - không xài" />
+									<img class="img_b" src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992440699522_banner_phaitren2.jpg" alt="mở rộng 1 - không xài" />
+									</a>
+								</div>       
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="electronic-tab-area pt-30 pb-50">
+				<img id="adslefts" class="ads" style="position: absolute; top:-16px; left:0;" src="<?php echo public_url('site/images/banner7.jpg')?>" alt="" title="" />
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12">
+							<div class="tab-title">
+								<h2>Sản phẩm</h2>
+							</div>
+							<div class="tab-menu">
+								<ul>
+									<li class="active"><a href="#home" data-toggle="tab">SẢN PHẨM MỚI </a></li>
+									<li><a href="#profile" data-toggle="tab">SẢN PHẨM KHUYẾN MÃI</a></li>
+									<li><a href="#messages" data-toggle="tab">SẢN PHẨM ĐẶC BIỆT</a></li>
+									<li><a href="#settings" data-toggle="tab">SẢN PHẨM HOT</a></li>
+								</ul>           
+							</div>
+						</div>
+					</div>
+					<div class="tab-content tab-content-item">
+						<div class="tab-pane  dv-home-spqc active" id="home">
+							<div class='row'>
+								<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12 pad dotted-style-qc'>
+									<div class='single-tab-img'>
+										<a href='#'><img src='https://demo1013.web30s.vn/datafiles/4751/upload/images/14992450121864_banner_trai.jpg' alt='mở rộng 1 - không xài' /></a>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-6  col-xs-12 pad dv-home-sptieubieu">
+									<div class='single-product pt-30 pb-20 white-bg glo-trang-thai-sp'>
+										<div class='product-img pb-40'>
+											<a href="<?php echo base_url('product/view/'.$product_newest[0]->id)?>" title="<?=$product_newest[0]->name?>">
+												<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[0]->image_link)?>" alt="<?=$product_newest[0]->name?>" title="<?=$product_newest[0]->name?>" />
+											</a>
+										</div>
+										<div class='product-content'>
+											<div class='pro-title'>
+												<h4><a href="<?php echo base_url('product/view/'.$product_newest[0]->id)?>" title="<?=$product_newest[0]->name?>"><?=$product_newest[0]->name?></a></h4>
+											</div>
+											<div class='price-box'>
+												<?php if($product_newest[0]->discount > 0) :?>
+													<?php $price_new = $product_newest[0]->price - $product_newest[0]->discount; ?>
+													<span class="price product-price"><?php echo number_format($product_newest[0]->price) ?> <sup> đ</sup>&nbsp;</span>
+													<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+												<?php else : ?>
+													<span class='product-price product-price-km'><?php echo number_format($product_newest[0]->price) ?> <sup> đ</sup></span>
+												<?php endif ?>
+											</div>
+											<div class='product-icon'>
+												<div class='product-icon-left f-left'>
+													<a href='<?php echo site_url('cart/add/'.$product_newest[0]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+												</div>
+												<!-- <div class='product-icon-right floatright'>
+													<a class='cur' onclick='SOSANH_sp("2403199","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+												</div> -->
+											</div>
+										</div>
+									</div>          
+								</div>
+								<div class="col-lg-4 col-md-4 padd-2 col-sm-12  col-xs-12 dotted-style-1 dotted-style-danhsach">
+									<div class="tab-product-active">
+
+										<?php foreach($product_newest as $key=>$row) : ?>
+											<?php if($key % 2 == 0 && $key > 0) :?>
+											<div class='together-single-product glo-trang-thai-sp'>
+												<div class='single-product white-bg'>
+													<div class='product-img product-container-img'>
+														<a href="<?php echo base_url('product/view/'.$product_newest[$key-1]->id)?>" title="<?=$product_newest[$key-1]->name?>">
+															<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key-1]->image_link)?>" alt="<?=$product_newest[$key-1]->name?>" title="<?=$product_newest[$key-1]->name?>" />
+														</a>
+													</div>
+													<div class='product-content product-i'>
+														<div class='pro-title'>
+															<h4><a href="<?php echo base_url('product/view/'.$product_newest[$key-1]->id)?>" title="<?=$product_newest[$key-1]->name?>"><?=$product_newest[$key-1]->name?></a></h4>
+														</div>
+														<div class='price-box'>
+															<?php if($product_newest[$key-1]->discount > 0) :?>
+																<?php $price_new = $product_newest[$key-1]->price - $product_newest[$key-1]->discount; ?>
+																<span class="price product-price"><?php echo number_format($product_newest[$key-1]->price) ?> <sup> đ</sup>&nbsp;</span>
+																<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+															<?php else : ?>
+																<span class='product-price product-price-km'><?php echo number_format($product_newest[$key-1]->price) ?> <sup> đ</sup></span>
+															<?php endif ?>
+														</div>
+														<div class='product-icon'>
+															<div class='product-icon-left f-left'>
+																<a href='<?php echo site_url('cart/add/'.$product_newest[$key-1]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+															</div>
+															<!-- <div class='product-icon-right floatright'>
+																<a class='cur' onclick='SOSANH_sp("2403200","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+															</div> -->
+														</div>
+													</div>
+												</div>
+
+												<div class='single-product white-bg'>
+													<div class='product-img product-container-img'>
+														<a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>">
+															<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
+														</a>
+													</div>
+													<div class='product-content product-i'>
+														<div class='pro-title'>
+															<h4><a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>"><?=$product_newest[$key]->name?></a></h4>
+														</div>
+														<div class='price-box'>
+															<?php if($product_newest[$key]->discount > 0) :?>
+																<?php $price_new = $product_newest[$key]->price - $product_newest[$key]->discount; ?>
+																<span class="price product-price"><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+																<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+															<?php else : ?>
+																<span class='product-price product-price-km'><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup></span>
+															<?php endif ?>
+														</div>
+														<div class='product-icon'>
+															<div class='product-icon-left f-left'>
+																<a href='<?php echo site_url('cart/add/'.$product_newest[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+															</div>
+															<!-- <div class='product-icon-right floatright'>
+																<a class='cur' onclick='SOSANH_sp("2403200","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+															</div> -->
+														</div>
+													</div>
+												</div>
+											</div>  
+											<?php endif ?>
+										<?php endforeach?>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane dv-home-spqc" id="profile">
+							<div class="row">
+								<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12 pad dotted-style-qc'>
+									<div class='single-tab-img'>
+										<a href='#'><img src='https://demo1013.web30s.vn/datafiles/4751/upload/images/14992450121864_banner_trai.jpg' alt='mở rộng 1 - không xài' /></a>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-6  col-xs-12 pad dv-home-sptieubieu">
+									<div class='single-product pt-30 pb-20 white-bg glo-trang-thai-sp'>
+										<div class='product-img pb-40'>
+											<a href="<?php echo base_url('product/view/'.$product_buyed[0]->id)?>" title="<?=$product_buyed[0]->name?>">
+												<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_buyed[0]->image_link)?>" alt="<?=$product_buyed[0]->name?>" title="<?=$product_buyed[0]->name?>" />
+											</a>
+										</div>
+										<div class='product-content'>
+											<div class='pro-title'>
+												<h4><a href="<?php echo base_url('product/view/'.$product_buyed[0]->id)?>" title="<?=$product_buyed[0]->name?>"><?=$product_buyed[0]->name?></a></h4>
+											</div>
+											<div class='price-box'>
+												<?php if($product_buyed[0]->discount > 0) :?>
+													<?php $price_new = $product_buyed[0]->price - $product_buyed[0]->discount; ?>
+													<span class="price product-price"><?php echo number_format($product_buyed[0]->price) ?> <sup> đ</sup>&nbsp;</span>
+													<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+												<?php else : ?>
+													<span class='product-price product-price-km'><?php echo number_format($product_buyed[0]->price) ?> <sup> đ</sup></span>
+												<?php endif ?>
+											</div>
+											<div class='product-icon'>
+												<div class='product-icon-left f-left'>
+													<a href='<?php echo site_url('cart/add/'.$product_buyed[0]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+												</div>
+												<!-- <div class='product-icon-right floatright'>
+													<a class='cur' onclick='SOSANH_sp("2403199","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+												</div> -->
+											</div>
+										</div>
+									</div>          
+								</div>
+								<div class="col-lg-4 col-md-4 padd-2 col-sm-12  col-xs-12 dotted-style-1 dotted-style-danhsach">
+									<div class="tab-product-active">
+
+										<?php foreach($product_buyed as $key=>$row) : ?>
+											<?php if($key % 2 == 0 && $key > 0) :?>
+											<div class='together-single-product glo-trang-thai-sp'>
+												<div class='single-product white-bg'>
+													<div class='product-img product-container-img'>
+														<a href="<?php echo base_url('product/view/'.$product_buyed[$key-1]->id)?>" title="<?=$product_buyed[$key-1]->name?>">
+															<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_buyed[$key-1]->image_link)?>" alt="<?=$product_buyed[$key-1]->name?>" title="<?=$product_buyed[$key-1]->name?>" />
+														</a>
+													</div>
+													<div class='product-content product-i'>
+														<div class='pro-title'>
+															<h4><a href="<?php echo base_url('product/view/'.$product_buyed[$key-1]->id)?>" title="<?=$product_buyed[$key-1]->name?>"><?=$product_buyed[$key-1]->name?></a></h4>
+														</div>
+														<div class='price-box'>
+															<?php if($product_buyed[$key-1]->discount > 0) :?>
+																<?php $price_new = $product_buyed[$key-1]->price - $product_buyed[$key-1]->discount; ?>
+																<span class="price product-price"><?php echo number_format($product_buyed[$key-1]->price) ?> <sup> đ</sup>&nbsp;</span>
+																<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+															<?php else : ?>
+																<span class='product-price product-price-km'><?php echo number_format($product_buyed[$key-1]->price) ?> <sup> đ</sup></span>
+															<?php endif ?>
+														</div>
+														<div class='product-icon'>
+															<div class='product-icon-left f-left'>
+																<a href='<?php echo site_url('cart/add/'.$product_buyed[$key-1]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+															</div>
+															<!-- <div class='product-icon-right floatright'>
+																<a class='cur' onclick='SOSANH_sp("2403200","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+															</div> -->
+														</div>
+													</div>
+												</div>
+
+												<div class='single-product white-bg'>
+													<div class='product-img product-container-img'>
+														<a href="<?php echo base_url('product/view/'.$product_buyed[$key]->id)?>" title="<?=$product_buyed[$key]->name?>">
+															<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_buyed[$key]->image_link)?>" alt="<?=$product_buyed[$key]->name?>" title="<?=$product_buyed[$key]->name?>" />
+														</a>
+													</div>
+													<div class='product-content product-i'>
+														<div class='pro-title'>
+															<h4><a href="<?php echo base_url('product/view/'.$product_buyed[$key]->id)?>" title="<?=$product_buyed[$key]->name?>"><?=$product_buyed[$key]->name?></a></h4>
+														</div>
+														<div class='price-box'>
+															<?php if($product_buyed[$key]->discount > 0) :?>
+																<?php $price_new = $product_buyed[$key]->price - $product_buyed[$key]->discount; ?>
+																<span class="price product-price"><?php echo number_format($product_buyed[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+																<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+															<?php else : ?>
+																<span class='product-price product-price-km'><?php echo number_format($product_buyed[$key]->price) ?> <sup> đ</sup></span>
+															<?php endif ?>
+														</div>
+														<div class='product-icon'>
+															<div class='product-icon-left f-left'>
+																<a href='<?php echo site_url('cart/add/'.$product_buyed[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+															</div>
+															<!-- <div class='product-icon-right floatright'>
+																<a class='cur' onclick='SOSANH_sp("2403200","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+															</div> -->
+														</div>
+													</div>
+												</div>
+											</div>  
+											<?php endif ?>
+										<?php endforeach?>
+									</div>
+								</div>
+							</div>
+						</div> 
+						<div class="tab-pane dv-home-spqc" id="messages">
+							<div class="row">
+								<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12 pad dotted-style-qc'>
+									<div class='single-tab-img'>
+										<a href='#'><img src='https://demo1013.web30s.vn/datafiles/4751/upload/images/14992450121864_banner_trai.jpg' alt='mở rộng 1 - không xài' /></a>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-6  col-xs-12 pad dv-home-sptieubieu">
+									<div class='single-product pt-30 pb-20 white-bg glo-trang-thai-sp'>
+										<div class='product-img pb-40'>
+											<a href="<?php echo base_url('product/view/'.$product_view[0]->id)?>" title="<?=$product_view[0]->name?>">
+												<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_view[0]->image_link)?>" alt="<?=$product_view[0]->name?>" title="<?=$product_view[0]->name?>" />
+											</a>
+										</div>
+										<div class='product-content'>
+											<div class='pro-title'>
+												<h4><a href="<?php echo base_url('product/view/'.$product_view[0]->id)?>" title="<?=$product_view[0]->name?>"><?=$product_view[0]->name?></a></h4>
+											</div>
+											<div class='price-box'>
+												<?php if($product_view[0]->discount > 0) :?>
+													<?php $price_new = $product_view[0]->price - $product_view[0]->discount; ?>
+													<span class="price product-price"><?php echo number_format($product_view[0]->price) ?> <sup> đ</sup>&nbsp;</span>
+													<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+												<?php else : ?>
+													<span class='product-price product-price-km'><?php echo number_format($product_view[0]->price) ?> <sup> đ</sup></span>
+												<?php endif ?>
+											</div>
+											<div class='product-icon'>
+												<div class='product-icon-left f-left'>
+													<a href='<?php echo site_url('cart/add/'.$product_view[0]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+												</div>
+												<!-- <div class='product-icon-right floatright'>
+													<a class='cur' onclick='SOSANH_sp("2403199","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+												</div> -->
+											</div>
+										</div>
+									</div>          
+								</div>
+								<div class="col-lg-4 col-md-4 padd-2 col-sm-12  col-xs-12 dotted-style-1 dotted-style-danhsach">
+									<div class="tab-product-active">
+
+										<?php foreach($product_view as $key=>$row) : ?>
+											<?php if($key % 2 == 0 && $key > 0) :?>
+											<div class='together-single-product glo-trang-thai-sp'>
+												<div class='single-product white-bg'>
+													<div class='product-img product-container-img'>
+														<a href="<?php echo base_url('product/view/'.$product_view[$key-1]->id)?>" title="<?=$product_view[$key-1]->name?>">
+															<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_view[$key-1]->image_link)?>" alt="<?=$product_view[$key-1]->name?>" title="<?=$product_view[$key-1]->name?>" />
+														</a>
+													</div>
+													<div class='product-content product-i'>
+														<div class='pro-title'>
+															<h4><a href="<?php echo base_url('product/view/'.$product_view[$key-1]->id)?>" title="<?=$product_view[$key-1]->name?>"><?=$product_view[$key-1]->name?></a></h4>
+														</div>
+														<div class='price-box'>
+															<?php if($product_view[$key-1]->discount > 0) :?>
+																<?php $price_new = $product_view[$key-1]->price - $product_view[$key-1]->discount; ?>
+																<span class="price product-price"><?php echo number_format($product_view[$key-1]->price) ?> <sup> đ</sup>&nbsp;</span>
+																<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+															<?php else : ?>
+																<span class='product-price product-price-km'><?php echo number_format($product_view[$key-1]->price) ?> <sup> đ</sup></span>
+															<?php endif ?>
+														</div>
+														<div class='product-icon'>
+															<div class='product-icon-left f-left'>
+																<a href='<?php echo site_url('cart/add/'.$product_view[$key-1]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+															</div>
+															<!-- <div class='product-icon-right floatright'>
+																<a class='cur' onclick='SOSANH_sp("2403200","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+															</div> -->
+														</div>
+													</div>
+												</div>
+
+												<div class='single-product white-bg'>
+													<div class='product-img product-container-img'>
+														<a href="<?php echo base_url('product/view/'.$product_view[$key]->id)?>" title="<?=$product_view[$key]->name?>">
+															<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_view[$key]->image_link)?>" alt="<?=$product_view[$key]->name?>" title="<?=$product_view[$key]->name?>" />
+														</a>
+													</div>
+													<div class='product-content product-i'>
+														<div class='pro-title'>
+															<h4><a href="<?php echo base_url('product/view/'.$product_view[$key]->id)?>" title="<?=$product_view[$key]->name?>"><?=$product_view[$key]->name?></a></h4>
+														</div>
+														<div class='price-box'>
+															<?php if($product_view[$key]->discount > 0) :?>
+																<?php $price_new = $product_view[$key]->price - $product_view[$key]->discount; ?>
+																<span class="price product-price"><?php echo number_format($product_view[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+																<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+															<?php else : ?>
+																<span class='product-price product-price-km'><?php echo number_format($product_view[$key]->price) ?> <sup> đ</sup></span>
+															<?php endif ?>
+														</div>
+														<div class='product-icon'>
+															<div class='product-icon-left f-left'>
+																<a href='<?php echo site_url('cart/add/'.$product_view[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+															</div>
+															<!-- <div class='product-icon-right floatright'>
+																<a class='cur' onclick='SOSANH_sp("2403200","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+															</div> -->
+														</div>
+													</div>
+												</div>
+											</div>  
+											<?php endif ?>
+										<?php endforeach?>
+									</div>
+								</div>
+							</div>        
+						</div>
+						<div class="tab-pane dv-home-spqc" id="settings">
+							<div class="row">
+								<div class='col-lg-4 col-md-4 col-sm-6 col-xs-12 pad dotted-style-qc'>
+									<div class='single-tab-img'>
+										<a href='#'><img src='https://demo1013.web30s.vn/datafiles/4751/upload/images/14992450121864_banner_trai.jpg' alt='mở rộng 1 - không xài' /></a>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-4 col-sm-6  col-xs-12 pad dv-home-sptieubieu">
+									<div class='single-product pt-30 pb-20 white-bg glo-trang-thai-sp'>
+										<div class='product-img pb-40'>
+											<a href="<?php echo base_url('product/view/'.$product_newest[0]->id)?>" title="<?=$product_newest[0]->name?>">
+												<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[0]->image_link)?>" alt="<?=$product_newest[0]->name?>" title="<?=$product_newest[0]->name?>" />
+											</a>
+										</div>
+										<div class='product-content'>
+											<div class='pro-title'>
+												<h4><a href="<?php echo base_url('product/view/'.$product_newest[0]->id)?>" title="<?=$product_newest[0]->name?>"><?=$product_newest[0]->name?></a></h4>
+											</div>
+											<div class='price-box'>
+												<?php if($product_newest[0]->discount > 0) :?>
+													<?php $price_new = $product_newest[0]->price - $product_newest[0]->discount; ?>
+													<span class="price product-price"><?php echo number_format($product_newest[0]->price) ?> <sup> đ</sup>&nbsp;</span>
+													<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+												<?php else : ?>
+													<span class='product-price product-price-km'><?php echo number_format($product_newest[0]->price) ?> <sup> đ</sup></span>
+												<?php endif ?>
+											</div>
+											<div class='product-icon'>
+												<div class='product-icon-left f-left'>
+													<a href='<?php echo site_url('cart/add/'.$product_newest[0]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+												</div>
+												<!-- <div class='product-icon-right floatright'>
+													<a class='cur' onclick='SOSANH_sp("2403199","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+												</div> -->
+											</div>
+										</div>
+									</div>          
+								</div>
+								<div class="col-lg-4 col-md-4 padd-2 col-sm-12  col-xs-12 dotted-style-1 dotted-style-danhsach">
+									<div class="tab-product-active">
+
+										<?php foreach($product_newest as $key=>$row) : ?>
+											<?php if($key % 2 == 0 && $key > 0) :?>
+											<div class='together-single-product glo-trang-thai-sp'>
+												<div class='single-product white-bg'>
+													<div class='product-img product-container-img'>
+														<a href="<?php echo base_url('product/view/'.$product_newest[$key-1]->id)?>" title="<?=$product_newest[$key-1]->name?>">
+															<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key-1]->image_link)?>" alt="<?=$product_newest[$key-1]->name?>" title="<?=$product_newest[$key-1]->name?>" />
+														</a>
+													</div>
+													<div class='product-content product-i'>
+														<div class='pro-title'>
+															<h4><a href="<?php echo base_url('product/view/'.$product_newest[$key-1]->id)?>" title="<?=$product_newest[$key-1]->name?>"><?=$product_newest[$key-1]->name?></a></h4>
+														</div>
+														<div class='price-box'>
+															<?php if($product_newest[$key-1]->discount > 0) :?>
+																<?php $price_new = $product_newest[$key-1]->price - $product_newest[$key-1]->discount; ?>
+																<span class="price product-price"><?php echo number_format($product_newest[$key-1]->price) ?> <sup> đ</sup>&nbsp;</span>
+																<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+															<?php else : ?>
+																<span class='product-price product-price-km'><?php echo number_format($product_newest[$key-1]->price) ?> <sup> đ</sup></span>
+															<?php endif ?>
+														</div>
+														<div class='product-icon'>
+															<div class='product-icon-left f-left'>
+																<a href='<?php echo site_url('cart/add/'.$product_newest[$key-1]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+															</div>
+															<!-- <div class='product-icon-right floatright'>
+																<a class='cur' onclick='SOSANH_sp("2403200","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+															</div> -->
+														</div>
+													</div>
+												</div>
+
+												<div class='single-product white-bg'>
+													<div class='product-img product-container-img'>
+														<a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>">
+															<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
+														</a>
+													</div>
+													<div class='product-content product-i'>
+														<div class='pro-title'>
+															<h4><a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>"><?=$product_newest[$key]->name?></a></h4>
+														</div>
+														<div class='price-box'>
+															<?php if($product_newest[$key]->discount > 0) :?>
+																<?php $price_new = $product_newest[$key]->price - $product_newest[$key]->discount; ?>
+																<span class="price product-price"><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+																<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+															<?php else : ?>
+																<span class='product-price product-price-km'><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup></span>
+															<?php endif ?>
+														</div>
+														<div class='product-icon'>
+															<div class='product-icon-left f-left'>
+																<a href='<?php echo site_url('cart/add/'.$product_newest[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+															</div>
+															<!-- <div class='product-icon-right floatright'>
+																<a class='cur' onclick='SOSANH_sp("2403200","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+															</div> -->
+														</div>
+													</div>
+												</div>
+											</div>  
+											<?php endif ?>
+										<?php endforeach?>
+									</div>
+								</div>
+							</div>        
+						</div>
+						<div class="all-product-area pb-20">
+							<div class="container">
+								<div class="row">
+									<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+										<div class="bestseller-area dotted-style-2">
+											<div class="section-title">
+												<h3>SẢN PHẨM MỚI</h3>
+											</div>
+											<div class="single-product-items-active border-1">
+												<div class='single-product-items'>
+													<?php foreach($product_newest as $key=>$row) : ?>
+														<div class='single-product single-product-sidebar white-bg glo-trang-thai-sp glo-trang-thai-sp-2403454' data='2403454'>
+															<div class='product-img product-img-left'>
+																<a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>">
+																	<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
+																</a>
+															</div>
+															<div class='product-content product-content-right'>
+																<div class='pro-title'>
+																	<h4><a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>"><?=$product_newest[$key]->name?></a></h4>
+																</div>
+																<div class='price-box'>
+																	<?php if($product_newest[$key]->discount > 0) :?>
+																		<?php $price_new = $product_newest[$key]->price - $product_newest[$key]->discount; ?>
+																		<span class="price product-price"><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+																		<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+																	<?php else : ?>
+																		<span class='product-price product-price-km'><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup></span>
+																	<?php endif ?>
+																</div>
+																<div class='product-icon'>
+																	<div class='product-icon-left f-left'>
+																		<a href='<?php echo site_url('cart/add/'.$product_newest[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+																	</div>
+																</div>
+															</div>          
+														</div>
+													<?php endforeach?>
+												</div>
+												<div class='single-product-items'>
+													<?php foreach($product_buyed as $key=>$row) : ?>
+														<div class='single-product single-product-sidebar white-bg glo-trang-thai-sp glo-trang-thai-sp-2403454' data='2403454'>
+															<div class='product-img product-img-left'>
+																<a href="<?php echo base_url('product/view/'.$product_buyed[$key]->id)?>" title="<?=$product_buyed[$key]->name?>">
+																	<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_buyed[$key]->image_link)?>" alt="<?=$product_buyed[$key]->name?>" title="<?=$product_buyed[$key]->name?>" />
+																</a>
+															</div>
+															<div class='product-content product-content-right'>
+																<div class='pro-title'>
+																	<h4><a href="<?php echo base_url('product/view/'.$product_buyed[$key]->id)?>" title="<?=$product_buyed[$key]->name?>"><?=$product_buyed[$key]->name?></a></h4>
+																</div>
+																<div class='price-box'>
+																	<?php if($product_buyed[$key]->discount > 0) :?>
+																		<?php $price_new = $product_buyed[$key]->price - $product_buyed[$key]->discount; ?>
+																		<span class="price product-price"><?php echo number_format($product_buyed[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+																		<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+																	<?php else : ?>
+																		<span class='product-price product-price-km'><?php echo number_format($product_buyed[$key]->price) ?> <sup> đ</sup></span>
+																	<?php endif ?>
+																</div>
+																<div class='product-icon'>
+																	<div class='product-icon-left f-left'>
+																		<a href='<?php echo site_url('cart/add/'.$product_buyed[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+																	</div>
+																</div>
+															</div>          
+														</div>
+													<?php endforeach?>
+												</div>
+												<div class='single-product-items'>
+													<?php foreach($product_view as $key=>$row) : ?>
+														<div class='single-product single-product-sidebar white-bg glo-trang-thai-sp glo-trang-thai-sp-2403454' data='2403454'>
+															<div class='product-img product-img-left'>
+																<a href="<?php echo base_url('product/view/'.$product_view[$key]->id)?>" title="<?=$product_view[$key]->name?>">
+																	<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_view[$key]->image_link)?>" alt="<?=$product_view[$key]->name?>" title="<?=$product_view[$key]->name?>" />
+																</a>
+															</div>
+															<div class='product-content product-content-right'>
+																<div class='pro-title'>
+																	<h4><a href="<?php echo base_url('product/view/'.$product_view[$key]->id)?>" title="<?=$product_view[$key]->name?>"><?=$product_view[$key]->name?></a></h4>
+																</div>
+																<div class='price-box'>
+																	<?php if($product_view[$key]->discount > 0) :?>
+																		<?php $price_new = $product_view[$key]->price - $product_view[$key]->discount; ?>
+																		<span class="price product-price"><?php echo number_format($product_view[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+																		<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+																	<?php else : ?>
+																		<span class='product-price product-price-km'><?php echo number_format($product_view[$key]->price) ?> <sup> đ</sup></span>
+																	<?php endif ?>
+																</div>
+																<div class='product-icon'>
+																	<div class='product-icon-left f-left'>
+																		<a href='<?php echo site_url('cart/add/'.$product_view[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+																	</div>
+																</div>
+															</div>          
+														</div>
+													<?php endforeach?>
+												</div>
+												<div class='single-product-items'>
+													<?php foreach($product_newest as $key=>$row) : ?>
+														<div class='single-product single-product-sidebar white-bg glo-trang-thai-sp glo-trang-thai-sp-2403454' data='2403454'>
+															<div class='product-img product-img-left'>
+																<a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>">
+																	<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
+																</a>
+															</div>
+															<div class='product-content product-content-right'>
+																<div class='pro-title'>
+																	<h4><a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>"><?=$product_newest[$key]->name?></a></h4>
+																</div>
+																<div class='price-box'>
+																	<?php if($product_newest[$key]->discount > 0) :?>
+																		<?php $price_new = $product_newest[$key]->price - $product_newest[$key]->discount; ?>
+																		<span class="price product-price"><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+																		<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+																	<?php else : ?>
+																		<span class='product-price product-price-km'><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup></span>
+																	<?php endif ?>
+																</div>
+																<div class='product-icon'>
+																	<div class='product-icon-left f-left'>
+																		<a href='<?php echo site_url('cart/add/'.$product_newest[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+																	</div>
+																</div>
+															</div>          
+														</div>
+													<?php endforeach?>
+												</div>                
+											</div>            
+										</div>
+									</div>
+									<div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+										<div class='feature-product-area feature-product-area-sphome dotted-style-2'>
+											<div class='section-title'>
+												<h3>Điện Thoại</h3>
+											</div>
+											<div class='feature-product-active border-1'>
+												<?php foreach($product_newest as $key=>$row) : ?>
+													<div class='single-product  white-bg glo-trang-thai-sp'>
+														<div class='product-img pt-20'>
+															<a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>">
+																<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
+															</a>
+														</div>
+														<div class='product-content product-i'>
+															<div class='pro-title'>
+																<h4><a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>"><?=$product_newest[$key]->name?></a></h4>
+															</div>
+															<div class='price-box'>
+																<?php if($product_newest[$key]->discount > 0) :?>
+																	<?php $price_new = $product_newest[$key]->price - $product_newest[$key]->discount; ?>
+																	<span class="price product-price"><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+																	<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+																<?php else : ?>
+																	<span class='product-price product-price-km'><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup></span>
+																<?php endif ?>
+															</div>
+															<div class='product-icon'>
+																<div class='product-icon-left f-left'>
+																	<a href='<?php echo site_url('cart/add/'.$product_newest[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+																</div>
+																<!-- <div class='product-icon-right floatright'>
+																	<a class='cur' onclick='SOSANH_sp("2403195","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+																</div> -->
+															</div>
+														</div>
+													</div>
+												<?php endforeach?>
+											</div>
+										</div>
+
+										<div class='feature-product-area feature-product-area-sphome dotted-style-2'>
+											<div class='section-title'>
+												<h3>Máy Tính</h3>
+											</div>
+											<div class='feature-product-active border-1'>
+											<?php foreach($product_buyed as $key=>$row) : ?>
+													<div class='single-product  white-bg glo-trang-thai-sp'>
+														<div class='product-img pt-20'>
+															<a href="<?php echo base_url('product/view/'.$product_buyed[$key]->id)?>" title="<?=$product_buyed[$key]->name?>">
+																<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_buyed[$key]->image_link)?>" alt="<?=$product_buyed[$key]->name?>" title="<?=$product_buyed[$key]->name?>" />
+															</a>
+														</div>
+														<div class='product-content product-i'>
+															<div class='pro-title'>
+																<h4><a href="<?php echo base_url('product/view/'.$product_buyed[$key]->id)?>" title="<?=$product_buyed[$key]->name?>"><?=$product_buyed[$key]->name?></a></h4>
+															</div>
+															<div class='price-box'>
+																<?php if($product_buyed[$key]->discount > 0) :?>
+																	<?php $price_new = $product_buyed[$key]->price - $product_buyed[$key]->discount; ?>
+																	<span class="price product-price"><?php echo number_format($product_buyed[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+																	<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+																<?php else : ?>
+																	<span class='product-price product-price-km'><?php echo number_format($product_buyed[$key]->price) ?> <sup> đ</sup></span>
+																<?php endif ?>
+															</div>
+															<div class='product-icon'>
+																<div class='product-icon-left f-left'>
+																	<a href='<?php echo site_url('cart/add/'.$product_buyed[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+																</div>
+																<!-- <div class='product-icon-right floatright'>
+																	<a class='cur' onclick='SOSANH_sp("2403195","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+																</div> -->
+															</div>
+														</div>
+													</div>
+												<?php endforeach?>
+											</div>
+										</div>
+
+
+										<div class='feature-product-area feature-product-area-sphome dotted-style-2'>
+											<div class='section-title'>
+												<h3>Phụ kiện công nghệ</h3>
+											</div>
+											<div class='feature-product-active border-1'>
+											<?php foreach($product_view as $key=>$row) : ?>
+													<div class='single-product  white-bg glo-trang-thai-sp'>
+														<div class='product-img pt-20'>
+															<a href="<?php echo base_url('product/view/'.$product_view[$key]->id)?>" title="<?=$product_view[$key]->name?>">
+																<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_view[$key]->image_link)?>" alt="<?=$product_view[$key]->name?>" title="<?=$product_view[$key]->name?>" />
+															</a>
+														</div>
+														<div class='product-content product-i'>
+															<div class='pro-title'>
+																<h4><a href="<?php echo base_url('product/view/'.$product_view[$key]->id)?>" title="<?=$product_view[$key]->name?>"><?=$product_view[$key]->name?></a></h4>
+															</div>
+															<div class='price-box'>
+																<?php if($product_view[$key]->discount > 0) :?>
+																	<?php $price_new = $product_view[$key]->price - $product_view[$key]->discount; ?>
+																	<span class="price product-price"><?php echo number_format($product_view[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+																	<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+																<?php else : ?>
+																	<span class='product-price product-price-km'><?php echo number_format($product_view[$key]->price) ?> <sup> đ</sup></span>
+																<?php endif ?>
+															</div>
+															<div class='product-icon'>
+																<div class='product-icon-left f-left'>
+																	<a href='<?php echo site_url('cart/add/'.$product_view[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+																</div>
+																<!-- <div class='product-icon-right floatright'>
+																	<a class='cur' onclick='SOSANH_sp("2403195","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+																</div> -->
+															</div>
+														</div>
+													</div>
+												<?php endforeach?>
+											</div>
+										</div>
+
+										<div class='feature-product-area feature-product-area-sphome dotted-style-2'>
+											<div class='section-title'>
+												<h3>Máy giặt</h3>
+											</div>
+											<div class='feature-product-active border-1'>
+											<?php foreach($product_newest as $key=>$row) : ?>
+													<div class='single-product  white-bg glo-trang-thai-sp'>
+														<div class='product-img pt-20'>
+															<a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>">
+																<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
+															</a>
+														</div>
+														<div class='product-content product-i'>
+															<div class='pro-title'>
+																<h4><a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>"><?=$product_newest[$key]->name?></a></h4>
+															</div>
+															<div class='price-box'>
+																<?php if($product_newest[$key]->discount > 0) :?>
+																	<?php $price_new = $product_newest[$key]->price - $product_newest[$key]->discount; ?>
+																	<span class="price product-price"><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+																	<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+																<?php else : ?>
+																	<span class='product-price product-price-km'><?php echo number_format($product_newest[$key]->price) ?> <sup> đ</sup></span>
+																<?php endif ?>
+															</div>
+															<div class='product-icon'>
+																<div class='product-icon-left f-left'>
+																	<a href='<?php echo site_url('cart/add/'.$product_newest[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+																</div>
+																<!-- <div class='product-icon-right floatright'>
+																	<a class='cur' onclick='SOSANH_sp("2403195","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+																</div> -->
+															</div>
+														</div>
+													</div>
+												<?php endforeach?>
+											</div>
+										</div>
+										<div class='feature-product-area feature-product-area-sphome dotted-style-2'>
+											<div class='section-title'>
+												<h3>Tivi</h3>
+											</div>
+											<div class='feature-product-active border-1'>
+											<?php foreach($product_buyed as $key=>$row) : ?>
+													<div class='single-product  white-bg glo-trang-thai-sp'>
+														<div class='product-img pt-20'>
+															<a href="<?php echo base_url('product/view/'.$product_buyed[$key]->id)?>" title="<?=$product_buyed[$key]->name?>">
+																<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_buyed[$key]->image_link)?>" alt="<?=$product_buyed[$key]->name?>" title="<?=$product_buyed[$key]->name?>" />
+															</a>
+														</div>
+														<div class='product-content product-i'>
+															<div class='pro-title'>
+																<h4><a href="<?php echo base_url('product/view/'.$product_buyed[$key]->id)?>" title="<?=$product_buyed[$key]->name?>"><?=$product_buyed[$key]->name?></a></h4>
+															</div>
+															<div class='price-box'>
+																<?php if($product_buyed[$key]->discount > 0) :?>
+																	<?php $price_new = $product_buyed[$key]->price - $product_buyed[$key]->discount; ?>
+																	<span class="price product-price"><?php echo number_format($product_buyed[$key]->price) ?> <sup> đ</sup>&nbsp;</span>
+																	<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+																<?php else : ?>
+																	<span class='product-price product-price-km'><?php echo number_format($product_buyed[$key]->price) ?> <sup> đ</sup></span>
+																<?php endif ?>
+															</div>
+															<div class='product-icon'>
+																<div class='product-icon-left f-left'>
+																	<a href='<?php echo site_url('cart/add/'.$product_buyed[$key]->id)?>'><i class='fa fa-shopping-cart'></i>Đặt mua</a>
+																</div>
+																<!-- <div class='product-icon-right floatright'>
+																	<a class='cur' onclick='SOSANH_sp("2403195","add","LIÊN HỆ","Sản phẩm đã được thêm vào so sánh!","Đã thêm đủ số lượng sản phẩm cần so sánh")'><i class='fa fa-exchange'></i></a>
+																</div> -->
+															</div>
+														</div>
+													</div>
+												<?php endforeach?>
+											</div>
+										</div>
+									</div>
+									<script>
+										$(document).ready(function (){
+											$('.feature-product-active').owlCarousel({
+												loop:true,
+												autoplay:false,
+												nav:true,
+												navText:["<i class='fa fa-angle-left'></i>","<i class='fa fa-angle-right'></i>"],
+												responsive:{
+													0:{
+														items:1
+													},
+													767:{
+														items:2
+													},
+													991:{
+														items:3
+													},
+													1200:{
+														items:4
+													}
+												}
+											})
+										})
+									</script>
+								</div>
+							</div>
+							<div class="brand-area pb-60 dotted-style-2">
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="section-title">
+												<h3>ĐỐI TÁC</h3>
+											</div>          
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="brand-active border-1">
+												<div class="single-brand">
+													<a href="#"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14997624647321_14993986887182_logo4.jpg" alt="mở rộng 1 - không xài" /></a>
+												</div>
+												<div class="single-brand">
+													<a href="#"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14997624643640_14993986548937_logo1.png" alt="mở rộng 1 - không xài" /></a>
+												</div>
+												<div class="single-brand">
+													<a href="#"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14997624646852_14993986773177_logo3.jpg" alt="mở rộng 1 - không xài" /></a>
+												</div>
+												<div class="single-brand">
+													<a href="#"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14997624647498_14993986642560_logo2.jpg" alt="mở rộng 1 - không xài" /></a>
+												</div>
+												<div class="single-brand">
+													<a href="#"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14997624648905_14993986984985_logo5.png" alt="mở rộng 1 - không xài" /></a>
+												</div>
+												<div class="single-brand">
+													<a href="#"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14997624642594_14993987848022_logo7.png" alt="mở rộng 1 - không xài" /></a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="blog-area dotted-style-2  pb-60">
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-12">
+											<div class="section-title">
+												<h3>Tin tức</h3>
+											</div>          
+										</div>
+									</div>
+									<div class="row">
+										<div class="blog-active dv-tintuc-home">
+											<?php foreach($news_list as $row) : ?>
+												<div class='col-lg-12'>
+													<div class='single-blog'>
+														<div class='blog-img'>
+															<a href="<?php echo base_url('news/view/'.$row->id)?>" title="<?=$row->title?>">
+																<img src="<?php echo base_url('/upload/news/'.$row->image_link)?>" alt="<?=$row->title?>" title="<?=$row->title?>">
+															</a>
+														</div>
+														<div class='blog-content-inner'>
+															<div class='blog-content white-bg'>
+																<a href="<?php echo base_url('news/view/'.$row->id)?>" title="<?=$row->title?>">
+																	<h4> <?=$row->title?> </h4>
+																</a>
+																<p class='mb-0'>
+																	<?php 
+																		if(strlen($row->intro) < 20){
+																			echo $row->intro;
+																		}else{
+																			echo mb_substr($row->intro,0,80,'utf8').'...';
+																		}
+																	?>
+																</p>
+															</div>              
+														</div>
+													</div>
+												</div>
+											<?php endforeach?>   
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="newletter-area ptb-30">
+								<div class="container">
+									<div class="row">
+										<div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+											<div class="newletter-logo">
+												<a href="https://demo1013.web30s.vn"><img alt='Bán hàng online' class='img_logo' src='https://demo1013.web30s.vn/datafiles/4751/upload/images/14992412349479_logo.png'></a>
+											</div>
+										</div>
+										<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+											<div class="subscribe-form">
+												<form>
+													<input type="text" name="newsletter" id="newsletter_id" value="Đăng ký nhận tin" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Đăng ký nhận tin';}" >
+													<button class="subscribe" onclick="return NewsLetter();" >Đăng ký</button>              
+												</form>
+											</div>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+											<div class="subscribe-social text-right">
+											<a href="https://www.youtube.com/channel/UC2CD0jJ4HZLCZReyCyzwp0g" target="_blank"><i class="fa fa-youtube"></i></a>
+											<a href="https://www.facebook.com/pavietnam.com.vn" target="_blank"><i class="fa fa-facebook"></i></a>
+											<a href="https://plus.google.com/114627120430815730885" target="_blank"><i class="fa fa-google-plus"></i></a>
+											<a href="https://twitter.com/wwwpavietnamcom" target="_blank"><i class="fa fa-twitter"></i></a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<img id="adsrights" class="ads" style="position: absolute; top:-16px; right:0;" src="<?php echo public_url('site/images/banner5.jpg')?>" alt="" title="" />
+			</div>
+		</div>
+	</section>
+</article>
 
 <script type="text/javascript">
-    jQuery(document).ready(function($){
-        ;(function(element){
-            var $respl = $(element);
-            var $container = $('.respl-items', $respl);
-            $('.item-image img.respl-nophoto', $respl).parent().parent().addClass('respl-nophoto');
-            var $loadding = $('.respl-loading',$respl);
-            $respl.removeClass('pre-load');
-            $loadding.remove();  
-            var sortdef = $('.sort-inner', $respl).attr('data-curr_value');
-            var filterdef = $('.respl-cat', $respl).filter('.sel').children().attr('data-rl_value');
-            $('.sort-curr',$respl).attr('data-filter_value',filterdef);
-            $('.sort-curr',$respl).html($('.respl-cat', $respl).filter('.sel').children().html());
-            // add randomish size classes
-            $container.imagesLoaded( function(){
-                $container.isotope({
-                    containerStyle: {
-                        position: 'relative',
-                        height: 'auto',
-                        overflow: 'visible'
-                    },
-                    itemSelector : '.respl-item',
-                    filter: filterdef,
-                    sortBy : sortdef,
-                    layoutMode: 'fitRows',
-                    sortAscending: true,
-                });
-            });
-           
-        })('.sj-responsive-listing');
+    $(document).ready(function(){
+        var article = $("#article").offset().top;
+		var footer = $("footer").offset().top;
+        $(window).scroll(function(){
+			console.log($(window).scrollTop());
+            var y = $(window).scrollTop();
+			if(y>= article-100 && y < footer-300){
+				$('#adslefts').css('top',''+y+'px');
+				$('#adsrights').css('top',''+y+'px');
+				document.getElementById("adslefts").style.transition="all 500ms linear";
+				document.getElementById("adsrights").style.transition="all 500ms linear";
+			}
+			else if(y === 0){
+				document.getElementById("adslefts").style.top="-16px";
+				document.getElementById("adsrights").style.top="-16px";
+			}
+			else if(y>= footer-300){
+				console.log("heee");
+				document.getElementById("adslefts").style.top="";
+				document.getElementById("adslefts").style.bottom="0";
+				document.getElementById("adsrights").style.top="";
+				document.getElementById("adsrights").style.bottom="0";
+			}
+			console.log(footer);
+        });
     });
 </script>

@@ -1,402 +1,306 @@
-
-<style type="text/css">
-	body{font-family:Roboto, sans-serif; font-weight:normal; }
-	h1{font-family:Roboto, sans-serif; font-weight:100; }
-	#sp-header-top{ background-color:#ffffff; }
-	#sp-breadcrumb-block{ background-image:url("/demo/senvietdeal/images/bg-bredum.png");background-color:#f6f6f6; }
-	#sp-block-acymailling{ background-color:#ffffff; }
-	#sp-block-bottom-2{ background-color:#ffffff; }
-	#sp-footer{ background-color:#060d11; }
-	div.mod_search35 input[type="search"]{ width:auto; }
-</style>	
-<section id="sp-breadcrumb-block">
-	<div class="container">
-		<div class="row">
-			<div id="sp-breadcrumb" class="col-sm-12 col-md-12">
-				<div class="sp-column ">
-					<div class="sp-module ">
-						<div class="sp-module-content">
-							<ol class="breadcrumb">
-								<li class="lage-text"><?php echo $product->name ?></li>
-								<li><a href="<?php echo base_url() ?>" class="pathway">Home</a></li>
-								<li class="active"><?php echo $product->name ?></li>
-							</ol>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-<section id="sp-main-body">
-	<div class="container">
-		<div class="row">
-			<div id="sp-component" class="col-sm-9 col-md-9">
-				<div class="sp-column ">
-					<div class="productfull">
-						<form class="product-form" >
-    						<div class="block-main row">
-								<div class="product-image col-xs-12 col-sm-6 col-md-5">
-									<div class="image_middle large-image">
-										<div class="product_label">
-											New					
+<article>
+	<section class="content gallery pad1" style="padding:0">
+		<div class="midle_main_idclass fix1200_cus1">
+			<div class="main">
+				<div class="content_top">
+					<div class="container">
+						<div class="dv-child-one-style">
+							<div class="dv-child-left">
+								<h3><?php echo $product->name ?></h3>
+								<div class="cont-tintuc">
+									<div class=" detai_sanpham">		
+										<div class="breadcrumb">
+											<a href="https://demo1013.web30s.vn/San-pham" class="linky">
+												<span>Sản phẩm</span>
+											</a>
+											<span class="">»</span>
+											<a href="https://demo1013.web30s.vn/Dien-Thoai-390755" class="linky">
+												<span>Điện Thoại</span>
+											</a>
+											<span class="">»</span>
+											<a href="https://demo1013.web30s.vn/Samsung-390765" class="linky">
+												<span>Samsung</span>
+											</a>
 										</div>
-										<span id='list_product_image_middle'>
-											<div class="image_full" id="main_image_full_651" >
-												<img src="<?php echo base_url('upload/product/'.$product->image_link)?>" alt="<?=$product->name?>" title="<?=$product->name?>" />				
-											</div>
-										</span>
-									</div>
-									<div class="additional-images yt-carousel">
-										<div id="thumb-slider"  class="jCarouselLite">
-											<?php if(is_array($image_list)) : ?>
-												<?php foreach($image_list as $img): ?>
-													<div>
-														<a class="img" data-index='1' data-image="<?php echo base_url('upload/product/'.$img)?>" alt="<?=$product->name?>" title="<?=$product->name?>" >
-															<img class="jshop_img_thumb" src="<?php echo base_url('upload/product/'.$img)?>" alt="<?=$product->name?>" title="<?=$product->name?>" /> 
+										<a href="JavaScript:ajax_action(2403117,1);" class="butthree" style="margin-left: 10px; opacity: 0; display: inline;">
+											<img src="/images/love_icon.png" align="absmiddle" width="15" height="15">Thích
+										</a>
+										<a href="JavaScript:ajax_action(2403117,2);" class="butthree" style="margin-left: 70px; opacity: 0; display: inline;">
+											<img src="/images/needle_icon.png" align="absmiddle" width="15" height="15"> Muốn
+										</a>
+										<div class="main_content_top main_content_top_cus1">
+											<script type="text/javascript" src="/js/jquery.simple-gallery.min.js"></script>
+											<script type="text/javascript" src="/js/jquery.simple-lens.min.js"></script>
+											<link rel="stylesheet" type="text/css" href="/css/jquery.simple-lens.css">
+											<link rel="stylesheet" type="text/css" href="/css/jquery.simple-gallery.css">
+											<script>
+												$(document).ready(function () {
+													$('.glo-demo-1 .simpleLens-thumbnails-container img').simpleGallery({
+														loading_image: 'demo/images/loading.gif',
+														show_event: 'click'
+													});
+
+													$('.glo-demo-1 .simpleLens-big-image').simpleLens({
+														loading_image: 'demo/images/loading.gif'
+													});
+												});
+											</script>
+											<div class="simpleLens-gallery-container main_col_left main_col_left_cus1 glo-demo-1" id="demo-1">
+												<div class="simpleLens-container">
+													<div class="simpleLens-big-image-container">
+														<a class="simpleLens-lens-image" data-lens-image="<?php echo base_url('upload/product/'.$product->image_link)?>">
+															<img alt="<?php echo $product->name ?>" class="simpleLens-big-image" src="<?php echo base_url('upload/product/'.$product->image_link)?>">
+															<div class="simpleLens-mouse-cursor"></div>
 														</a>
 													</div>
-												<?php endforeach?>
-											<?php endif?>
-										</div>
-										<div class="clear"></div>
-									</div> 
-								</div>
-								<div class="product-info col-xs-12 col-sm-6 col-md-7">
-									<h1 class="title">
-										<?=$product->name?>
-										<span class="jshop_code_prod">
-											<span id="product_code"></span>
-										</span>
-									</h1>
-									<div class="rating">
-										<span>
-											<div class='stars_no_active' style='width:80px'>
-												<div class='stars_active' style='width:0px'></div>
-											</div>                    
-    									</span>
-									</div>
-									<div class="price">
-										<div class="prod_price">
-											<strong>Giá:</strong>
-												<?php if($product->discount > 0) :?>
-												<?php $price_new = $product->price - $product->discount; ?>
-													<span id="block_price"><?php echo number_format($price_new) ?> đ</span>
-													<span class="old_price" id="old_price"><?php echo number_format($product->price) ?>đ</span>
-												<?php else : ?>
-													<span id="block_price"><?php echo number_format($product->price) ?> đ</span>
-												<?php endif ?>
-										</div>
-									</div>
-									<div class="jshop_prod_description"></div>        
-									<div class="jshop_prod_attributes">
-										<div class="attributes_title">
-											<span class="attributes_name">Chọn size</span>
-											<span class="attributes_description"></span>
-										</div>
-										<div class="attributes_value">
-											<label class="select-mask" id='block_attr_sel_1'>
-												<span class="input_type_radio">
-													<input type="radio" name="jshop_attr_id[1]" id="jshop_attr_id11" value="1" checked="checked" onclick="setAttrValue('1', this.value);">
-													<label for="jshop_attr_id11">
-														<span class='radio_attr_label'>XL</span>
-													</label>
-												</span>
-												<span class="input_type_radio">
-													<input type="radio" name="jshop_attr_id[1]" id="jshop_attr_id12" value="2" onclick="setAttrValue('1', this.value);"> 
-													<label for="jshop_attr_id12">
-														<span class='radio_attr_label'>M</span>
-													</label>
-												</span>
-												<span class="input_type_radio">
-													<input type="radio" name="jshop_attr_id[1]" id="jshop_attr_id13" value="3" onclick="setAttrValue('1', this.value);"> 
-													<label for="jshop_attr_id13">
-														<span class='radio_attr_label'>S</span>
-													</label>
-												</span>					
-											</label>
-										</div>
-										<div class="attributes_title">
-											<span class="attributes_name">Chọn màu yêu thích</span>
-											<span class="attributes_description"></span>
-										</div>
-										<div class="attributes_value">
-											<label class="select-mask" id='block_attr_sel_2'>
-												<span class="input_type_radio">
-													<input type="radio" name="jshop_attr_id[2]" id="jshop_attr_id24" value="4" checked="checked" onclick="setAttrValue('2', this.value);"> 
-													<label for="jshop_attr_id24">
-														<span class='radio_attr_label'>Đỏ</span>
-													</label>
-												</span>
-												<span class="input_type_radio">
-													<input type="radio" name="jshop_attr_id[2]" id="jshop_attr_id25" value="5" onclick="setAttrValue('2', this.value);"> 
-													<label for="jshop_attr_id25">
-														<span class='radio_attr_label'>Đen</span>
-													</label>
-												</span>
-												<span class="input_type_radio">
-													<input type="radio" name="jshop_attr_id[2]" id="jshop_attr_id26" value="6" onclick="setAttrValue('2', this.value);"> 
-													<label for="jshop_attr_id26">
-														<span class='radio_attr_label'>Xanh</span>
-													</label>
-												</span>
-												<span class="input_type_radio">
-													<input type="radio" name="jshop_attr_id[2]" id="jshop_attr_id27" value="7" onclick="setAttrValue('2', this.value);"> 
-													<label for="jshop_attr_id27">
-														<span class='radio_attr_label'>Trắng</span>
-													</label>
-												</span>					
-											</label>
-										</div>
-									</div>
-									<div class="extra_fields">
-										<div>
-											<span class="extra_fields_name">Bảo hành</span>: 
-											<span class="extra_fields_value"><?=$product->warranty?></span>
-										</div>
-										<div>
-											<span class="extra_fields_name">Quà Tặng</span>: 
-											<span class="extra_fields_value"><?=$product->gifts?></span>
-										</div>
-									</div>
-									<div class = "not_available" id="not_available"></div>
-										<table class="prod_buttons" style="">
-											<tr>
-												<td class="prod_qty">
-													Số lượng:&nbsp;
-												</td>
-												<td class="prod_qty_input">
-													<input type="number" name="quantity" min="1" id="quantity" onkeyup="reloadPrices();" class="inputbox" value="1" />				</td>        
-												<td class="buttons">            
-													<a class="button" href="<?php echo site_url('cart/add/'.$product->id)?>" style="padding: 10px 15px;">Mua ngay</a>
-												</td>
-												<td id="jshop_image_loading" style="display:none"></td>
-											</tr>
-										</table>	
-									</div>
-								</div>							
-								<input type="hidden" name="to" id='to' value="cart" />
-								<input type="hidden" name="product_id" id="product_id" value="118" />
-								<input type="hidden" name="category_id" id="category_id" value="2" />
-							</div>
-						</form>
-					</div>
-					<div class="pro-more-info ">
-						<div class="block-tab">
-							<!-- Nav tabs -->
-							<ul class="nav nav-tabs" role="tablist">
-								<li role="presentation" class="active">
-									<a href="#description" aria-controls="home" role="tab" data-toggle="tab">Nội dung</a>
-								</li>
-								<li role="presentation">
-									<a href="#other" aria-controls="messages" role="tab" data-toggle="tab">Khác</a>
-								</li>
-							</ul>
-							<!-- Tab panes -->
-							<div class="tab-content">
-								<div role="tabpanel" class="tab-pane active" id="description">
-									<div class="jshop_prod_description">
-										<p>
-											<?= $product->content ?>
-										</p>						
-									</div>
-								</div>
-								<div role="tabpanel" class="tab-pane" id="other">
-									<div class="pro-other-info">						
-										<div class="jshop-manuafacture">
-											<div class="manuafacture_head">Thông Tin Sản Phẩm</div>
-										</div>				
-										<div class="extra_fields">
-											<div>
-												<span class="extra_fields_name">Tên Sản Phẩm</span>: 
-												<span class="extra_fields_value"><?=$product->name?></span>
+												</div>
+
+												<div class="simpleLens-thumbnails-container body_thumb_content body_thumb_content_cus1">
+													<?php if(is_array($image_list)) : ?>
+														<?php foreach($image_list as $img): ?>
+															<a href="JavaScript:void(0);" class="simpleLens-thumbnail-wrapper" data-lens-image="<?php echo base_url('upload/product/'.$img)?>" data-big-image="<?php echo base_url('upload/product/'.$img)?>">
+																<img class="border_images" src="<?php echo base_url('upload/product/'.$img)?>" width="50">
+															</a>
+														<?php endforeach?>
+													<?php endif?>
+												</div>
+
+												
 											</div>
-											<div>
-												<span class="extra_fields_name">Số Lượt xem</span>: 
-												<span class="extra_fields_value"><?=$product->view?></span>
-											</div>
-											<div>
-												<span class="extra_fields_name">Bảo hành</span>: <span class="extra_fields_value"><?=$product->warranty?></span>
-											</div>
-											<div>
-												<span class="extra_fields_name">Quà Tặng</span>: <span class="extra_fields_value"><?=$product->gifts?></span>
-											</div>
-										</div>
-										<div id="list_product_demofiles"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div><!--End product more info-->
-					<div id="list_product_demofiles"></div>
-					<div class="jshop_list_product_related">
-						<div class="related_header">
-							<span>Sản Phẩm Khác</span>
-						</div>
-						<div class="list_related">
-							<?php foreach($product_newest as $row) :?>
-							<div class="jshop_related">
-								<div class="product productitem_119">
-									<div class="item-wrap">
-										<div class="item-image">
-											<a class="img" href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-												<img  src="<?php echo base_url('/upload/product/'.$row->image_link)?>" alt="<?=$row->name?>" title="<?=$row->name?>">
-											</a>
-											<a class="addtocart" title="Add to Cart" href="<?php echo site_url('cart/add/'.$row->id)?>">Mua ngay</a> 
-											<span class="product_label New">New</span>
-										</div>
-										<div class="item-info">
-											<h3 class="item-title">
-												<a class="img" href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
-													<b><?=$row->name?></b>
-												</a>
-											</h3>
-											<div class="extra_fields"></div>
-											<div class="main-price">
-												<div class = "item-price">
-													<span class="price">
-														<?php if($row->discount > 0) :?>
-															<?php $price_new = $row->price - $row->discount; ?>
-															<?php echo number_format($price_new) ?>đ <span class="old-price"><?php echo number_format($row->price) ?> đ</span>
+											<div class="main_col_right main_col_right_cus1">
+												<form method="post" action="https://demo1013.web30s.vn/cart-add/">
+													<input type="hidden" name="module" value="order">
+													<input type="hidden" name="action" value="add_cart_tmdt">
+													<div style="padding:8px;" class="text_color">
+														<div class="comment_nho">
+															<span id="love_2403117">0</span> yêu thích
+														</div> 
+														<div class="comment_nho">
+															<span id="want_2403117">0</span> muốn mua
+														</div>
+													</div>            
+													<div class="clear"></div>
+													<h1 class="main_right_title"><?php echo $product->name ?></h1>
+													<!-- <div class="spdt_2_left list_body_left list_body_left_cus1">Số lượng:</div>
+													<div class="spdt_2_right list_body_right list_body_right_cus1">10</div> -->
+													<div class="clear"></div>
+													<div class="line_top_1 line_top_cus1"></div>
+													<div class="global_ghichu_1 global_ghichu_2"><p><?php echo $product->name ?></p></div>
+													<div class="clear"></div>
+													<div class="gia_thanhtien gia_thanhtien_cus1">
+														<?php if($product->discount > 0) :?>
+															<?php $price_new = $product->price - $product->discount; ?>
+															<span class="glo-tgiagoc" style="display:block">Giá bán: <?php echo number_format($price_new) ?> VND</span>
 														<?php else : ?>
-															<?php echo number_format($row->price) ?>đ
-														<?php endif ?>					
-													</span>
-												</div>
-												<div class="price-sale">
-													<span class="num">Luợt Xem</span>
-													<span class="text"><b><?=$row->view?></b></span>
-												</div>
+															<span class="glo-tgiagoc" style="display:block">Giá bán: <?php echo number_format($product->price) ?> VND</span>
+														<?php endif ?>
+													</div>            
+													<style type="text/css">.gia_thanhtien_cus1 {
+															display: block
+														}@-webkit-keyframes marqueeAnimation-8773695  { 100%  {margin-top:-0px}}
+													</style>
+													<div class="clear"></div>
+													<div class="glo-sanpham-detal"></div>
+													<div class="product_details_cart">
+														<!-- <div class="product-quantity">
+															<div class="numbers-row">
+																<div class="buttontext left" onclick="ADD_soluong_cart('-')">-</div>
+																<input class="intext left" type="text" name="quantity" value="1" id="input-quantity">
+																<div class="buttontext left" onclick="ADD_soluong_cart('+')">+</div>
+																<div onclick="compareProduct(2403117,'add_sosanh',10, 'Sản phẩm đã được thêm vào so sánh!'); return false;" class="left icon_body icon_body_sosanh_cus1">
+																	<i class="fa fa-retweet"></i>
+																</div>
+																<div class="left icon_body icon_body_love_cus1" onclick="add_whishlist(2403117,1); return false;">
+																	<i class="fa fa-heart-o"></i>
+																</div>
+															</div>
+														</div> -->
+														<div class="product-bottom">
+															<a  name="add_cart_tmdt" id="button-cart" class="button btn-cart shopng-btn" class='button' style='float:left;padding:8px 15px;font-size:16px' href="<?php echo base_url('cart/add/'.$product->id) ?>" title='Mua ngay'>Thêm vào giỏ hàng</a>              
+														</div>
+														<div class="right social_network_right">
+															<ul class="social_links">
+																<li class="skype">
+																	<script>
+																		(function(r, d, s) {
+																			r.loadSkypeWebSdkAsync = r.loadSkypeWebSdkAsync || function(p) {
+																				var js, sjs = d.getElementsByTagName(s)[0];
+																				if (d.getElementById(p.id)) { return; }
+																				js = d.createElement(s);
+																				js.id = p.id;
+																				js.src = p.scriptToLoad;
+																				js.onload = p.callback
+																				sjs.parentNode.insertBefore(js, sjs);
+																			};
+																			var p = {
+																				scriptToLoad: "//swx.cdn.skype.com/shared/v/latest/skypewebsdk.js",
+																				id: "skype_web_sdk"
+																			};
+																			r.loadSkypeWebSdkAsync(p);
+																		})(window, document, "script");
+																	</script>
+																	<div class="skype-share" data-href="https://demo1013.web30s.vn/DIEN-THOAI-GALAXY-NOTE-5-note-5-390783" data-lang="vi" data-style="square">
+																		<link rel="stylesheet" type="text/css" href="https://swx.cdn.skype.com/skypewebsdk/shareButton/v/1.4.0.0/assets/css/shareButton.css">
+																		<div class="skypeShare square" title="Chia sẻ trên Skype">
+																			<span class="skypeShareLogo"></span>
+																			<span class="skypeShareText">Chia sẻ</span>
+																		</div>
+																	</div>
+																</li>
+																<li class="zalo">
+																	<div class="zalo-share-button" data-href="https://demo1013.web30s.vn/DIEN-THOAI-GALAXY-NOTE-5-note-5-390783" data-oaid="579745863508352884" data-layout="2" data-color="blue" data-customize="false" style="overflow: hidden; display: inline-block; width: 20px; height: 20px;">
+																		<iframe frameborder="0" allowfullscreen="" scrolling="no" width="20px" height="20px" src="https://sp.zalo.me/plugins/share?dev=null&amp;color=blue&amp;oaid=579745863508352884&amp;href=https%3A%2F%2Fdemo1013.web30s.vn%2FDIEN-THOAI-GALAXY-NOTE-5-note-5-390783&amp;layout=2&amp;customize=false&amp;callback=null&amp;id=10b01538-0f50-419b-85c5-f5ac080bb5f9&amp;domain=demo1013.web30s.vn&amp;android=false&amp;ios=false"></iframe>
+																	</div>
+																	<script src="//sp.zalo.me/plugins/sdk.js"></script>
+																</li>
+																<li class="twitter">
+																	<script>window.twttr = (function(d, s, id) {
+																		var js, fjs = d.getElementsByTagName(s)[0],
+																			t = window.twttr || {};
+																		if (d.getElementById(id)) return t;
+																		js = d.createElement(s);
+																		js.id = id;
+																		js.src = "//platform.twitter.com/widgets.js";
+																		fjs.parentNode.insertBefore(js, fjs);
+																		t._e = [];
+																		t.ready = function(f) {
+																			t._e.push(f);
+																		};
+																		return t;
+																		}(document, "script", "twitter-wjs"));
+																	</script>
+																	<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="https://platform.twitter.com/widgets/tweet_button.96fd96193cc66c3e11d4c5e4c7c7ec97.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=https%3A%2F%2Fdemo1013.web30s.vn%2FDIEN-THOAI-GALAXY-NOTE-5-note-5-390783&amp;size=m&amp;text=%C4%90I%E1%BB%86N%20THO%E1%BA%A0I%20GALAXY%20NOTE%205%20-%20note%205&amp;time=1601702540593&amp;type=share&amp;url=https%3A%2F%2Fdemo1013.web30s.vn%2FDIEN-THOAI-GALAXY-NOTE-5-note-5-390783" data-url="https://demo1013.web30s.vn/DIEN-THOAI-GALAXY-NOTE-5-note-5-390783"></iframe>
+																</li>
+																<li class="facebook">
+																	<script>
+																		if (!document.getElementById('fb-root')) {
+																			document.writeln('<div id="fb-root" style="display: inline-block;"></div>');
+																			(function(d, s, id) {
+																			var js, fjs = d.getElementsByTagName(s)[0];
+																			if (d.getElementById(id)) return;
+																			js = d.createElement(s); js.id = id;//vi_VN //en_US
+																			js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v3.2&appId=164566120964750&autoLogAppEvents=1";
+																			fjs.parentNode.insertBefore(js, fjs);
+																			}(document, 'script', 'facebook-jssdk'));
+																		}
+																	</script>
+																	<div id="fb-root" style="display: inline-block;" class=" fb_reset">
+																		<div style="position: absolute; top: -10000px; width: 0px; height: 0px;">
+																			<div>
+																			</div>
+																		</div>
+																	</div>
+																	<div class="fb-share-button fb_iframe_widget" data-layout="button" data-href="https://demo1013.web30s.vn/DIEN-THOAI-GALAXY-NOTE-5-note-5-390783" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=164566120964750&amp;container_width=0&amp;href=https%3A%2F%2Fdemo1013.web30s.vn%2FDIEN-THOAI-GALAXY-NOTE-5-note-5-390783&amp;layout=button&amp;locale=vi_VN&amp;sdk=joey">
+																		<span style="vertical-align: bottom; width: 76px; height: 20px;">
+																			<iframe name="f89fd3b864315" width="1000px" height="1000px" data-testid="fb:share_button Facebook Social Plugin" title="fb:share_button Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v3.2/plugins/share_button.php?app_id=164566120964750&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df26e716c15114d4%26domain%3Ddemo1013.web30s.vn%26origin%3Dhttps%253A%252F%252Fdemo1013.web30s.vn%252Ffd09ec38304948%26relation%3Dparent.parent&amp;container_width=0&amp;href=https%3A%2F%2Fdemo1013.web30s.vn%2FDIEN-THOAI-GALAXY-NOTE-5-note-5-390783&amp;layout=button&amp;locale=vi_VN&amp;sdk=joey" style="border: none; visibility: visible; width: 76px; height: 20px;" class=""></iframe>
+																		</span>
+																	</div>
+																</li>
+															</ul>  
+														</div>
+													</div>
+												</form>
 											</div>
+											<div class="clear"></div>
+										</div>
+										<div class="main_content_body main_content_body_cus1">
+											<div class="microformat">
+												<p style="text-align: left;">
+													<strong>
+														<span style="font-size: medium;">Thông Số Kỹ Thuật</span>
+													</strong>
+												</p>
+												<p style="padding-left: 30px;">Màu sắc:&nbsp;Trắng,Xanh đen<br>Tính năng nổi trội:&nbsp;Màn hình cảm ứng,Wi-Fi,MP3,3G<br>Dung lượng pin:&nbsp;3000mAh<br>Hệ điều hành:&nbsp;Android<br>Kích thước màn hình:&nbsp;Trên 5.5"<br>RAM:&nbsp;3Gb<br>Bộ nhớ trong:&nbsp;32GB<br>Hãng sản xuất:&nbsp;Samsung<br>Loại lõi chip:&nbsp;Tám nhân - Octa Core<br>Tình trạng máy:&nbsp;Đã qua sử dụng<br>Xuất xứ:&nbsp;Hàng xách tay<br>Bảo hành:&nbsp;6 Tháng<br>Camera :	Chính: 16.0, Phụ: 5.0 MP<br>CPU :	Octa-core (2.1 GHz + 1.5 GHz)<br>Kết nối mạng:&nbsp;3g, 4g<br>Loại màn hình :	Super AMOLED Màu màn hình :	16 Triệu màu</p>
+												<ul>
+												</ul>
+												<div class="clear"></div>
+												<div class="dv-glo-tags">
+													<i class="fa fa-tags"></i>
+													<a href="https://demo1013.web30s.vn/San-pham/?keysearch=galaxy+note+5">galaxy note 5</a>
+													<a href="https://demo1013.web30s.vn/San-pham/?keysearch=note+5">note 5</a>
+													<div class="clear"></div>
+												</div>
+												<div class="clear cao20"></div>
+												<div class="dv-fbbox-like">
+													<div class="fb-like fb_iframe_widget" id="fb-like" data-href="https://demo1013.web30s.vn/DIEN-THOAI-GALAXY-NOTE-5-note-5-390783" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true" data-width="844" fb-xfbml-state="rendered" fb-iframe-plugin-query="action=like&amp;app_id=164566120964750&amp;container_width=844&amp;href=https%3A%2F%2Fdemo1013.web30s.vn%2FDIEN-THOAI-GALAXY-NOTE-5-note-5-390783&amp;layout=standard&amp;locale=vi_VN&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;size=small&amp;width=844">
+														<span style="vertical-align: bottom; width: 844px; height: 20px;">
+															<iframe name="f1b55185602f1cc" width="844px" height="1000px" data-testid="fb:like Facebook Social Plugin" title="fb:like Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v3.2/plugins/like.php?action=like&amp;app_id=164566120964750&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df38cbab2d66f2d4%26domain%3Ddemo1013.web30s.vn%26origin%3Dhttps%253A%252F%252Fdemo1013.web30s.vn%252Ffd09ec38304948%26relation%3Dparent.parent&amp;container_width=844&amp;href=https%3A%2F%2Fdemo1013.web30s.vn%2FDIEN-THOAI-GALAXY-NOTE-5-note-5-390783&amp;layout=standard&amp;locale=vi_VN&amp;sdk=joey&amp;share=true&amp;show_faces=true&amp;size=small&amp;width=844" style="border: none; visibility: visible; width: 844px; height: 20px;" class=""></iframe>
+														</span>
+													</div>
+													<div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid_desktop" data-width="100%" data-href="https://demo1013.web30s.vn/DIEN-THOAI-GALAXY-NOTE-5-note-5-390783" data-numposts="5" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=164566120964750&amp;container_width=844&amp;height=100&amp;href=https%3A%2F%2Fdemo1013.web30s.vn%2FDIEN-THOAI-GALAXY-NOTE-5-note-5-390783&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v3.2&amp;width=" style="width: 100%;">
+														<span style="vertical-align: bottom; width: 100%; height: 178px;">
+															<iframe name="f15ca9ad73aa25c" width="1000px" height="100px" data-testid="fb:comments Facebook Social Plugin" title="fb:comments Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v3.2/plugins/comments.php?app_id=164566120964750&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df2502cc8d38dc7c%26domain%3Ddemo1013.web30s.vn%26origin%3Dhttps%253A%252F%252Fdemo1013.web30s.vn%252Ffd09ec38304948%26relation%3Dparent.parent&amp;container_width=844&amp;height=100&amp;href=https%3A%2F%2Fdemo1013.web30s.vn%2FDIEN-THOAI-GALAXY-NOTE-5-note-5-390783&amp;locale=vi_VN&amp;numposts=5&amp;sdk=joey&amp;version=v3.2&amp;width=" style="border: none; visibility: visible; width: 100%; height: 178px;" class=""></iframe>
+														</span>
+													</div>
+												</div>
+											</div>    
+											<script>
+												var div_fb_like = document.getElementById('fb-like');
+												if (div_fb_like) {
+													div_fb_like.setAttribute('data-width', div_fb_like.parentNode.offsetWidth);
+												}
+											</script>
+											<div class="clear"></div>
+										</div>				
+										<div class="clearfix"> </div>
+									</div>
+									<div class="clearfix"> </div>
+									<div id="title_page">
+										<h3>Sản phẩm liên quan</h3>
+									</div> 
+									<div class="clearfix"> </div>
+									<div id="noidung_load">
+										<div id="placeSlide_main">
+											<div class="dv-sp-cont">
+												<ul>
+
+
+
+
+													<div class="single-product  white-bg dv-danhsach-sp">
+														<div class="product-img pt-20">
+															<a href="/DIEN-THOAI-HTC-Desire-620g-390851">
+																<img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14992497909310_700_htc-desire-620g-8.jpg" alt="ĐIỆN THOẠI HTC Desire 620g"></a>
+														</div>
+														<div class="product-content product-i">
+															<div class="pro-title">
+															<h4><a href="/DIEN-THOAI-HTC-Desire-620g-390851">ĐIỆN THOẠI HTC Desire 620g</a></h4>
+															</div>
+															<div class="price-box">
+																<span class="price product-price">&nbsp;</span>
+																<span class="product-price product-price-km">2,200,000 <sup> đ</sup></span>
+															</div>
+															<div class="product-icon">
+															<div class="product-icon-left f-left">
+																<a href="/cart-add/2403196"><i class="fa fa-shopping-cart"></i>Đặt mua</a>
+															</div>
+															<div class="product-icon-right floatright">
+																<a class="cur" onclick="SOSANH_sp(&quot;2403196&quot;,&quot;add&quot;,&quot;LIÊN HỆ&quot;,&quot;Sản phẩm đã được thêm vào so sánh!&quot;,&quot;Đã thêm đủ số lượng sản phẩm cần so sánh&quot;)"><i class="fa fa-exchange"></i></a>
+															</div>
+															</div>
+														</div>
+													</div>
+
+
+
+												</ul>
+											</div>
+											<div class="clearfix"> </div>
 										</div>
 									</div>
+									<div class="clear"></div>
+									<div class="clear"></div> 
 								</div>
 							</div>
-							<?php endforeach?>	
-						</div>
-					</div> 
-					<script type="text/javascript">
-						jQuery(document).ready(function($) {
-							jQuery(".list_related").owlCarousel({
-								autoPlay: 3000, //Set AutoPlay to 3 seconds
-								items : 1,
-								//Pagination
-								pagination : false,
-								paginationNumbers: false,
-								nav: true,
-								loop: false,
-								margin: 30,
-								responsive:{
-									767:{
-										items: 2,
-									},
-									992:{
-										items: 3,
-									},
-									1200:{
-										items: 4,
-									},
-								}
-							});
-						});
-					</script>
-				</div>
-				<script type="text/javascript" src="http://senvietweb.com/demo/senvietdeal/templates/sj_topdeal/js/elevatezoom.js"></script>
-				<script type="text/javascript">
-					jQuery(document).ready(function($) {
-						jQuery(".jCarouselLite").owlCarousel({
-							autoPlay: 3000, //Set AutoPlay to 3 seconds
-							items : 4,
-							//Pagination
-							pagination : false,
-							paginationNumbers: false,
-							nav: true,
-							loop: false,
-							margin: 10,
-							responsive:{
-								768:{
-									items: 3,
-								},
-								992:{
-									items: 3,
-								},
-								1200:{
-									items: 4,
-								},
-							}
-						});
-						$('img.jshop_img_thumb').bind('click', function(){
-							$('img.jshop_img_thumb').removeClass('active');	
-							$(this).addClass('active');		
-						});
-						$('img.jshop_video_thumb').bind('click', function(){
-							$('img.jshop_video_thumb').removeClass('active');	
-							$(this).addClass('active');		
-						});
-						var zoomCollection = '.large-image img';
-						$( zoomCollection ).elevateZoom({
-							scrollZoom: true,
-							lensSize    :"400",
-							easing:true,
-							gallery:'thumb-slider',
-							cursor: 'pointer',
-							galleryActiveClass: "active"
-						});
-						$("#thumb-slider .owl-item").each(function() {
-							$(this).find("[data-index='1']").addClass('active');
-						});
-					});
-				</script>
-			</div>
-		</div>
-		<div id="sp-right" class="col-sm-3 col-md-3">
-			<div class="sp-column ">
-				<div class="sp-module ">
-					<div class="sp-module-content">
-						<div class="custom"  >
-							<ul style="background: white; padding: 15px; border: 1px solid white; height: 100%; width: 100%; box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);">
-								<li>
-									<h4 style="text-align: left;">
-										<span style="font-size: 12pt; font-family: 'times new roman', times, serif;">Đặt hàng nhanh</span>
-									</h4>
-									<span style="font-size: 14pt; color: #ff0000;">
-										<strong>
-											<span class="hotline" style="font-family: 'times new roman', times, serif;">0169.377.9225</span>
-										</strong>
-									</span>
-								</li>
-								<li style="text-align: left;">
-									<span style="font-size: 12pt; font-family: 'times new roman', times, serif;">Giao hàng và thu tiền tận nơi trên toàn quốc</span>
-								</li>
-								<li style="text-align: left;">
-									<span style="font-size: 12pt; font-family: 'times new roman', times, serif;">Miễn phí vận chuyển cho đơn hàng từ 2 sản phẩm</span>
-								</li>
-								<li style="text-align: left;">
-									<span style="font-size: 12pt; font-family: 'times new roman', times, serif;">
-										Đặt hàng số lượng lớn xin liên hệ 
-										<span class="red" style="color: #ff0000;">
-											<strong>0169.377.9225</strong>
-										</span>
-									</span>
-								</li>
-								<li style="text-align: left;">
-									<span style="font-size: 12pt; font-family: 'times new roman', times, serif;">
-										Khiếu nại sản phẩm 
-										<span class="red" style="color: #ff0000;">
-											<strong>0169.377.9225</strong>
-										</span>
-									</span>
-								</li>
-								<li style="text-align: left;">
-									<span style="font-size: 12pt; font-family: 'times new roman', times, serif;">Thời gian đổi hàng là 7 ngày</span>
-								</li>
-								<li style="text-align: left;"></li>
-							</ul>
-							<p style="text-align: left;"> </p>
+							<div class="dv-child-right">
+								<?php $this->load->view('site/left.php');?>
+							</div>	      
+							<div class="clear"></div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div>				
 		</div>
-	</div>
-</section>
+	</section>
+</article>
+
