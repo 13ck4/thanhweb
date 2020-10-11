@@ -2,73 +2,32 @@
     <div class="dv_content_leftsp">
         <h3>MENU SẢN PHẨM</h3>
         <ul class="dv_list_dmsp">
-            <li>
-                <a href="https://demo1013.web30s.vn/Dien-Thoai-390755">Điện Thoại</a>
-                <span class="SHOW_menu_left" data="Dien-Thoai-390755" data-on="0"><i class="fa fa-angle-down"></i></span>
-                <ul class="dv_list_dmsp_2 ul-data-Dien-Thoai-390755">
-                    <li><a href="https://demo1013.web30s.vn/iPhone-390764">iPhone</a></li>
-                    <li><a href="https://demo1013.web30s.vn/Samsung-390765">Samsung</a></li>
-                    <li><a href="https://demo1013.web30s.vn/HTC-390769">HTC</a></li>
-                    <li><a href="https://demo1013.web30s.vn/LG-390770">LG</a></li>
-                    <li><a href="https://demo1013.web30s.vn/Motorola-390771">Motorola</a></li>
-                    <li><a href="https://demo1013.web30s.vn/Sony-390767">Sony</a></li>
-                    <li><a href="https://demo1013.web30s.vn/Nokia-390763">Nokia</a></li>
-                    <li><a href="https://demo1013.web30s.vn/Sky-390768">Sky</a></li>
-                    <li><a href="https://demo1013.web30s.vn/OPPO-390766">OPPO</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="https://demo1013.web30s.vn/May-Tinh-390756">Máy Tính</a>
-                <span class="SHOW_menu_left" data="May-Tinh-390756" data-on="0"><i class="fa fa-angle-down"></i></span>
-                <ul class="dv_list_dmsp_2 ul-data-May-Tinh-390756">
-                    <li><a href="https://demo1013.web30s.vn/Dell-390772">Dell</a></li>
-                    <li><a href="https://demo1013.web30s.vn/Macbook-390777">Macbook </a></li>
-                    <li><a href="https://demo1013.web30s.vn/Asus-390775">Asus </a></li>
-                    <li><a href="https://demo1013.web30s.vn/HP-390773">HP</a></li>
-                    <li><a href="https://demo1013.web30s.vn/Lenovo-390774">Lenovo</a></li>
-                    <li><a href="https://demo1013.web30s.vn/Acer-390776">Acer </a></li>
-                    <li><a href="https://demo1013.web30s.vn/MSI-390778">MSI</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="https://demo1013.web30s.vn/Phu-kien-cong-nghe-390861">Phụ kiện công nghệ</a>
-                <span class="SHOW_menu_left" data="Phu-kien-cong-nghe-390861" data-on="0"><i class="fa fa-angle-down"></i></span>
-                <ul class="dv_list_dmsp_2 ul-data-Phu-kien-cong-nghe-390861">
-                    <li><a href="https://demo1013.web30s.vn/Chuot-391454">Chuột</a></li>
-                    <li><a href="https://demo1013.web30s.vn/Tai-nghe-391456">Tai nghe</a></li>
-                    <li><a href="https://demo1013.web30s.vn/USB-391457">USB</a></li>
-                    <li><a href="https://demo1013.web30s.vn/Camera-391459">Camera</a></li>
-                    <li><a href="https://demo1013.web30s.vn/Ban-phim-391458">Bàn phím</a></li>
-                    <li><a href="https://demo1013.web30s.vn/De-tan-nhiet-391460">Đế tản nhiệt</a></li>
-                    <li><a href="https://demo1013.web30s.vn/Phu-kien-khac-391461">Phụ kiện khác</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="https://demo1013.web30s.vn/May-giat-390871">Máy giặt</a>
-                <span class="SHOW_menu_left" data="May-giat-390871" data-on="0"><i class="fa fa-angle-down"></i></span>
-                <ul class="dv_list_dmsp_2 ul-data-May-giat-390871">
-                    <li><a href="https://demo1013.web30s.vn/Toshiba-391483">Toshiba</a></li>
-                    <li><a href="https://demo1013.web30s.vn/SHARP-391486">SHARP</a></li>
-                    <li><a href="https://demo1013.web30s.vn/Samsung-391488">Samsung</a></li>
-                    <li><a href="https://demo1013.web30s.vn/LG-391494">LG</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="https://demo1013.web30s.vn/Tivi-390872">Tivi</a>
-                <span class="SHOW_menu_left" data="Tivi-390872" data-on="0"><i class="fa fa-angle-down"></i></span>
-                <ul class="dv_list_dmsp_2 ul-data-Tivi-390872">
-                    <li><a href="https://demo1013.web30s.vn/Samsung-391470">Samsung</a></li>
-                </ul>
-            </li>
-            <li><a href="https://demo1013.web30s.vn/may-lanh">Máy lạnh</a></li>
-            <li><a href="https://demo1013.web30s.vn/dien-dung-gia-dinh-noi-com">Điện dụng gia đình, nồi cơm</a></li>
-            <li><a href="https://demo1013.web30s.vn/tu-lanh">Tủ lạnh</a></li>
-            <li><a href="https://demo1013.web30s.vn/san-pham-cu">Sản phẩm cũ</a></li>
-            <li><a href="https://demo1013.web30s.vn/do-dung-gia-dinh">Đồ dùng gia đình</a></li>
-            <li><a href="https://demo1013.web30s.vn/loc-nuoc">Lọc nước</a></li>
-            <li><a href="https://demo1013.web30s.vn/may-giac-say-quan-ao">Máy giặc sấy quần áo</a></li>
-            <li><a href="https://demo1013.web30s.vn/sim-so-the-cao-thu-ho">Sim số, thẻ cào, thu hộ</a></li>
-            <li><a href="https://demo1013.web30s.vn/noi-that">Nội thất</a></li>            
+            <?php foreach($catalog_list as $row) : ?>
+                <?php 
+                    $name = convert_vi_to_en($row->name); 
+                    $name = strtolower($name);
+                ?>
+                <li>
+                    <a href="<?php echo base_url($name.'-c'.$row->id) ?>" title="<?=$row->name?>"><?=$row->name?></a>
+                    <?php  if(!empty($row->subs)) : ?> <span  class="SHOW_menu_left" data="<?=$name.'-c'.$row->id?>" data-on="0"><i class="fa fa-angle-down"></i></span><?php endif?>
+                    <!-- lay danh sach danh muc con -->
+                    <?php  if(!empty($row->subs)) : ?>
+                        <ul class="dv_list_dmsp_2  ul-data-<?=$name.'-c'.$row->id?>">
+                            <?php foreach($row->subs as $sub) : ?>	
+                                <?php 
+                                    $name = convert_vi_to_en($sub->name); 
+                                    $name = strtolower($name);
+                                ?>				                     
+                                <li>
+                                    <a href="<?php echo base_url($name.'-c'.$sub->id) ?>" title="<?= $sub->name ?>"> 
+                                        <?= $sub->name ?>
+                                    </a>
+                                </li>	
+                            <?php endforeach?>                              
+                        </ul>
+                    <?php endif?>
+                </li>
+            <?php endforeach ?>
         </ul>
         <script type="text/javascript">
             $(".SHOW_menu_left").click(function () {
