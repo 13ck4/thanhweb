@@ -80,9 +80,20 @@
 														</div>
 													</div>            
 													<div class="clear"></div>
-													<h1 class="main_right_title"><?php echo $product->name ?></h1>
-													<!-- <div class="spdt_2_left list_body_left list_body_left_cus1">Số lượng:</div>
-													<div class="spdt_2_right list_body_right list_body_right_cus1">10</div> -->
+													<h1 class="main_right_title"><?= $product->name ?></h1>
+
+													<div class="spdt_2_left list_body_left list_body_left_cus1">Mã Sản Phẩm:</div>
+													<div class="spdt_2_right list_body_right list_body_right_cus1"><?= $product->id ?></div>
+
+													<div class="spdt_2_left list_body_left list_body_left_cus1">Danh mục:</div>
+													<div class="spdt_2_right list_body_right list_body_right_cus1"><?= $catalog->name ?></div>
+													<div class="spdt_2_left list_body_left list_body_left_cus1">Lượt xem:</div>
+													<div class="spdt_2_right list_body_right list_body_right_cus1"><?=$product->view ?></div>
+
+													<!-- <div class="spdt_2_left list_body_left list_body_left_cus1">Quà tặng:</div>
+													<div class="spdt_2_right list_body_right list_body_right_cus1"><?php echo $product->gifts ?></div> -->
+
+
 													<div class="clear"></div>
 													<div class="line_top_1 line_top_cus1"></div>
 													<div class="global_ghichu_1 global_ghichu_2"><p><?php echo $product->name ?></p></div>
@@ -207,10 +218,12 @@
 											<div class="microformat">
 												<p style="text-align: left;">
 													<strong>
-														<span style="font-size: medium;">Thông Số Kỹ Thuật</span>
+														<span style="font-size: medium;">Chi Tiết Sản Phẩm</span>
 													</strong>
 												</p>
-												<p style="padding-left: 30px;">Màu sắc:&nbsp;Trắng,Xanh đen<br>Tính năng nổi trội:&nbsp;Màn hình cảm ứng,Wi-Fi,MP3,3G<br>Dung lượng pin:&nbsp;3000mAh<br>Hệ điều hành:&nbsp;Android<br>Kích thước màn hình:&nbsp;Trên 5.5"<br>RAM:&nbsp;3Gb<br>Bộ nhớ trong:&nbsp;32GB<br>Hãng sản xuất:&nbsp;Samsung<br>Loại lõi chip:&nbsp;Tám nhân - Octa Core<br>Tình trạng máy:&nbsp;Đã qua sử dụng<br>Xuất xứ:&nbsp;Hàng xách tay<br>Bảo hành:&nbsp;6 Tháng<br>Camera :	Chính: 16.0, Phụ: 5.0 MP<br>CPU :	Octa-core (2.1 GHz + 1.5 GHz)<br>Kết nối mạng:&nbsp;3g, 4g<br>Loại màn hình :	Super AMOLED Màu màn hình :	16 Triệu màu</p>
+												<p style="padding-left: 30px;">
+													<?=($product->content)?>
+												</p>
 												<ul>
 												</ul>
 												<div class="clear"></div>
@@ -255,33 +268,39 @@
 												<ul>
 
 
-
+												<?php foreach($product_newest as $row) : ?>
+													<?php 
+														$name = convert_vi_to_en($row->name); 
+														$name = strtolower($name);
+													?>
 
 													<div class="single-product  white-bg dv-danhsach-sp">
 														<div class="product-img pt-20">
-															<a href="/DIEN-THOAI-HTC-Desire-620g-390851">
-																<img src="https://demo1013.web30s.vn/datafiles/4751/upload/thumb_images/14992497909310_700_htc-desire-620g-8.jpg" alt="ĐIỆN THOẠI HTC Desire 620g"></a>
+															<a href="<?php echo base_url('sanpham/'.$name.'-'.$row->id)?>.html" title="<?=$row->name?>">
+																<img src="<?=base_url('upload/product/')?><?=$row->image_link?>" alt="<?=$row->name?>"></a>
 														</div>
 														<div class="product-content product-i">
 															<div class="pro-title">
-															<h4><a href="/DIEN-THOAI-HTC-Desire-620g-390851">ĐIỆN THOẠI HTC Desire 620g</a></h4>
+																<h4><a href="<?php echo base_url('sanpham/'.$name.'-'.$row->id)?>.html" title="<?=$row->name?>"><?=$row->name?></a></h4>
 															</div>
 															<div class="price-box">
-																<span class="price product-price">&nbsp;</span>
-																<span class="product-price product-price-km">2,200,000 <sup> đ</sup></span>
+																<?php if($row->discount > 0) :?>
+																	<?php $price_new = $row->price - $row->discount; ?>
+																	<span class="price product-price"><?php echo number_format($row->price) ?> <sup> đ</sup>&nbsp;</span>
+																	<span class='product-price product-price-km'><?php echo number_format($price_new) ?> <sup> đ</sup></span>
+																<?php else : ?>
+																	<span class='product-price product-price-km'><?php echo number_format($row->price) ?> <sup> đ</sup></span>
+																<?php endif ?>
 															</div>
 															<div class="product-icon">
-															<div class="product-icon-left f-left">
-																<a href="/cart-add/2403196"><i class="fa fa-shopping-cart"></i>Đặt mua</a>
-															</div>
-															<div class="product-icon-right floatright">
-																<a class="cur" onclick="SOSANH_sp(&quot;2403196&quot;,&quot;add&quot;,&quot;LIÊN HỆ&quot;,&quot;Sản phẩm đã được thêm vào so sánh!&quot;,&quot;Đã thêm đủ số lượng sản phẩm cần so sánh&quot;)"><i class="fa fa-exchange"></i></a>
-															</div>
+																<div class="product-icon-left f-left">
+																	<a href="<?php echo site_url('cart/add/'.$row->id)?>"><i class="fa fa-shopping-cart"></i>Đặt mua</a>
+																</div>
 															</div>
 														</div>
 													</div>
 
-
+												<?php endforeach ?>
 
 												</ul>
 											</div>

@@ -62,6 +62,8 @@ $route['(:any)-page(:num)'] = 'product/index/$1';
 
 $route['san-pham/(:any)-(:num).html'] = 'product/view/$2';
 
+$route['(:any)/(:any)-(:num).html'] = 'page/index/$1/$3';
+
 $route['chi-tiet/(:any)-(:num).html'] = 'news/view/$2';
 
 $route['default_controller'] = 'home';

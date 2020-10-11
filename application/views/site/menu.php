@@ -8,7 +8,31 @@
                     </div>
                     <div class="product_vmegamenu  ">
                         <ul>
-                            <li><a href="/Dien-Thoai-390755" class="hover-icon"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992295377435_mobile-phone-8-20.png" alt="">Điện Thoại</a><div class="vmegamenu"> <span><a href="/iPhone-390764">iPhone</a><a href="/Samsung-390765">Samsung</a><a href="/HTC-390769">HTC</a><a href="/LG-390770">LG</a><a href="/Motorola-390771">Motorola</a><a href="/Sony-390767">Sony</a><a href="/Nokia-390763">Nokia</a><a href="/Sky-390768">Sky</a><a href="/OPPO-390766">OPPO</a></span> </div> </li><li><a href="/May-Tinh-390756" class="hover-icon"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992295565143_laptop-3-20.png" alt="">Máy Tính</a><div class="vmegamenu"> <span><a href="/Dell-390772">Dell</a><a href="/Macbook-390777">Macbook </a><a href="/Asus-390775">Asus </a><a href="/HP-390773">HP</a><a href="/Lenovo-390774">Lenovo</a><a href="/Acer-390776">Acer </a><a href="/MSI-390778">MSI</a></span> </div> </li><li><a href="/Phu-kien-cong-nghe-390861" class="hover-icon"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992296179431_headphones-2-20.png" alt="">Phụ kiện công nghệ</a><div class="vmegamenu"> <span><a href="/Chuot-391454">Chuột</a><a href="/Tai-nghe-391456">Tai nghe</a><a href="/USB-391457">USB</a><a href="/Camera-391459">Camera</a><a href="/Ban-phim-391458">Bàn phím</a><a href="/De-tan-nhiet-391460">Đế tản nhiệt</a><a href="/Phu-kien-khac-391461">Phụ kiện khác</a></span> </div> </li><li><a href="/May-giat-390871" class="hover-icon"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14993107395819_washing-machine-20.png" alt="">Máy giặt</a><div class="vmegamenu"> <span><a href="/Toshiba-391483">Toshiba</a><a href="/SHARP-391486">SHARP</a><a href="/Samsung-391488">Samsung</a><a href="/LG-391494">LG</a></span> </div> </li><li><a href="/Tivi-390872" class="hover-icon"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/14993092571944_television-21-20.png" alt="">Tivi</a><div class="vmegamenu"> <span><a href="/Samsung-391470">Samsung</a></span> </div> </li><li><a href="/may-lanh"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/ic-maylanh.png" alt="">Máy lạnh</a></li><li><a href="/dien-dung-gia-dinh-noi-com"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/ic-dodunggd.png" alt="">Điện dụng gia đình, nồi cơm</a></li><li><a href="/tu-lanh"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/ic-tulanh.png" alt="">Tủ lạnh</a></li><li><a href="/san-pham-cu"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/ic-spcu.png" alt="">Sản phẩm cũ</a></li><li><a href="/do-dung-gia-dinh"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/New Project (3).png" alt="">Đồ dùng gia đình</a></li><li><a href="/loc-nuoc"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/New Project (4).png" alt="">Lọc nước</a></li><li><a href="/may-giac-say-quan-ao"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/New Project (5).png" alt="">Máy giặc sấy quần áo</a></li><li><a href="/sim-so-the-cao-thu-ho"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/New Project (6).png" alt="">Sim số, thẻ cào, thu hộ</a></li><li><a href="/noi-that"><img src="https://demo1013.web30s.vn/datafiles/4751/upload/images/icon/New Project (7).png" alt="">Nội thất</a></li>            
+                        <?php foreach($catalog_list as $row) : ?>
+                            <?php 
+                                $name = convert_vi_to_en($row->name); 
+                                $name = strtolower($name);
+                            ?>
+                            <li>
+                                <a href="<?php echo base_url($name.'-c'.$row->id) ?>" title="<?=$row->name?>" <?php  if(!empty($row->subs)) : ?> class="hover-icon" <?php endif?> > <?=$row->name?> </a>
+                                
+                                <!-- lay danh sach danh muc con -->
+                                <?php  if(!empty($row->subs)) : ?>
+                                    <div class="vmegamenu"> 
+                                        <?php foreach($row->subs as $sub) : ?>	
+                                            <?php 
+                                                $name = convert_vi_to_en($sub->name); 
+                                                $name = strtolower($name);
+                                            ?>				                     
+                                            <a href="<?php echo base_url($name.'-c'.$sub->id) ?>" title="<?= $sub->name ?>"> 
+                                                <?= $sub->name ?>
+                                            </a>
+                                        <?php endforeach?>                              
+                                    </div>
+                                <?php endif?>
+                            </li>
+                        <?php endforeach ?>
+                            
                         </ul>
                     </div>
                 </div>  
