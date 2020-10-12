@@ -210,15 +210,19 @@
 							<div class="slider-product dotted-style-1 pt-25">
 								<div class="slider-product-active">
 									<?php foreach($product_newest as $key=>$row) : ?>
+										<?php 
+											$name = convert_vi_to_en($row->name); 
+											$name = strtolower($name);
+										?>
 										<div class='single-product single-product-sidebar white-bg glo-trang-thai-sp'>
 											<div class='product-img product-img-left'>
-												<a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>">
-													<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
+												<a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$product_newest[$key]->id?>.html" title="<?=$product_newest[$key]->name?>">
+													<img src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
 												</a>
 											</div>
 											<div class='product-content product-content-right'>
 												<div class='pro-title'>
-													<h4><a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>"><?=$product_newest[$key]->name?></a></h4>
+													<h4><a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$product_newest[$key]->id?>.html" title="<?=$product_newest[$key]->name?>"><?=$product_newest[$key]->name?></a></h4>
 												</div>
 												<div class='price-box'>
 													<?php if($product_newest[$key]->discount > 0) :?>
@@ -289,13 +293,17 @@
 								<div class="col-lg-4 col-md-4 col-sm-6  col-xs-12 pad dv-home-sptieubieu">
 									<div class='single-product pt-30 pb-20 white-bg glo-trang-thai-sp'>
 										<div class='product-img pb-40'>
-											<a href="<?php echo base_url('product/view/'.$product_newest[0]->id)?>" title="<?=$product_newest[0]->name?>">
-												<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[0]->image_link)?>" alt="<?=$product_newest[0]->name?>" title="<?=$product_newest[0]->name?>" />
+											<?php 
+												$name = convert_vi_to_en($product_newest[0]->name); 
+												$name = strtolower($name);
+											?>
+											<a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$product_newest[0]->id?>.html" title="<?=$product_newest[0]->name?>">
+												<img src="<?php echo base_url('/upload/product/'.$product_newest[0]->image_link)?>" alt="<?=$product_newest[0]->name?>" title="<?=$product_newest[0]->name?>" />
 											</a>
 										</div>
 										<div class='product-content'>
 											<div class='pro-title'>
-												<h4><a href="<?php echo base_url('product/view/'.$product_newest[0]->id)?>" title="<?=$product_newest[0]->name?>"><?=$product_newest[0]->name?></a></h4>
+												<h4><a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$product_newest[0]->id?>.html" title="<?=$product_newest[0]->name?>"><?=$product_newest[0]->name?></a></h4>
 											</div>
 											<div class='price-box'>
 												<?php if($product_newest[0]->discount > 0) :?>
@@ -321,17 +329,21 @@
 									<div class="tab-product-active">
 
 										<?php foreach($product_newest as $key=>$row) : ?>
+											<?php 
+												$name = convert_vi_to_en($row->name); 
+												$name = strtolower($name);
+											?>
 											<?php if($key % 2 == 0 && $key > 0) :?>
 											<div class='together-single-product glo-trang-thai-sp'>
 												<div class='single-product white-bg'>
 													<div class='product-img product-container-img'>
-														<a href="<?php echo base_url('product/view/'.$product_newest[$key-1]->id)?>" title="<?=$product_newest[$key-1]->name?>">
-															<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key-1]->image_link)?>" alt="<?=$product_newest[$key-1]->name?>" title="<?=$product_newest[$key-1]->name?>" />
+														<a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$product_newest[$key-1]->id?>.html" title="<?=$product_newest[$key-1]->name?>">
+															<img src="<?php echo base_url('/upload/product/'.$product_newest[$key-1]->image_link)?>" alt="<?=$product_newest[$key-1]->name?>" title="<?=$product_newest[$key-1]->name?>" />
 														</a>
 													</div>
 													<div class='product-content product-i'>
 														<div class='pro-title'>
-															<h4><a href="<?php echo base_url('product/view/'.$product_newest[$key-1]->id)?>" title="<?=$product_newest[$key-1]->name?>"><?=$product_newest[$key-1]->name?></a></h4>
+															<h4><a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$product_newest[$key-1]->id?>.html" title="<?=$product_newest[$key-1]->name?>"><?=$product_newest[$key-1]->name?></a></h4>
 														</div>
 														<div class='price-box'>
 															<?php if($product_newest[$key-1]->discount > 0) :?>
@@ -355,13 +367,13 @@
 
 												<div class='single-product white-bg'>
 													<div class='product-img product-container-img'>
-														<a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>">
-															<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
+														<a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$product_newest[$key-1]->id?>.html" title="<?=$product_newest[$key-1]->name?>">
+															<img src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
 														</a>
 													</div>
 													<div class='product-content product-i'>
 														<div class='pro-title'>
-															<h4><a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>"><?=$product_newest[$key]->name?></a></h4>
+															<h4><a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$product_newest[$key-1]->id?>.html" title="<?=$product_newest[$key-1]->name?>"><?=$product_newest[$key]->name?></a></h4>
 														</div>
 														<div class='price-box'>
 															<?php if($product_newest[$key]->discount > 0) :?>
@@ -399,13 +411,17 @@
 								<div class="col-lg-4 col-md-4 col-sm-6  col-xs-12 pad dv-home-sptieubieu">
 									<div class='single-product pt-30 pb-20 white-bg glo-trang-thai-sp'>
 										<div class='product-img pb-40'>
-											<a href="<?php echo base_url('product/view/'.$product_buyed[0]->id)?>" title="<?=$product_buyed[0]->name?>">
+											<?php 
+												$name = convert_vi_to_en($product_newest[0]->name); 
+												$name = strtolower($name);
+											?>
+											<a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$product_buyed[0]->id?>.html" title="<?=$product_buyed[0]->name?>">
 												<img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_buyed[0]->image_link)?>" alt="<?=$product_buyed[0]->name?>" title="<?=$product_buyed[0]->name?>" />
 											</a>
 										</div>
 										<div class='product-content'>
 											<div class='pro-title'>
-												<h4><a href="<?php echo base_url('product/view/'.$product_buyed[0]->id)?>" title="<?=$product_buyed[0]->name?>"><?=$product_buyed[0]->name?></a></h4>
+												<h4><a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$product_buyed[0]->id?>.html" title="<?=$product_buyed[0]->name?>"><?=$product_buyed[0]->name?></a></h4>
 											</div>
 											<div class='price-box'>
 												<?php if($product_buyed[0]->discount > 0) :?>
@@ -431,6 +447,10 @@
 									<div class="tab-product-active">
 
 										<?php foreach($product_buyed as $key=>$row) : ?>
+										<?php 
+												$name = convert_vi_to_en($product_newest[0]->name); 
+												$name = strtolower($name);
+											?>
 											<?php if($key % 2 == 0 && $key > 0) :?>
 											<div class='together-single-product glo-trang-thai-sp'>
 												<div class='single-product white-bg'>

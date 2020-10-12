@@ -60,7 +60,7 @@
                         <?php foreach($product_newest as $key=>$row) : ?>
                             <div class="dv-spleft">
                             <a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>">
-                                <img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
+                                <img src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
                             </a>
                                 <h4><a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>"><?=$product_newest[$key]->name?></a></h4>
                                 <div class="price-left">
