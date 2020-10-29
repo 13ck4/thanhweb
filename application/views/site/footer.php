@@ -24,23 +24,23 @@
                         <ul class='nav-bottom navi_bottom  navi_bottom_cus1'>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Ve-Chung-Toi-391640'>Về Chúng Tôi</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('ve-chung-toi') ?>'>Về Chúng Tôi</a>
 							</li>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Lich-Su-Hinh-Thanh-391641'>Lịch Sử Hình Thành</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('lichs-su-hinh-thanh') ?>'>Lịch Sử Hình Thành</a>
 							</li>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Tam-nhin-su-menh-391642'>Tầm nhìn - sứ mệnh</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('tam-nhin-su-menh') ?>'>Tầm nhìn - sứ mệnh</a>
 							</li>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Bo-may-to-chuc-391643'>Bộ máy tổ chức</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('bo-may-to-chuc') ?>'>Bộ máy tổ chức</a>
 							</li>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='He-thong-phan-phoi-391644'>Hệ thống phân phối</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('he-thong-phan-phoi') ?>'>Hệ thống phân phối</a>
 							</li>
 						</ul>                    
 					</div>
@@ -55,23 +55,23 @@
                         <ul class='nav-bottom navi_bottom  navi_bottom_cus1'>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Giao-hang-Nhan-hang-391645'>Giao hàng & Nhận hàng</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('giao-hang-nha-phoi') ?>'>Giao hàng & Nhận hàng</a>
 							</li>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Trung-tam-ho-tro-391646'>Trung tâm hỗ trợ</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('trung-tam-ho-tro') ?>'>Trung tâm hỗ trợ</a>
 							</li>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Huong-dan-doi-tra-hang-391647'>Hướng dẫn đổi trả hàng</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('huong-dan-doi-tra-hang') ?>'>Hướng dẫn đổi trả hàng</a>
 							</li>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Huong-dan-dat-hang-391648'>Hướng dẫn đặt hàng</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('huong-dan-doi-dat-hang') ?>'>Hướng dẫn đặt hàng</a>
 							</li>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Huong-dan-thanh-toan-391649'>Hướng dẫn thanh toán</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('huong-dan-thanh-toan') ?>'>Hướng dẫn thanh toán</a>
 							</li>
 						</ul>                    
 					</div>
@@ -86,23 +86,23 @@
                         <ul class='nav-bottom navi_bottom  navi_bottom_cus1'>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Chinh-Sach-Rieng-Tu-391650'>Chính Sách Riêng Tư</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('chinh-sach-rieng-tu') ?>'>Chính Sách Riêng Tư</a>
 							</li>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Dieu-Khoan-Dieu-Kien-391651'>Điều Khoản & Điều Kiện</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('dieu-khoan-dieu-kien') ?>'>Điều Khoản & Điều Kiện</a>
 							</li>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Thoa-Thuan-Nguoi-Dung-391652'>Thỏa Thuận Người Dùng</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('thoa-thuan-nguoi-dung') ?>'>Thỏa Thuận Người Dùng</a>
 							</li>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Chinh-sach-doi-tra-391653'>Chính sách đổi trả</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('chinh-sach-doi-tra') ?>'>Chính sách đổi trả</a>
 							</li>
 							<li class='li_bottom li_bottom_cus1'> 
 								<i class='' aria-hidden='true'></i> 
-								<a class='a_navi_bottom a_navi_bottom_cus1' href='Chinh-sach-bao-hanh-391654'>Chính sách bảo hành</a>
+								<a class='a_navi_bottom a_navi_bottom_cus1' href='<?php echo base_url('chinh-sach-bao-hanh') ?>'>Chính sách bảo hành</a>
 							</li>
 						</ul>                    
 					</div>
@@ -145,7 +145,7 @@
                     <div class="copyright text-left">
                         <p>
 							<span class="footer_copyright">
-								<a target="_blank" href="https://web30s.vn/" title="Thiết Kế Website bởi P.A Việt Nam" class="a_copyright">Thiết Kế Website bởi P.A Việt Nam 
+								<a target="_blank" href="<?php echo base_url("")?> title="Thiết Kế Website bởi P.A Việt Nam" class="a_copyright">Thiết Kế Website bởi Nguyễn Trung Thành
 									<img src="https://demo1013.web30s.vn/images/logo_web30s_footer.png" alt="web30s.vn" style="margin-left: 2px;height: 20px;position: relative; vertical-align: middle;" class="img_coppy_right_footer">
 								</a>
 							</span>
@@ -191,7 +191,28 @@
 <script src="<?php echo public_url('site/js/jquery.scrollup.min.js')?>"></script>
 <script src="<?php echo public_url('site/js/owl.carousel.min.js')?>"></script>
 <script src="<?php echo public_url('site/js/plugins.js')?>"></script>
-<script src="<?php echo public_url('site/js/main.js')?>"></script><script>
+<script src="<?php echo public_url('site/js/main.js')?>"></script>
+<!-- <script src="<?php echo public_url('site/css/modernizr.custom.js')?>"></script> -->
+<script src="<?php echo public_url('site/js/jquery.dlmenu.js')?>"></script>
+<script>
+	$(function() {
+		$( '#dl-menu' ).dlmenu();
+	});
+	$(document).ready(function(){
+		$('body').click(function(e) {
+		$('#dl-menu').dlmenu('closeMenu'); 
+		});
+	});
+</script>
+
+<div class="clearfix"> </div>
+<script>
+  $("span.menu").click(function(){
+    $(" ul.nav").slideToggle("slow" , function(){
+    });
+  });
+</script>
+<script>
     if ($('a.lightbox').length > 0) {
         $('a.lightbox').divbox();
     }

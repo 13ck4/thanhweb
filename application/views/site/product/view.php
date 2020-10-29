@@ -276,12 +276,12 @@
 
 													<div class="single-product  white-bg dv-danhsach-sp">
 														<div class="product-img pt-20">
-															<a href="<?php echo base_url('sanpham/'.$name.'-'.$row->id)?>.html" title="<?=$row->name?>">
+															<a href="<?php echo base_url('san-pham/'.$name.'-'.$row->id)?>.html" title="<?=$row->name?>">
 																<img src="<?=base_url('upload/product/')?><?=$row->image_link?>" alt="<?=$row->name?>"></a>
 														</div>
 														<div class="product-content product-i">
 															<div class="pro-title">
-																<h4><a href="<?php echo base_url('sanpham/'.$name.'-'.$row->id)?>.html" title="<?=$row->name?>"><?=$row->name?></a></h4>
+																<h4><a href="<?php echo base_url('san-pham/'.$name.'-'.$row->id)?>.html" title="<?=$row->name?>"><?=$row->name?></a></h4>
 															</div>
 															<div class="price-box">
 																<?php if($row->discount > 0) :?>

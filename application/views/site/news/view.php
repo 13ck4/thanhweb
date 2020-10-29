@@ -128,8 +128,12 @@
                                 </div>
                                 <div id="other_news"> 
                                     <?php foreach($news_list as $row) : ?>
+                                        <?php 
+                                            $name = convert_vi_to_en($row->title); 
+                                            $name = strtolower($name);
+                                        ?>
                                         <li>
-                                            <a href="<?php echo base_url('news/view/'.$row->id)?>" title="<?=$row->title?>"><?=$row->title?></a>
+                                            <a href="<?php echo base_url()?>chi-tiet/<?=$name?>-<?=$row->id?>.html" title="<?=$row->title?>"> <?= $row->title ?></a>
                                         </li>
                                     <?php endforeach?>            
                                 </div>

@@ -14,6 +14,7 @@
 		</div>
 		<?php $this->load->view('site/header.php');?>
 		<?php $this->load->view('site/menu.php');?>
+		<?php $this->load->view('site/menu_mobile.php');?>
 		<?php if(isset($message)) : ?>
 			<p style="color:red;"><?php echo $message; ?></p>
 		<?php endif?>
