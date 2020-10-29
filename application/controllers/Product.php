@@ -27,16 +27,23 @@
 	        $this->load->library('pagination');
 	        $config = array();
 	        $config['total_rows'] = $total_rows;//tong tat ca cac san pham tren website
-	        $config['base_url']   = base_url('product/index/'); //link hien thi ra danh sach san pham
-	        $config['per_page']   = 20;//so luong san pham hien thi tren 1 trang
+	        $config['base_url']   = base_url('san-pham'); //link hien thi ra danh sach san pham
+	        $config['trang']   = 20;//so luong san pham hien thi tren 1 trang
 	        $config['uri_segment'] = 3;//phan doan hien thi ra so trang tren url
 	        $config['next_link']   = 'Trang kế tiếp';
-	        $config['prev_link']   = 'Trang trước';
-	        //khoi tao cac cau hinh phan trang
-	        $this->pagination->initialize($config);
-	        $segment = $this->uri->segment(3);	        
+			$config['prev_link']   = 'Trang trước';
+			$config['num_links'] = 2;
+			$config['use_page_numbers'] = TRUE;
+			$config['page_query_string'] = TRUE;
+			//khoi tao cac cau hinh phan trang
+			//pre($config);
+			$this->pagination->initialize($config);
+			$segment = $config['trang'];
+			if(isset($_GET['trang'])){
+				$segment = $config['trang']*$_GET['trang'];
+			}     
 	        $segment = intval($segment);
-	        $input['limit'] = array($config['per_page'], $segment);
+	        $input['limit'] = array($config['trang'], $segment);
 	        
 	        $list = $this->product_model->get_list($input);
 	        $this->data['list'] = $list;
@@ -54,10 +61,9 @@
 	    function catalog()
 	    {
 	        //lấy ID của thể loại
-	        $id = intval($this->uri->rsegment(3));
-	        //lay ra thông tin của thể loại
+			$id = intval($this->uri->rsegment(3));
 	        $this->load->model('catalog_model');
-	        $catalog = $this->catalog_model->get_info($id);
+			$catalog = $this->catalog_model->get_info($id);
 	        if(!$catalog)
 	        {
 	            redirect();
@@ -97,20 +103,26 @@
 	        //load ra thu vien phan trang
 	        $this->load->library('pagination');
 	        $config = array();
-	        $config['total_rows'] = $total_rows;//tong tat ca cac san pham tren website
-	        $config['base_url']   = base_url('product/catalog/'.$id); //link hien thi ra danh sach san pham
-	        $config['per_page']   = 2;//so luong san pham hien thi tren 1 trang
+			$config['total_rows'] = $total_rows;//tong tat ca cac san pham tren website
+			$name = convert_vi_to_en($catalog->name); 
+			$name = strtolower($name);
+			$config['base_url']   = base_url('san-pham/'.$name.'-c'.$id); //link hien thi ra danh sach san pham
+	        $config['trang']   = 12;//so luong san pham hien thi tren 1 trang
 	        $config['uri_segment'] = 4;//phan doan hien thi ra so trang tren url
 	        $config['next_link']   = 'Trang kế tiếp';
-	        $config['prev_link']   = 'Trang trước';
+			$config['prev_link']   = 'Trang trước';
+			$config['num_links'] = 2;
+			$config['use_page_numbers'] = TRUE;
+			$config['page_query_string'] = TRUE;
 	        //khoi tao cac cau hinh phan trang
 	        $this->pagination->initialize($config);
-	        
-	        $segment = $this->uri->segment(4);
-	        $segment = intval($segment);
-	        $input['limit'] = array($config['per_page'], $segment);
-	        
-	        
+			$segment = $config['trang'];
+			if(isset($_GET['trang'])){
+				$segment = $config['trang']*$_GET['trang'];
+			}
+			$segment = intval($segment);
+			$input['limit'] = array($config['trang'], $segment);
+			
 	        //lay danh sach san pham
 	        if(isset($catalog_subs_id))
 	        {

@@ -56,18 +56,24 @@ $route['gioi-thieu'] = 'info';
 $route['lien-he'] = 'contact';
 $route['tin-tuc'] = 'news';
 $route['san-pham'] = 'product';
+$route['tuyen-dung'] = 'recruitment';
+$route['nhapma'] = 'user/code';
 
 $route['(:any)-c(:num)'] = 'product/catalog/$2';
-$route['(:any)-page(:num)'] = 'product/index/$1';
 
-$route['san-pham/(:any)-(:num).html'] = 'product/view/$2';
+$route['san-pham/(:any)-c(:num)'] = 'product/catalog/$2';
 
-$route['(:any)/(:any)-(:num).html'] = 'page/index/$1/$3';
+$route['san-pham?trang=(:num)'] = 'product/index';
+
+$route['san-pham/(:any)-c(:num)?trang=(:num)'] = 'product/catalog/$2/$3';
+
+$route['product/page/(:num)'] = 'product/index/$2';//product/index/20
 
 $route['chi-tiet/(:any)-(:num).html'] = 'news/view/$2';
-
+$route['san-pham/(:any)-(:num).html'] = 'product/view/$2';
+$route['(:any)/(:any)-(:num).html'] = 'page/index/$1/$3';
 $route['default_controller'] = 'home';
-
 $route['404_override'] = 'my404';
 $route['translate_uri_dashes'] = FALSE;
+
 

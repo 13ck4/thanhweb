@@ -14,7 +14,7 @@
 								
 
                                 <div class="dv-sp-cont dm_sanpham">
-                                    <div class="breadcrumb w30s__filter-top">
+                                    <!-- <div class="breadcrumb w30s__filter-top">
                                         <div class="left">
                                             <div class="left global_ss global_ss_cus1">Chủ đề</div>
                                             <div class="boxselect left">
@@ -27,7 +27,7 @@
                                             </select>
                                             </div>
                                         </div>
-                                        <!-- <div class="left marginleft20">
+                                        <div class="left marginleft20">
                                             <div class="left global_ss global_ss_cus1">Sắp xếp</div>
                                             <div class="boxselect left">
                                                 <select class="todoselect url_dropdown">
@@ -72,9 +72,9 @@
                                                 <a href="https://demo1013.web30s.vn/Phu-kien-cong-nghe-390861/?viewby=0&amp;sortby=&amp;numby=100" class="a_view_sp a_view_sp_cus1 active" title="Lưới"><i class="fa fa-th-large"></i></a>
 
                                             </div>
-                                        </div> -->
+                                        </div>
                                         <div class="clear"></div>
-                                    </div>
+                                    </div> -->
                                     <?php foreach($list as $row) : ?>
                                         <?php 
                                             $name = convert_vi_to_en($row->name); 
@@ -109,6 +109,7 @@
 
                                     <?php endforeach?>
                 
+                                    <div class="clear"></div>
                                     <div class='pagination'>
                                         <?php echo $this->pagination->create_links() ?>
                                     </div> 

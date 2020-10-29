@@ -18,8 +18,8 @@
                                     <div class="breadcrumb w30s__filter-top">
                                         <div class="left">
                                             <div class="left global_ss global_ss_cus1">Chủ đề</div>
-                                            <div class="boxselect left">
-                                                <!-- <form class="t-form form_action" method="get" style="padding:10px" action="<?php echo site_url('product/search_price')?>" name="search">
+                                            <!-- <div class="boxselect left">
+                                                <form class="t-form form_action" method="get" style="padding:10px" action="<?php echo site_url('product/search_price')?>" name="search">
                                                     <div class="form-row">
                                                         <label for="param_price_from" class="form-label" style="width:70px">Giá từ:<span class="req">*</span></label>
                                                             <div class="form-item" style="width:90px">
@@ -58,8 +58,8 @@
                                                         </div>
                                                         <div class="clear"></div>
                                                     </div>
-                                                </form> -->
-                                            </div>
+                                                </form> 
+                                            </div> -->
                                         </div>
                                         <form class="t-form form_action" method="get" style="padding:10px" action="<?php echo site_url('product/search_price')?>" name="search">
                                             <div class="left marginleft20">
@@ -74,7 +74,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="left marginleft20">
+                                            <div class="left marginleft20 marginright20">
                                                 <div class="left global_ss global_ht_cus1">Hiển thị</div>
                                                 <div class="boxselect left">
                                                     <select class="todoselect" id="price_to" name="price_to">
@@ -86,7 +86,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <input type="submit" class="button" name="search" value="Tìm kiềm" style="height:30px !important;line-height:30px !important;padding:0px 10px !important">
+                                            <input type="submit" class="button" value="Tìm kiềm" style="height:30px !important;line-height:30px !important;padding:0px 10px !important">
                                         </form>
                                             <!-- <div class="right">
                                             <div class="left global_ss global_xe_cus1">Kiểu xem</div>
@@ -99,15 +99,19 @@
                                         <div class="clear"></div>
                                     </div>
                                     <?php foreach($list as $row) : ?>
+                                        <?php 
+                                            $name = convert_vi_to_en($row->name); 
+                                            $name = strtolower($name);
+                                        ?>
                                         <div class="single-product  white-bg dv-danhsach-sp">
                                             <div class="product-img pt-20">
-                                                <a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>">
+                                                <a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$row->id?>.html" title="<?=$row->name?>">
                                                     <img src="<?php echo base_url('/upload/product/'.$row->image_link)?>" alt="<?=$row->name?>" title="<?=$row->name?>">
                                                 </a>
                                             </div>
                                             <div class="product-content product-i">
                                                 <div class="pro-title">
-                                                    <h4><a href="<?php echo base_url('product/view/'.$row->id)?>" title="<?=$row->name?>"><?=$row->name?></a></h4>
+                                                    <h4><a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$row->id?>.html" title="<?=$row->name?>"><?=$row->name?></a></h4>
                                                 </div>
                                                 <div class="price-box">
                                                     <?php if($row->discount > 0) :?>
@@ -127,7 +131,7 @@
                                         </div>
 
                                     <?php endforeach?>
-                
+                                    <div class="clear"></div>
                                     <div class='pagination'>
                                         <?php echo $this->pagination->create_links() ?>
                                     </div> 

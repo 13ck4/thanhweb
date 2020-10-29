@@ -58,11 +58,15 @@
                 <div class="js-marquee-wrapper" style="margin-top: 400px; animation: 75.0469s linear 0s 1 normal none running marqueeAnimation-4710634;">
                     <div class="js-marquee" style="margin-right: 0px; float: none; margin-bottom: 0px;">
                         <?php foreach($product_newest as $key=>$row) : ?>
+                            <?php 
+                                $name = convert_vi_to_en($row->name); 
+                                $name = strtolower($name);
+                            ?>
                             <div class="dv-spleft">
-                            <a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>">
-                                <img style="width:100px; height:100px;" src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
+                            <a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$product_newest[$key]->id?>.html" title="<?=$product_newest[$key]->name?>">
+                                <img src="<?php echo base_url('/upload/product/'.$product_newest[$key]->image_link)?>" alt="<?=$product_newest[$key]->name?>" title="<?=$product_newest[$key]->name?>" />
                             </a>
-                                <h4><a href="<?php echo base_url('product/view/'.$product_newest[$key]->id)?>" title="<?=$product_newest[$key]->name?>"><?=$product_newest[$key]->name?></a></h4>
+                                <h4><a href="<?php echo base_url()?>san-pham/<?=$name?>-<?=$product_newest[$key]->id?>.html" title="<?=$product_newest[$key]->name?>"><?=$product_newest[$key]->name?></a></h4>
                                 <div class="price-left">
                                     <?php if($product_newest[$key]->discount > 0) :?>
                                         <?php $price_new = $product_newest[$key]->price - $product_newest[$key]->discount; ?>
@@ -97,7 +101,11 @@
         <h3>TIN TỨC HOT</h3>
         <div id="newsRight">
             <?php foreach($news_list as $row) : ?>
-                <a  href="<?php echo base_url('news/view/'.$row->id)?>" title="<?=$row->title?>"> 
+                <?php 
+                    $name = convert_vi_to_en($row->title); 
+                    $name = strtolower($name);
+                ?>
+                <a href="<?php echo base_url()?>chi-tiet/<?=$name?>-<?=$row->id?>.html" title="<?=$row->title?>">
                     <img src="<?php echo base_url('/upload/news/'.$row->image_link)?>" alt="<?=$row->title?>" title="<?=$row->title?>">
                     <h4>
                         <?php 

@@ -68,6 +68,36 @@
 					break;
 			}
 		}
+		protected function sendmail($email,$pass,$name_email,$cus_email,$content,$title_email){
+			$config = Array( 
+		        'protocol' => 'smtp', 
+		        'smtp_host' => 'ssl://smtp.googlemail.com', 
+		        'smtp_port' => '465', 
+		        'smtp_user' => $email, 
+		        'smtp_pass' => $pass,
+		        'mailtype'  => 'html',
+		        'charset'   => 'utf-8',
+		        'newline'   => "\r\n",
+		    ); 
+
+
+		    $this->load->library('email', $config); 
+		    $this->email->set_newline("\r\n");
+		    $this->email->from($email, $name_email);
+
+		    $this->email->to($cus_email);
+
+		    $this->email->subject($title_email);
+		    //gui noi dung mail di
+		    $this->email->message($content);
+
+		    if (!$this->email->send()) {
+		        return $this->email->print_debugger();
+		    }
+		    else{
+		    	return 1;
+		    }
+		}
 		private function _check_login(){
 			$controller = $this->uri->rsegment('1');
 			$controller = strtolower($controller);

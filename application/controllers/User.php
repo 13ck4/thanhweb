@@ -26,6 +26,7 @@
 					$password = $this->input->post('password');
 					$password = md5($password);
 
+					$code = rand(100000,999999);
 					$data = array(
 						'name'     => $this->input->post('name'),
 						'email'    => $this->input->post('email'),
@@ -33,16 +34,39 @@
 						'address'  => $this->input->post('address'),
 						'password' => $password,
 						'created'   => now(),
+						'code'		=> $code,
 					);
-					if($this->user_model->create($data)){
-						$this->session->set_flashdata('message', 'Đăng kí thành viên thành công !');
+
+					//mai gui tin cho khach hang , khi khach hang chon mua tour do
+					$email = 'luatnguyen13ck4@gmail.com';
+					//mat khau cua email
+					$pass = 'mogkmzwrykexcduu';
+					//ten nguoi gui mail 
+					$name_email = 'luat nguyen';
+					//tao bien luu email khach hang  
+					$cus_email = "ngocluat13ck4@gmail.com";
+					//noi dung mail
+					$content = "Cảm ơn bạn đã ghé thăm website chúng tôi, mã đăng kí tài khoản của bạn là : ".$code;
+					//tieu de mail
+					$title_email = 'Đăng kí tài khoản';
+
+					if($this->sendmail($email,$pass,$name_email,$cus_email,$content,$title_email) == 1){
+						if($this->user_model->create($data)){
+							$this->session->set_flashdata('message', 'Đăng kí thành viên thành công !');
+							$this->data['code'] = $code;
+							//hien thi ra view
+							$this->data['temp'] = "site/user/register";
+							$this->load->view('site/layout', $this->data);
+						}else{
+							$this->session->set_flashdata('message', 'Không thêm được !');
+						}
 					}else{
-						$this->session->set_flashdata('message', 'Không thêm được !');
+						redirect(site_url(''));
 					}
-					redirect(site_url(''));
+
+					return false;
 				}
 			}
-
 			//hien thi ra view
 			$this->data['temp'] = "site/user/register";
 			$this->load->view('site/layout', $this->data);
@@ -78,7 +102,7 @@
 					//gắn sesion id của thành viên đã đăng nhập
 					$this->session->set_userdata('user_id_login',$user->id);
 
-					$this->session->set_flashdata('message', 'Đăng nhập thành công !');
+					//$this->session->set_flashdata('message', 'Đăng nhập thành công !');
 					redirect();
 				}
 			}
@@ -86,6 +110,32 @@
 			//hien thi ra view
 			$this->data['temp'] = "site/user/login";
 			$this->load->view('site/layout', $this->data);
+		}
+
+		//nhập mã code nhận được ở mail
+		function code(){
+			if($this->input->post()){
+				$code = $this->input->post('code');
+				if($code == ""){
+					$this->session->set_flashdata('message', 'Bạn chưa nhập mã');
+					$this->data['code'] = true;
+					//hien thi ra view
+					$this->data['temp'] = "site/user/register";
+					$this->load->view('site/layout', $this->data);
+				}else if($code != ""){
+					$where = array('code' => $code);
+					if($this->user_model->check_exists($where)){
+						$this->session->set_flashdata('message', 'Đăng ký tài khoản thành công !');
+						redirect(site_url());
+					}
+				}else{
+					$this->session->set_flashdata('message', 'Mã nhập không đúng');
+					$this->data['code'] = true;
+					//hien thi ra view
+					$this->data['temp'] = "site/user/register";
+					$this->load->view('site/layout', $this->data);
+				}
+			}
 		}
 
 		function check_login(){

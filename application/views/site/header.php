@@ -10,23 +10,26 @@
 				<div class="header-top-right dv-mem-login">
 					<ul>
 						<div class="glo-dangky-gruop">
-                            <script>
-                                function jsupdate(k, idclass, jscolor) {
-                                    if (k == 0) $("." + idclass).css("background-color", "#" + jscolor);
-                                    else if (k == 1) $("." + idclass).css("color", "#" + jscolor);
-                                }
-                            </script>
 							<ul>
-								<li>
-									<a href="https://demo1013.web30s.vn/login" onclick="ShowHidden('id_mem_login'); return false;" class="mem memdn">Đăng nhập</a>
-								</li>
-								<li>
-									<a href="https://demo1013.web30s.vn/reg" class="mem memdk">Đăng ký</a>
-								</li>
+								<?php if(isset($user_info)) : ?>
+									<li>
+										<a href="<?php echo site_url('user') ?>" class="mem memdn">Xin Chào: <?php echo $user_info->name ?></a>
+									</li>
+									<li>
+										<a href="<?php echo site_url('user/logout') ?>" class="mem memdk">Thoát</a>
+									</li>
+								<?php else : ?>
+									<li>
+										<a href="<?php echo base_url('dang-nhap') ?>" class="mem memdn">Đăng nhập</a>
+									</li>
+									<li>
+										<a href="<?php echo base_url('dang-ky') ?>" class="mem memdk">Đăng ký</a>
+									</li>
+								<?php endif;?>
 							</ul> 
-							<div id="top_menu_admin_1" class="fix1000">
+							<!-- <div id="top_menu_admin_1" class="fix1000">
 								<div id="id_mem_login" class="trontron">
-									<form class="nomargin" id="memberloginit" action="https://demo1013.web30s.vn" method="post" name="TheFormLogin" onsubmit="return Check_LoginMember('id_tentruycap','id_matkhau'); return false;">
+									<form class="nomargin" id="memberloginit" action="<?php echo base_url('dang-nhap') ?>" method="post" name="TheFormLogin" onsubmit="return Check_LoginMember('id_tentruycap','id_matkhau'); return false;">
 										<input name="module" type="hidden" value="user">
 										<input name="action" type="hidden" value="member_login">
 										<div align="center">	
@@ -40,10 +43,10 @@
 										<div style="cursor:pointer;" onclick="ShowHidden('id_mem_login');ShowHidden('id_mem_loss');">Quên mật khẩu?</div>
 									</form>
 									<div class="clear"></div>
-									<!-- <div class="dv-glo-login-mxh dv-glo-login-mxh-cus">
+									<div class="dv-glo-login-mxh dv-glo-login-mxh-cus">
 										<span></span> <a href="/login-fb/"  class='fb'><i class="fa fa-facebook"></i></a> <a class='gg'  href="/login-google/"><i class="fa fa-google"></i></a>
 										<div class="clear"></div>
-									</div> -->
+									</div> 
 									<div class="clear"></div>
 								</div>
 								<div id="id_mem_loss" style="position:absolute; top:30px; z-index:99999; display:none; background:#ccc; width:250px; margin-left:700px; padding:10px;" class="trontron">
@@ -60,7 +63,7 @@
 									</form>
 									<div class="clear"></div>
 								</div>
-							</div>
+							</div> -->
 						</div>						
 						<li></li>
 					</ul>
@@ -87,26 +90,11 @@
 						</div>
 						<div class="search-box-2"> 
 							<div class="form">
-								<input type="text" class="key_timkiem" placeholder="Nhập từ khóa tìm kiếm" value="">
-								<a class="btn" onclick="SEARCH_btn()"><i class="fa fa-search"></i></a>
+								<form method="get" action="<?php echo base_url('product/search') ?>">
+									<input type="text" name="key-search" value="<?php echo isset($key) ? $key : "" ?>"  class="key_timkiem" placeholder="Nhập từ khóa tìm kiếm">
+									<button class="btn"><i class="fa fa-search"></i></button>
+								</form>
 							</div>
-							<script type="text/javascript">
-				                function SEARCH_btn() 
-								{
-									var key = $(".key_timkiem").val().replace(/ /g,"+");
-									if(key.length < 2)
-										{
-											$(".key_timkiem").focus();
-										}		
-									else window.location.href = "/search/?key="+key;
-								}
-								$('.key_timkiem').keypress(function(event){
-									var keycode = (event.keyCode ? event.keyCode : event.which);
-									if (keycode == '13') {
-										SEARCH_btn();
-									}
-								});
-				            </script>
 						</div>								
 					</div>
 					<div class="header-bottom-right">

@@ -41,3 +41,20 @@
     padding: 0 10px;
     text-decoration: none;
 }
+
+.single-product{
+    text-align: center;
+}
+#viewCust li span.title{
+    line-height: 30px;
+    width: 30%;
+}   
+#viewCust li span.info{
+    width: 70%;
+}  
+.error, .req{
+    color: red;
+}
+.boxselect{
+    border: 1px solid #ccc;
+}
