@@ -38,7 +38,7 @@
     <meta name="twitter:image" content="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992412349479_logo.png"/>
     <meta name="twitter:url" content="https://demo1013.web30s.vn/"/>
     <title>Bán hàng online</title>
-    <link rel="shortcut icon" type="image/x-icon" href="https://demo1013.web30s.vn/datafiles/4751/upload/images/14992412349479_logo.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url()?>upload/logofavicon/<?=$info->favicon?>"/>
     <link href="<?php echo public_url('site/css/style.css')?>" rel="stylesheet" type="text/css">
     <link href="<?php echo public_url('site/css/jquery.mCustomScrollbar.css')?>" rel="stylesheet" type="text/css">
     <link href="<?php echo public_url('site/css/global.css')?>" rel="stylesheet" type="text/css">

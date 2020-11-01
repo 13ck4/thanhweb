@@ -21,6 +21,24 @@
 				</div>
 
 				<div class="formRow">
+					<label class="formLeft" for="param_name">Thuộc menu:<span class="req">*</span></label>
+					<div class="formRight">
+						<span class="oneTwo">
+							<select name="parent_id_menu" id="param_parent_id_menu" _autocheck="true">
+								<option value="0"> Không thuộc menu</option>
+								<?php foreach($listmenu as $row) : ?>
+									<option value="<?php echo $row->id ?>" <?php echo ($row->id == $info->parent_id_menu) ? 'selected' : '';?> ><?php echo $row->title?></option>
+								<?php endforeach?>
+							</select>
+
+						</span>
+						<span name="parent_id_menu_autocheck" class="autocheck"></span>
+						<div name="parent_id_menu_error" class="clear error"><?php echo form_error('parent_id_menu') ?></div>
+					</div>
+					<div class="clear"></div>
+				</div>
+
+				<div class="formRow">
 					<label class="formLeft" for="param_name">Danh mục Cha:<span class="req">*</span></label>
 					<div class="formRight">
 						<span class="oneTwo">

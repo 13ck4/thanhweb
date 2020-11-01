@@ -73,10 +73,15 @@
 	
 			<a href="" class="exp inactive">
 				<span>Nội dung</span>
-				<strong>2</strong>
+				<strong>4</strong>
 			</a>
 			
 			<ul class="sub" style="display: none;">
+				<li>
+					<a href="<?php echo admin_url('menu') ?>">
+						Menu							
+					</a>
+				</li>
 				<li>
 					<a href="<?php echo admin_url('slide') ?>">
 						Slide							
@@ -87,7 +92,28 @@
 						Tin tức							
 					</a>
 				</li>
-				
+				<li>
+					<a href="<?php echo admin_url('setting') ?>">
+						Cấu hình chung							
+					</a>
+				</li>
+			</ul>
+					
+		</li>
+
+		<li class="content">
+	
+			<a href="" class="exp inactive">
+				<span>HotLine</span>
+				<strong>1</strong>
+			</a>
+			
+			<ul class="sub" style="display: none;">
+				<li>
+					<a href="<?php echo admin_url('phone') ?>">
+						Hotline							
+					</a>
+				</li>
 			</ul>
 					
 		</li>

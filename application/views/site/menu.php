@@ -43,59 +43,46 @@
                             <li class="grid active" id="homes">
                                 <a class="" href="<?php echo base_url()?>"><span>Trang chủ</span></a>
                             </li>
-                            <li class="grid" id="gioi-thieu">
-                                <a class="" href="<?php echo base_url('gioi-thieu') ?>"><span>Giới Thiệu</span></a>
-                            </li>
-                            <li class="grid" id="san-pham">
-                                <a class="" href="<?php echo base_url('san-pham')?>"><span>Sản phẩm</span></a>
-                                <ul class="dl-submenu">
-                                    <?php foreach($catalog_list as $row) : ?>
-                                        <?php 
-                                            $name = convert_vi_to_en($row->name); 
-                                            $name = strtolower($name);
-                                        ?>
-                                        <li>
-                                            <a href="<?php echo base_url($name.'-c'.$row->id) ?>" title="<?=$row->name?>"><?=$row->name?> <?php  if(!empty($row->subs)) : ?> <i class="fa fa-angle-right"> </i><?php endif?></a>
-                                            <!-- lay danh sach danh muc con -->
-                                            <?php  if(!empty($row->subs)) : ?>
-                                            <ul class="dl-submenu"> 
-                                                <?php foreach($row->subs as $sub) : ?>	
-                                                <?php 
-                                                    $name = convert_vi_to_en($sub->name); 
-                                                    $name = strtolower($name);
-                                                ?>				                     
-                                                <li>
-                                                    <a href="<?php echo base_url($name.'-c'.$sub->id) ?>" title="<?= $sub->name ?>"> 
-                                                        <?= $sub->name ?>
-                                                    </a>
-                                                </li>	
-                                                <?php endforeach?>                              
-                                            </ul>
-                                            <?php endif?>
-                                        </li>
-                                    <?php endforeach ?>
-                                </ul>
-                            </li>
-                            <li class="grid" id="tin-tuc">
-                                <a class="" href="<?php echo base_url('tin-tuc') ?>"><span>Tin tức</span></a>
-                                <!-- <ul class="dl-submenu  ">
-                                    <li><a href="https://demo1013.web30s.vn/Tin-tuc-xa-hoi-405868">» Tin tức xã hội</a></li>
-                                    <li><a href="https://demo1013.web30s.vn/Tin-tuc-suc-khoe-405869">» Tin tức sức khỏe</a></li>
-                                    <li><a href="https://demo1013.web30s.vn/Tin-tuc-cong-nghe-405870">» Tin tức công nghệ</a></li>
-                                    <li><a href="https://demo1013.web30s.vn/Tin-cong-nghe-393620">» Tin công nghệ</a></li>
-                                    <li><a href="https://demo1013.web30s.vn/Tin-cap-nhat-393621">» Tin cập nhật</a></li>
-                                </ul> -->
-                            </li>
-                            <!-- <li class="grid">
-                                <a class="" href="https://demo1013.web30s.vn/Dich-Vu-391689"><span>Dịch Vụ</span></a>
-                            </li>              -->
-                            <li class="grid" id="tuyen-dung">
-                                <a class="" href="<?php echo base_url('tuyen-dung') ?>"><span>Tuyển Dụng</span></a>
-                            </li>
-                            <li class="grid" id="lien-he">
-                                <a class="" href="<?php echo base_url('lien-he') ?>"><span>Liên hệ</span></a>
-                            </li>    
+                            <?php foreach($menu_list as $row):?>
+                                <?php 
+                                    $name = convert_vi_to_en($row->title); 
+                                    $name = strtolower($name);
+                                ?>
+                                <li class="grid" id=<?= $name ?>>
+                                    <a class="" href="<?php echo base_url($name) ?>">
+                                        <span>
+                                            <?= $row->title?> <?php  if(!empty($row->subs)) echo '<i class="fa fa-angle-down ml-5"></i>'; else echo ''; ?></span>
+                                    </a>
 
+                                    <?php  if(count($row->subs) > 0) : ?>
+                                        <ul class="dl-submenu">
+                                            <?php foreach($row->subs as $rows) : ?>
+                                                <?php 
+                                                    $name = convert_vi_to_en($rows->name); 
+                                                    $name = strtolower($name);
+                                                ?>
+                                                <li><!-- Content container to add padding -->
+                                                    <a href="<?php echo base_url($name.'-c'.$rows->id) ?>" title="<?=$rows->name?>">
+                                                        <?=$rows->name?> <?php  if(!empty($rows->subs)) : ?> <i class="fa fa-angle-right"> </i><?php endif?>
+                                                    </a>
+                                                    <?php  if(!empty($rows->subss)) : ?>
+                                                        <ul class="dl-submenu">
+                                                            <?php foreach($rows->subss as $rowss) : ?>
+                                                                <?php 
+                                                                    $name = convert_vi_to_en($rowss->name); 
+                                                                    $name = strtolower($name);
+                                                                ?>
+                                                                <li><a href="<?php echo base_url($name.'-c'.$rowss->id) ?>" title="<?=$rowss->name?>"><?=$rowss->name?></a></li>
+                                                            <?php endforeach ?>
+                                                        </ul><!-- end ul col -->
+                                                    <?php endif?> 
+                                                </li><!-- end li --> 
+                                            <?php endforeach ?>
+                                        </ul><!-- end ul dropdown-menu -->
+                                    <?php endif ?>
+
+                                </li>    
+                            <?php endforeach ?>
                             
                         </ul>
                     </nav>
