@@ -1,5 +1,5 @@
 <?php 
-	$this->load->view('admin/catalog/head', $this->data);
+	$this->load->view('admin/menu/head', $this->data);
 ?>
 	<div class="line"></div>
 	<div class="wrapper">
@@ -22,8 +22,6 @@
 					<td style="width:80px;">Mã số</td>
 					<td style="width:80px;">Thứ tự hiển thị</td>
 					<td>Tên danh mục</td>
-					<td>Thể hiện danh mục</td>
-					<td>Hình ảnh danh mục</td>
 
 					<td style="width:100px;">Hành động</td>
 				</tr>
@@ -33,7 +31,7 @@
 				<tr>
 					<td colspan="7">
 					     <div class="list_action itemActions">
-								<a href="#submit" id="submit" class="button blueB" url="<?php echo admin_url('catalog/del_all') ?>">
+								<a href="#submit" id="submit" class="button blueB" url="<?php echo admin_url('menu/del_all') ?>">
 									<span style='color:white;'>Xóa hết</span>
 								</a>
 						 </div>
@@ -53,37 +51,16 @@
 						<td class="textC"><?=$row->sort_order?></td>
 						
 						
-						<td><span title="<?=$row->name?>" class="tipS">
-							<?=$row->name?>					
-						</span></td>
-						<td><span title="<?=$row->name?>" class="tipS">
-							<?php if($row->parent_id==0) echo 'Là danh mục cha'; 
-								else {
-									$infocag = $this->catalog_model->get_info($row->parent_id);
-									echo $infocag->name;	
-								}
-								
-							?>					
-						</span></td>
-						<td><span title="<?=$row->name?>" class="tipS">
-							<?php 
-								if($row->image == ""){
-									echo "Không có hình";
-								}else{
-							?>
-							<?php ?>		
-								<img width="70" src="<?php echo base_url('upload/product/category/'.$row->image)?>" />		
-							<?php	
-								}
-							?>
+						<td><span title="<?=$row->title?>" class="tipS">
+							<?=$row->title?>					
 						</span></td>
 						
 						<td class="option">
-							 <a href="<?php echo admin_url('catalog/edit/'.$row->id) ?>" title="Chỉnh sửa" class="tipS ">
+							 <a href="<?php echo admin_url('menu/edit/'.$row->id) ?>" title="Chỉnh sửa" class="tipS ">
 							<img src="<?php echo public_url('admin')?>/images/icons/color/edit.png" />
 							</a>
 							
-							<a href="<?php echo admin_url('catalog/delete/'.$row->id) ?>" title="Xóa" class="tipS verify_action" >
+							<a href="<?php echo admin_url('menu/delete/'.$row->id) ?>" title="Xóa" class="tipS verify_action" >
 							    <img src="<?php echo public_url('admin')?>/images/icons/color/delete.png" />
 							</a>
 						</td>

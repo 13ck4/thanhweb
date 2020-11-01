@@ -1,5 +1,5 @@
 <?php 
-	$this->load->view('admin/catalog/head', $this->data);
+	$this->load->view('admin/menu/head', $this->data);
 ?>
 <div class="line"></div>
 <div class="wrapper">
@@ -19,42 +19,6 @@
 					</div>
 					<div class="clear"></div>
 				</div>
-
-				<div class="formRow">
-					<label class="formLeft" for="param_name">Thuộc menu:<span class="req">*</span></label>
-					<div class="formRight">
-						<span class="oneTwo">
-							<select name="parent_id_menu" id="param_parent_id_menu" _autocheck="true">
-								<option value="0"> Không thuộc menu</option>
-								<?php foreach($listmenu as $row) : ?>
-									<option value="<?php echo $row->id ?>" ><?php echo $row->title?></option>
-								<?php endforeach?>
-							</select>
-						</span>
-						<span name="parent_id_menu_autocheck" class="autocheck"></span>
-						<div name="parent_id_menu_error" class="clear error"><?php echo form_error('parent_id_menu') ?></div>
-					</div>
-					<div class="clear"></div>
-				</div>
-
-				<div class="formRow">
-					<label class="formLeft" for="param_name">Danh mục Cha:<span class="req">*</span></label>
-					<div class="formRight">
-						<span class="oneTwo">
-							<select name="parent_id" id="param_parent_id" _autocheck="true">
-								<option value="0"> Là danh mục cha</option>
-								<?php foreach($list as $row) : ?>
-									<option value="<?php echo $row->id ?>"><?php echo $row->name?></option>
-								<?php endforeach?>
-							</select>
-
-						</span>
-						<span name="parent_id_autocheck" class="autocheck"></span>
-						<div name="parent_id_error" class="clear error"><?php echo form_error('parent_id') ?></div>
-					</div>
-					<div class="clear"></div>
-				</div>
-
 				<div class="formRow">
 					<label class="formLeft" for="param_name">Thứ tự hiển thị:<span class="req">*</span></label>
 					<div class="formRight">
@@ -64,7 +28,28 @@
 					</div>
 					<div class="clear"></div>
 				</div>	
-				
+				<div class="formRow">
+								<label class="formLeft" for="param_username">Trạng Thái:<span class="req">*</span></label>
+								<div class="formRight">
+									<span class="oneTwo">
+										<span> 
+											<p>
+												hiển thị
+												<input name="feature" value="1" id="param_show" _autocheck="true" type="radio" checked/>
+											</p>
+										</span>
+										<span>	
+											<p>
+												không hiển thị
+												<input name="feature" value="0" id="param_hide" _autocheck="true" type="radio"/>
+											</p>
+										</span>
+									</span>
+									<span name="name_autocheck" class="autocheck"></span>
+									
+								</div>
+								<div class="clear"></div>
+							</div>
 
 				<div class="formSubmit">
            			<input type="submit" value="Thêm mới" class="redB">

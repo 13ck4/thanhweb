@@ -1,19 +1,17 @@
 <?php 
-	Class Catalog extends MY_Controller{
+	Class Menu extends MY_Controller{
 		function __construct(){
 			parent::__construct();
-			$this->load->model('catalog_model');
 			$this->load->model('menu_model');
-
 		}
 		function index(){
-			$list = $this->catalog_model->get_list();
+			$list = $this->menu_model->get_list();
 			$this->data['list'] = $list;
 
 			$message = $this->session->flashdata('message');
 			$this->data['message'] = $message;
 
-			$this->data['temp'] = 'admin/catalog/index';
+			$this->data['temp'] = 'admin/menu/index';
 			$this->load->view('admin/main', $this->data);
 		}
 		function add(){
@@ -24,35 +22,28 @@
 
 				if($this->form_validation->run()){
 					$name = $this->input->post('name');
-					$parent_id = $this->input->post('parent_id');
-					$parent_id_menu = $this->input->post('parent_id_menu');
+					$status = $this->input->post('feature');
 					$sort_order = $this->input->post('sort_order');
 					$data = array(
-						'name'     => $name,
-						'parent_id' => $parent_id,
-						'parent_id_menu' => $parent_id_menu,
+						'title'     => $name,
+						'status' => $status,
 						'sort_order' => intval($sort_order)
 					);
-					if($this->catalog_model->create($data)){
+					if($this->menu_model->create($data)){
 						$this->session->set_flashdata('message', 'Thêm mới dữ liệu thành công !');
 					}else{
 						$this->session->set_flashdata('message', 'Không thêm được !');
 					}
-					redirect(admin_url('catalog'));
+					redirect(admin_url('menu'));
 				}
 			}
 
 			$input = array();
-			$input['where'] = array('status'=>1);
-			$listmenu = $this->menu_model->get_list($input);
-			$this->data['listmenu'] = $listmenu;
-
-			$input = array();
 			$input['where'] = array('parent_id'=>0);
-			$list = $this->catalog_model->get_list($input);
+			$list = $this->menu_model->get_list($input);
 			$this->data['list'] = $list;
 
-			$this->data['temp'] = 'admin/catalog/add';
+			$this->data['temp'] = 'admin/menu/add';
 			$this->load->view('admin/main',$this->data);
 		}
 		function edit(){
@@ -60,11 +51,11 @@
 			$this->load->helper('form');
 
 			$id = $this->uri->rsegment(3);
-			$info = $this->catalog_model->get_info($id);
+			$info = $this->menu_model->get_info($id);
 
 			if(!$info){
 				$this->session->set_flashdata('message', 'Không tồn tại danh mục này!');
-				redirect(admin_url('catalog'));
+				redirect(admin_url('menu'));
 			}
 			$this->data['info'] = $info;
 
@@ -73,43 +64,35 @@
 
 				if($this->form_validation->run()){
 					$name = $this->input->post('name');
-					$parent_id = $this->input->post('parent_id');
-					$parent_id_menu = $this->input->post('parent_id_menu');
+					$status = $this->input->post('status');
 					$sort_order = $this->input->post('sort_order');
 					$data = array(
-						'name'     => $name,
-						'parent_id' => $parent_id,
-						'parent_id_menu' => $parent_id_menu,
+						'title'     => $name,
+						'status' => $status,
 						'sort_order' => intval($sort_order)
 					);
-					if($this->catalog_model->update($id, $data)){
+					if($this->menu_model->update($id, $data)){
 						$this->session->set_flashdata('message', 'Cập nhật dữ liệu thành công !');
 					}else{
 						$this->session->set_flashdata('message', 'Không cập nhật được !');
 					}
-					redirect(admin_url('catalog'));
+					redirect(admin_url('menu'));
 				}
 			}
 
 			$input = array();
-			$input['where'] = array('status'=>1);
-			$listmenu = $this->menu_model->get_list($input);
-			$this->data['listmenu'] = $listmenu;
-
-
-			$input = array();
 			$input['where'] = array('parent_id'=>0);
-			$list = $this->catalog_model->get_list($input);
+			$list = $this->menu_model->get_list($input);
 			$this->data['list'] = $list;
 
-			$this->data['temp'] = 'admin/catalog/edit';
+			$this->data['temp'] = 'admin/menu/edit';
 			$this->load->view('admin/main',$this->data);
 		}
 		function delete(){
 			$id = $this->uri->rsegment(3);
 			$this->_del($id);
 			$this->session->set_flashdata('message', 'Xóa thành công Danh Mục có mã số '.$id);
-			redirect(admin_url('catalog'));
+			redirect(admin_url('menu'));
 		} 
 		//xoa nhieu danh muc san pham
 		function del_all(){
@@ -121,30 +104,18 @@
 		}
 		//thuc hien xoa
 		private function _del($id, $redirect = true){
-			$info = $this->catalog_model->get_info($id);
+			$info = $this->menu_model->get_info($id);
 
 			if(!$info){
 				$this->session->set_flashdata('message', 'Không tồn tại danh mục này!');
 				if($redirect){
-					redirect(admin_url('catalog'));
+					redirect(admin_url('menu'));
 				}else{
 					return false;
 				}
 			} 
-			//kiem tra xem danh muc nay co san pham khong
-			$this->load->model('product_model');
-			$product = $this->product_model->get_info_rule(array('catalog_id' => $id), 'id');
-			if($product){
-				$this->session->set_flashdata('message', 'Danh mục '.$info->name.' có chứa sản phẩm, không xóa được !');
-				if($redirect){
-					redirect(admin_url('catalog'));
-				}
-				else{
-					return false;
-				}
-				
-			}
 
-			$this->catalog_model->delete($id);
+
+			$this->menu_model->delete($id);
 		}
 	}

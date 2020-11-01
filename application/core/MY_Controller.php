@@ -5,6 +5,8 @@
 		
 		function __construct(){
 			parent::__construct();
+			$this->load->model('setting_model');
+			$this->load->model('menu_model');
 			$controller = $this->uri->segment(1);
 			switch ($controller) {
 				case 'admin':
@@ -42,6 +44,46 @@
 					$input['limit'] = array(9, 0);
 					$product_newest = $this->product_model->get_list($input);
 					$this->data['product_newest'] = $product_newest;
+
+
+
+					$info = $this->setting_model->get_info('1');
+			        if(!$info)
+			        {
+			            //tạo ra nội dung thông báo
+			            $this->session->set_flashdata('message', 'Không tồn tại');
+			        }
+
+					$this->data['info'] = $info;
+					
+
+					//lay danh sach danh muc menu.
+					$input = array();
+					
+					
+					$input['where'] = array("status" => 1);
+					$input['order'] = array('sort_order', 'ASC');
+
+					$menu_list = $this->menu_model->get_list($input);
+					
+					
+					foreach($menu_list as $row){
+						$input['where'] = "parent_id_menu = " .$row->id." and parent_id = 0 and status = 1";
+
+						$subs = $this->catalog_model->get_list($input);
+						$row->subs = $subs;
+						//echo count($row->subs);
+
+						// pre($subs);
+						foreach($subs as $rows){
+							$input['where'] = array('parent_id' => $rows->id, 'status' => 1 );
+							$subss = $this->catalog_model->get_list($input);
+							$rows->subss = $subss;
+						}
+					}
+					
+					// die();
+					$this->data['menu_list'] = $menu_list;
 
 					//lay danh sach bai viet moi.
 					$this->load->model('news_model');
@@ -111,9 +153,13 @@
 			}else if(!in_array($controller, array('login', 'home'))){
 				// kiem tra quyen
 				$admin_id = $this->session->userdata('admin_id');
+				
 				$admin_root = $this->config->item('root_admin');
+				
 				if($admin_id != $admin_root){
+					
 					$permissions_admin = $this->session->userdata('permissions');
+					
 					$controller = $this->uri->rsegment(1);
 					$action = $this->uri->rsegment(2);
 					$check = true;
